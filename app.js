@@ -3286,19 +3286,29 @@ function toggleToolsGrid() {
 function toggleCourseMenu() {
   var menu = document.getElementById('courseToolsMenu');
   if (!menu) return;
-  var open = menu.style.display === 'block';
-  menu.style.display = open ? 'none' : 'block';
-  // Close when clicking outside
-  if (!open) {
-    setTimeout(function() {
-      document.addEventListener('click', function closeFn(e) {
-        if (!menu.contains(e.target) && e.target.id !== 'toolsMenuBtn') {
-          menu.style.display = 'none';
-          document.removeEventListener('click', closeFn);
-        }
-      });
-    }, 50);
+  var isOpen = menu.style.display === 'block';
+  if (isOpen) { menu.style.display = 'none'; return; }
+  // Position fixed relative to trigger button
+  var btn = document.getElementById('toolsMenuBtn');
+  if (!btn) btn = document.querySelector('[onclick*="toggleCourseMenu"]');
+  if (btn) {
+    var rect = btn.getBoundingClientRect();
+    var menuW = 220;
+    var left = rect.right - menuW;
+    if (left < 8) left = 8;
+    if (left + menuW > window.innerWidth - 8) left = window.innerWidth - menuW - 8;
+    menu.style.top = (rect.bottom + 6) + 'px';
+    menu.style.left = left + 'px';
   }
+  menu.style.display = 'block';
+  setTimeout(function() {
+    document.addEventListener('click', function closeFn(e) {
+      if (!menu.contains(e.target) && e.target.id !== 'toolsMenuBtn') {
+        menu.style.display = 'none';
+        document.removeEventListener('click', closeFn);
+      }
+    });
+  }, 50);
 }
 
 // ── SEARCH ──
