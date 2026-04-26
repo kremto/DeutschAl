@@ -3286,29 +3286,19 @@ function toggleToolsGrid() {
 function toggleCourseMenu() {
   var menu = document.getElementById('courseToolsMenu');
   if (!menu) return;
-  var isOpen = menu.style.display === 'block';
-  if (isOpen) { menu.style.display = 'none'; return; }
-  // Position fixed relative to trigger button
-  var btn = document.getElementById('toolsMenuBtn');
-  if (!btn) btn = document.querySelector('[onclick*="toggleCourseMenu"]');
-  if (btn) {
-    var rect = btn.getBoundingClientRect();
-    var menuW = 220;
-    var left = rect.right - menuW;
-    if (left < 8) left = 8;
-    if (left + menuW > window.innerWidth - 8) left = window.innerWidth - menuW - 8;
-    menu.style.top = (rect.bottom + 6) + 'px';
-    menu.style.left = left + 'px';
+  var open = menu.style.display === 'block';
+  menu.style.display = open ? 'none' : 'block';
+  // Close when clicking outside
+  if (!open) {
+    setTimeout(function() {
+      document.addEventListener('click', function closeFn(e) {
+        if (!menu.contains(e.target) && e.target.id !== 'toolsMenuBtn') {
+          menu.style.display = 'none';
+          document.removeEventListener('click', closeFn);
+        }
+      });
+    }, 50);
   }
-  menu.style.display = 'block';
-  setTimeout(function() {
-    document.addEventListener('click', function closeFn(e) {
-      if (!menu.contains(e.target) && e.target.id !== 'toolsMenuBtn') {
-        menu.style.display = 'none';
-        document.removeEventListener('click', closeFn);
-      }
-    });
-  }, 50);
 }
 
 // ── SEARCH ──
@@ -5111,7 +5101,25 @@ const VOCAB_V18 = {
 function toggleCourseMenu() {
   var m = document.getElementById('courseToolsMenu');
   if (!m) return;
-  m.style.display = m.style.display === 'block' ? 'none' : 'block';
+  var isOpen = m.style.display === 'block';
+  if (isOpen) {
+    m.style.display = 'none';
+    return;
+  }
+  // Position the menu relative to the button that triggered it
+  var btn = document.getElementById('toolsMenuBtn');
+  if (!btn) btn = document.querySelector('[onclick*="toggleCourseMenu"]');
+  if (btn) {
+    var rect = btn.getBoundingClientRect();
+    var menuW = 220;
+    var left = rect.right - menuW;
+    if (left < 8) left = 8;
+    if (left + menuW > window.innerWidth - 8) left = window.innerWidth - menuW - 8;
+    m.style.top = (rect.bottom + 6) + 'px';
+    m.style.left = left + 'px';
+    m.style.right = 'auto';
+  }
+  m.style.display = 'block';
 }
 document.addEventListener('click', function(e) {
   var menu = document.getElementById('courseToolsMenu');
@@ -5144,22 +5152,47 @@ function renderDrawerModules() {
     var done = state.completedModules.includes(m.id);
     var active = m.id === state.currentModuleId;
     var lc = state.currentLevel==='A1' ? 'var(--a1-color)' : state.currentLevel==='A2' ? 'var(--a2-color)' : 'var(--b1-color)';
-    html += '<div onclick="selectMobileModule(' + JSON.stringify(m.id) + ')" style="'
-      + (active ? 'background:rgba(240,180,41,0.08);border:1px solid rgba(240,180,41,0.3)' : 'background:var(--surface2);border:1px solid var(--border)')
-      + ';border-radius:10px;padding:13px 14px;margin-bottom:8px;cursor:pointer;display:flex;align-items:center;gap:12px">'
-      + '<div style="width:34px;height:34px;border-radius:50%;background:' + (active?'var(--gold)':done?'var(--green)':'var(--surface)') + ';border:2px solid ' + (active?'var(--gold)':done?'var(--green)':lc) + ';display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;color:' + (active||done?'#000':lc) + ';flex-shrink:0">' + (done?'✓':m.num) + '</div>'
+    var bg = active ? 'background:rgba(240,180,41,0.08);border:1px solid rgba(240,180,41,0.3)' : 'background:var(--surface2);border:1px solid var(--border)';
+    var numBg = active ? 'var(--gold)' : done ? 'var(--green)' : 'var(--surface)';
+    var numBorder = active ? 'var(--gold)' : done ? 'var(--green)' : lc;
+    var numColor = (active || done) ? '#000' : lc;
+    html += '<div class="drawer-mod-item" data-modid="' + m.id + '" style="' + bg + ';border-radius:10px;padding:13px 14px;margin-bottom:8px;cursor:pointer;display:flex;align-items:center;gap:12px;-webkit-tap-highlight-color:transparent">'
+      + '<div style="width:34px;height:34px;border-radius:50%;background:' + numBg + ';border:2px solid ' + numBorder + ';display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;color:' + numColor + ';flex-shrink:0">' + (done ? '✓' : m.num) + '</div>'
       + '<div style="flex:1;min-width:0">'
-      + '<div style="font-size:0.92rem;font-weight:600;color:' + (active?'var(--gold)':'var(--text)') + ';white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + m.title + '</div>'
+      + '<div style="font-size:0.92rem;font-weight:600;color:' + (active ? 'var(--gold)' : 'var(--text)') + ';white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + m.title + '</div>'
       + '<div style="font-size:0.78rem;color:var(--text-muted)">' + m.sub + '</div>'
-      + '</div>' + (active ? '<div style="color:var(--gold)">▶</div>' : '') + '</div>';
+      + '</div>'
+      + (active ? '<div style="color:var(--gold)">▶</div>' : '')
+      + '</div>';
   });
   c.innerHTML = html;
+  // Attach click handlers via JS (no inline onclick = works on all mobile browsers)
+  var items = c.querySelectorAll('.drawer-mod-item');
+  for (var i = 0; i < items.length; i++) {
+    (function(item) {
+      item.addEventListener('click', function() {
+        selectMobileModule(item.getAttribute('data-modid'));
+      });
+      // Also touchend for faster response on iOS
+      item.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        selectMobileModule(item.getAttribute('data-modid'));
+      });
+    })(items[i]);
+  }
 }
 
 function selectMobileModule(modId) {
+  if (!modId) return;
   state.currentModuleId = modId;
   state.lessonTab = 'story';
-  toggleModuleDrawer();
-  renderCourse();
+  // Close drawer
+  var d = document.getElementById('moduleDrawer');
+  var o = document.getElementById('moduleDrawerOverlay');
+  if (d) d.style.display = 'none';
+  if (o) o.style.display = 'none';
+  document.body.style.overflow = '';
+  // Render
+  try { renderCourse(); } catch(e) {}
   window.scrollTo(0, 0);
 }
