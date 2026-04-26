@@ -4407,7 +4407,7 @@ function renderInteractiveLine() {
       '<p style="color:var(--green);font-size:0.9rem;line-height:1.7;margin:0">' + branch.feedback + '</p></div>' +
       '<div style="display:flex;gap:10px">' +
       '<button class="btn-outline" onclick="showInteractiveChoice(\'' + interactiveState.moduleId + '\')" style="flex:1">Provo zgjedhje tjeter</button>' +
-      '<button class="btn" onclick="switchLessonTab(\'vocab\')" style="flex:1">Vazhdo Fjalori</button>' +
+      '<button class="btn" onclick="switchTab(\'vocab\')" style="flex:1">Vazhdo Fjalori</button>' +
       '</div></div>';
     TTS.stop();
     return;
@@ -5235,4 +5235,97 @@ function selectMobileModule(modId) {
   // Render
   try { renderCourse(); } catch(e) {}
   window.scrollTo(0, 0);
+}
+
+
+
+function showAlphabet() {
+  showScreen('alphabetScreen');
+  setTimeout(function() {
+    var c = document.getElementById('alphabetContent');
+    if (!c) return;
+    var sounds = [
+      {l:'ä', ipa:'[ɛ]', sq:'Si "e" e hapur — si "e" në "jetë"', tip:'Thuaj "a" por ngre buzët si për "e".',
+       words:[{de:'Mädchen',sq:'vajzë'},{de:'spät',sq:'vonë'},{de:'Käse',sq:'djathë'}]},
+      {l:'ö', ipa:'[ø]', sq:'Buzët si "o" por tingullon si "e"', tip:'Formëso buzët si "o", provo të thuash "e".',
+       words:[{de:'schön',sq:'i bukur'},{de:'können',sq:'të mundesh'},{de:'Öl',sq:'vaj'}]},
+      {l:'ü', ipa:'[y]', sq:'Buzët si "u" por tingullon si "i"', tip:'Formëso buzët si "u", provo të thuash "i".',
+       words:[{de:'über',sq:'mbi'},{de:'müde',sq:'i lodhur'},{de:'fünf',sq:'pesë'}]},
+      {l:'ß', ipa:'[s]', sq:'Si "s" e fortë — pas vokaleve të gjata', tip:'"Straße" lexo "Strase".',
+       words:[{de:'Straße',sq:'rrugë'},{de:'heiß',sq:'nxehtë'},{de:'groß',sq:'i madh'}]},
+      {l:'ch', ipa:'[x]/[ç]', sq:'Pas a/o/u: si "h" i fortë. Pas e/i: i butë', tip:'"nach"=h i fortë. "ich"=si "hj" i butë.',
+       words:[{de:'nach',sq:'pas'},{de:'ich',sq:'unë'},{de:'Buch',sq:'libër'}]},
+      {l:'sch', ipa:'[ʃ]', sq:'Saktësisht si "sh" shqipe', tip:'E lehtë! "Schule"="Shule".',
+       words:[{de:'Schule',sq:'shkolla'},{de:'schön',sq:'i bukur'},{de:'Tisch',sq:'tryezë'}]},
+      {l:'ei', ipa:'[aɪ]', sq:'Si "aj" shqipe', tip:'ei="aj". KUJDES: "ie"="i e gjatë".',
+       words:[{de:'mein',sq:'im'},{de:'drei',sq:'tre'},{de:'Eis',sq:'akull'}]},
+      {l:'ie', ipa:'[iː]', sq:'Si "i" e gjatë shqipe', tip:'ie=i i gjatë. "Wie"="Vi-".',
+       words:[{de:'wie',sq:'si'},{de:'viel',sq:'shumë'},{de:'Liebe',sq:'dashuria'}]},
+      {l:'w', ipa:'[v]', sq:'Gjermanishtja "w" = "v" shqipe', tip:'"Wasser" lexohet "Vaser".',
+       words:[{de:'Wasser',sq:'ujë'},{de:'wohnen',sq:'të banosh'},{de:'Wie',sq:'si'}]},
+      {l:'v', ipa:'[f]', sq:'Gjermanishtja "v" = "f" shqipe', tip:'"Vater"="Fater".',
+       words:[{de:'Vater',sq:'baba'},{de:'von',sq:'nga'},{de:'viel',sq:'shumë'}]},
+      {l:'z', ipa:'[ts]', sq:'Si "ts" — si "c" shqipe', tip:'"Zehn"="Tsen".',
+       words:[{de:'zehn',sq:'dhjetë'},{de:'Zeit',sq:'koha'},{de:'Zucker',sq:'sheqer'}]},
+      {l:'st/sp', ipa:'[ʃt]/[ʃp]', sq:'Në fillim: st="sht", sp="shp"', tip:'"Stadt"="Shtadt".',
+       words:[{de:'Stadt',sq:'qytet'},{de:'spielen',sq:'të luash'},{de:'Straße',sq:'rrugë'}]}
+    ];
+    var html = '<div style="max-width:660px;margin:0 auto">';
+    html += '<div style="background:rgba(240,180,41,0.08);border:1px solid rgba(240,180,41,0.2);border-radius:12px;padding:14px;margin-bottom:18px;font-size:0.88rem;color:var(--text);line-height:1.7">Para se të fillosh A1, mëso tingujt e veçantë gjermanë. Kliko 🔊 për të dëgjuar.</div>';
+    sounds.forEach(function(s) {
+      html += '<div style="background:var(--surface2);border-radius:12px;padding:16px;margin-bottom:12px;border-left:4px solid var(--gold)">';
+      html += '<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:10px">';
+      html += '<div style="font-size:2.2rem;font-weight:900;color:var(--gold);min-width:52px;text-align:center;line-height:1.1">'+s.l+'</div>';
+      html += '<div style="flex:1"><div style="font-size:0.75rem;color:var(--text-muted);font-family:monospace;margin-bottom:3px">'+s.ipa+'</div>';
+      html += '<div style="font-size:0.87rem;color:var(--text)">'+s.sq+'</div></div></div>';
+      html += '<div style="background:rgba(96,165,250,0.08);border-radius:7px;padding:8px 11px;margin-bottom:10px;font-size:0.82rem;color:#60a5fa">💡 '+s.tip+'</div>';
+      html += '<div style="display:flex;gap:7px;flex-wrap:wrap">';
+      s.words.forEach(function(w) {
+        html += '<div class="tts-btn" data-de="'+w.de+'" onclick="TTS.speak(this.dataset.de)" style="background:var(--surface);border-radius:7px;padding:6px 11px;cursor:pointer">';
+        html += '<div style="font-size:0.88rem;font-weight:600;color:var(--text)">'+w.de+' <span style="color:var(--gold);font-size:0.7rem">🔊</span></div>';
+        html += '<div style="font-size:0.74rem;color:var(--text-muted)">'+w.sq+'</div></div>';
+      });
+      html += '</div></div>';
+    });
+    html += '<button class="btn" onclick="switchLevel(\'A1\');showScreen(\'course\')">Fillo A1 →</button>';
+    html += '</div>';
+    c.innerHTML = html;
+  }, 50);
+}
+
+
+
+
+
+function showStudyGuide() {
+  var existing = document.getElementById('studyGuideModal');
+  if (existing) { existing.style.display = 'flex'; return; }
+  var modal = document.createElement('div');
+  modal.id = 'studyGuideModal';
+  modal.style.cssText = 'display:flex;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:9997;align-items:center;justify-content:center;padding:16px';
+  var box = document.createElement('div');
+  box.style.cssText = 'background:var(--surface);border-radius:20px;padding:26px;width:90%;max-width:500px;max-height:88vh;overflow-y:auto;border:1px solid var(--border)';
+  var steps = [
+    {c:'var(--a1-color)',t:'Hapi 1 — Historia (5 min)',d:'Lexo dialogun e Dion-it. Kliko 🔊 për shqiptim.'},
+    {c:'var(--a2-color)',t:'Hapi 2 — Fjalori (5 min)',d:'Shiko fjalët e reja. Shto në kartela ato që nuk i di.'},
+    {c:'var(--b1-color)',t:'Hapi 3 — Gramatika (5 min)',d:'Lexo rregullin dhe bëj ushtrimet.'},
+    {c:'var(--gold)',t:'Hapi 4 — Quiz (3-5 min)',d:'Nën 70%? Rishiko modulin. Mbi 70%? Vazhdo.'}
+  ];
+  var innerHtml = '<div style="text-align:center;margin-bottom:18px">'
+    + '<div style="font-size:2.2rem;margin-bottom:6px">📚</div>'
+    + '<h2 style="color:var(--gold);margin-bottom:4px;font-size:1.3rem">Si të studiosh me DeutschAL</h2>'
+    + '<p style="color:var(--text-muted);font-size:0.83rem">15-20 min/ditë</p></div>';
+  steps.forEach(function(s) {
+    innerHtml += '<div style="background:var(--surface2);border-radius:10px;padding:13px;border-left:3px solid '
+      + s.c + ';margin-bottom:10px"><div style="font-weight:700;color:var(--text);margin-bottom:3px;font-size:0.9rem">'
+      + s.t + '</div><div style="font-size:0.83rem;color:var(--text-muted);line-height:1.6">' + s.d + '</div></div>';
+  });
+  innerHtml += '<div style="background:rgba(240,180,41,0.07);border:1px solid rgba(240,180,41,0.2);border-radius:9px;padding:11px;margin-bottom:16px;font-size:0.84rem;color:var(--text);line-height:1.6">'
+    + '<strong style="color:var(--gold)">💡 Rregulli i artë:</strong> 15 min çdo ditë &gt; 2 orë të premten.</div>'
+    + '<button id="closeGuideBtn2" style="width:100%;padding:11px;background:var(--gold);border:none;border-radius:9px;color:#000;cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.9rem;font-weight:700">E kuptova ✓</button>';
+  box.innerHTML = innerHtml;
+  modal.appendChild(box);
+  document.body.appendChild(modal);
+  var btn = document.getElementById('closeGuideBtn2');
+  if (btn) btn.addEventListener('click', function() { modal.style.display = 'none'; });
 }
