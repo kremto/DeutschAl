@@ -893,55 +893,74 @@ function renderGoetheInfo() {
 
 function renderGoetheLesen() {
   var tests = GOETHE_B1_DATA.lesen;
+  if (!tests || !tests.length) return '<p style="color:var(--text-muted)">Të dhënat nuk u ngarkuan.</p>';
   var html = '<div style="margin-bottom:16px"><p style="color:var(--text-muted);font-size:0.88rem">📖 <strong style="color:var(--text)">Lesen</strong> — ' + tests.length + ' detyra leximi sipas formatit të Goethe-Institut B1.</p></div>';
 
   tests.forEach(function(test, ti) {
+    if (!test) return;
     html += '<div class="grammar-section" style="border-left:4px solid var(--blue);margin-bottom:24px">' +
-      '<h3>' + test.type + ': ' + test.title + '</h3>' +
-      '<p style="background:rgba(59,130,246,0.08);border-radius:8px;padding:12px;font-size:0.85rem;color:var(--text-dim);margin-bottom:16px;border:1px solid rgba(59,130,246,0.2)">📋 ' + test.instruction + '</p>';
+      '<h3>' + (test.type || '') + ': ' + (test.title || '') + '</h3>' +
+      '<p style="background:rgba(59,130,246,0.08);border-radius:8px;padding:12px;font-size:0.85rem;color:var(--text-dim);margin-bottom:16px;border:1px solid rgba(59,130,246,0.2)">📋 ' + (test.instruction || '') + '</p>';
 
-    if(test.text) {
+    if (test.text) {
       html += '<div style="background:var(--surface2);border-radius:8px;padding:16px;margin-bottom:16px;border:1px solid var(--border);font-size:0.88rem;line-height:1.8;color:var(--text-dim)">' + test.text.replace(/\n/g,'<br>') + '</div>';
     }
 
-    if(test.ads) {
+    if (test.ads && test.ads.length) {
       html += '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-bottom:16px">' +
         test.ads.map(function(a){
           return '<div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">' +
-            '<div style="font-weight:700;color:var(--gold);font-size:0.78rem;margin-bottom:4px">[' + a.letter.toUpperCase() + ']</div>' +
-            '<div style="font-weight:600;color:var(--text);font-size:0.85rem;margin-bottom:6px">' + a.title + '</div>' +
-            '<div style="font-size:0.78rem;color:var(--text-muted)">' + a.body + '</div>' +
+            '<div style="font-weight:700;color:var(--gold);font-size:0.78rem;margin-bottom:4px">[' + (a.letter || '').toUpperCase() + ']</div>' +
+            '<div style="font-weight:600;color:var(--text);font-size:0.85rem;margin-bottom:6px">' + (a.title || '') + '</div>' +
+            '<div style="font-size:0.78rem;color:var(--text-muted)">' + (a.body || '') + '</div>' +
             '</div>';
         }).join('') +
       '</div>';
     }
 
-    test.questions.forEach(function(q, qi) {
-      var key = 'L'+ti+'Q'+qi;
-      var answered = goetheState.lesen.answers[key] !== undefined;
-      var userAns = goetheState.lesen.answers[key];
-      html += '<div style="margin-bottom:16px;padding:14px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)">' +
-        '<p style="font-weight:600;color:var(--text);margin-bottom:10px;font-size:0.9rem">' + (qi+1) + '. ' + q.q + '</p>' +
-        '<div style="display:flex;flex-direction:column;gap:6px">' +
-        q.opts.map(function(opt, oi) {
-          var isCorrect = oi === q.a;
-          var isSelected = userAns === oi;
-          var bg = '';
-          if(answered && isCorrect) bg = 'background:rgba(34,197,94,0.15);border-color:var(--green);color:var(--green);';
-          else if(answered && isSelected && !isCorrect) bg = 'background:rgba(239,68,68,0.15);border-color:var(--red);color:var(--red);';
-          return '<button onclick="answerGoethe(\'lesen\',\'' + key + '\',' + oi + ',' + q.a + ')" ' +
-            (answered ? 'disabled ' : '') +
-            'style="text-align:left;background:var(--surface3);border:2px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--text-dim);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.85rem;' + bg + '">' +
-            opt + '</button>';
-        }).join('') +
-        '</div>' +
-        (answered ? '<div style="margin-top:10px;padding:10px;background:rgba(240,180,41,0.08);border-radius:6px;border:1px solid rgba(240,180,41,0.2);font-size:0.8rem;color:var(--text-dim)">💡 ' + q.exp + '</div>' : '') +
-        '</div>';
-    });
+    if (test.statements && test.statements.length) {
+      html += '<div style="margin-bottom:16px">';
+      test.statements.forEach(function(s, si) {
+        html += '<div style="padding:8px 12px;background:var(--surface2);border-radius:6px;margin-bottom:6px;font-size:0.85rem;color:var(--text-dim)">' + (si+1) + '. ' + (s || '') + '</div>';
+      });
+      html += '</div>';
+    }
+
+    if (test.questions && test.questions.length) {
+      test.questions.forEach(function(q, qi) {
+        if (!q) return;
+        var key = 'L'+ti+'Q'+qi;
+        var answered = goetheState.lesen.answers[key] !== undefined;
+        var userAns = goetheState.lesen.answers[key];
+        html += '<div style="margin-bottom:16px;padding:14px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)">' +
+          '<p style="font-weight:600;color:var(--text);margin-bottom:10px;font-size:0.9rem">' + (qi+1) + '. ' + (q.q || '') + '</p>' +
+          '<div style="display:flex;flex-direction:column;gap:6px">';
+        if (q.opts && q.opts.length) {
+          q.opts.forEach(function(opt, oi) {
+            var isCorrect = oi === q.a;
+            var isSelected = userAns === oi;
+            var bg = '';
+            if(answered && isCorrect) bg = 'background:rgba(34,197,94,0.15);border-color:var(--green);color:var(--green);';
+            else if(answered && isSelected && !isCorrect) bg = 'background:rgba(239,68,68,0.15);border-color:var(--red);color:var(--red);';
+            html += '<button onclick="answerGoethe(\'lesen\',\'' + key + '\',' + oi + ',' + (q.a||0) + ')" ' +
+              (answered ? 'disabled ' : '') +
+              'style="text-align:left;background:var(--surface3);border:2px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--text-dim);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.85rem;' + bg + '">' +
+              (opt || '') + '</button>';
+          });
+        }
+        html += '</div>' +
+          (answered ? '<div style="margin-top:10px;padding:10px;background:rgba(240,180,41,0.08);border-radius:6px;border:1px solid rgba(240,180,41,0.2);font-size:0.8rem;color:var(--text-dim)">💡 ' + (q.exp || '') + '</div>' : '') +
+          '</div>';
+      });
+    } else {
+      html += '<p style="color:var(--text-muted);font-size:0.85rem;padding:10px">Pyetjet për këtë detyra janë duke u përgatitur.</p>';
+    }
+
     html += '</div>';
   });
   return html;
 }
+
 
 function renderGoetheHoeren() {
   var tests = GOETHE_B1_DATA.hoeren;
@@ -956,6 +975,7 @@ function renderGoetheHoeren() {
       '<div style="font-size:0.85rem;color:var(--text-dim);line-height:1.8;white-space:pre-line">' + test.transcript + '</div>' +
       '</div>';
 
+    if(!test.questions || !test.questions.length) { html += '<p style="color:var(--text-muted);font-size:0.88rem;padding:10px">Pyetjet janë duke u përgatitur.</p>'; } else
     test.questions.forEach(function(q, qi) {
       var key = 'H'+ti+'Q'+qi;
       var answered = goetheState.hoeren.answers[key] !== undefined;
@@ -1017,82 +1037,102 @@ function renderGoetheSchreiben() {
 }
 
 function renderGoetheSprechen() {
-  var c = document.getElementById('goetheMain');
-  if (!c) return;
-  var tasks = (GOETHE_B1_DATA.sprechen && GOETHE_B1_DATA.sprechen.length > 0) 
-    ? GOETHE_B1_DATA.sprechen 
-    : [];
-  
-  if (tasks.length === 0) {
-    c.innerHTML = '<div style="padding:32px;text-align:center;color:var(--text-muted)">Po ngarkohet...</div>';
-    return;
-  }
-  
-  var html = '<div style="display:grid;gap:16px">';
-  tasks.forEach(function(task) {
-    html += '<div style="background:var(--surface2);border-radius:14px;padding:22px;border:1px solid var(--border)">';
-    html += '<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">';
-    html += '<div style="font-size:1.5rem">🎤</div>';
-    html += '<div><div style="font-size:0.72rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px">' + task.type + '</div>';
-    html += '<h3 style="color:var(--text);margin:2px 0">' + task.title + '</h3></div></div>';
-    
+  var tasks = GOETHE_B1_DATA.sprechen || [];
+  if (!tasks.length) return '<p style="color:var(--text-muted);padding:20px">Duke u ngarkuar...</p>';
+
+  var html = '<div style="margin-bottom:16px"><p style="color:var(--text-muted);font-size:0.88rem">🗣️ <strong style="color:var(--text)">Sprechen</strong> — ' + tasks.length + ' detyra fjalimi sipas formatit Goethe B1.</p></div>';
+
+  tasks.forEach(function(task, ti) {
+    if (!task) return;
+    html += '<div class="grammar-section" style="border-left:4px solid var(--b1-color);margin-bottom:24px">';
+    html += '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">';
+    html += '<div style="font-size:1.3rem">🎤</div>';
+    html += '<div><div style="font-size:0.72rem;color:var(--b1-color);text-transform:uppercase;letter-spacing:1px">' + (task.type || '') + '</div>';
+    html += '<h3 style="color:var(--text);margin:2px 0">' + (task.title || '') + '</h3></div></div>';
+
     html += '<div style="background:var(--surface);border-radius:10px;padding:14px;margin-bottom:14px;border-left:3px solid var(--gold)">';
     html += '<p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:6px;font-style:italic">📋 Udhëzimi:</p>';
-    html += '<p style="font-size:0.88rem;color:var(--text);line-height:1.7">' + task.instruction + '</p></div>';
-    
-    if (task.topics) {
-      task.topics.forEach(function(topic, ti) {
-        html += '<div style="background:var(--surface);border-radius:10px;padding:14px;margin-bottom:12px">';
-        html += '<h4 style="color:var(--a2-color);margin-bottom:10px">Tema ' + (ti+1) + ': ' + topic.title + '</h4>';
-        html += '<p style="font-size:0.85rem;color:var(--text);margin-bottom:10px">' + topic.prompt + '</p>';
-        
-        html += '<div style="margin-bottom:10px"><p style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px">📐 Struktura e prezantimit:</p>';
-        topic.structure.forEach(function(s) {
-          html += '<div style="padding:5px 0;border-bottom:1px solid var(--border);font-size:0.83rem;color:var(--text)">' + s + '</div>';
-        });
-        html += '</div>';
-        
-        html += '<div><p style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px">💬 Shprehje të dobishme:</p>';
-        topic.usefulPhrases.forEach(function(p) {
-          html += '<div style="padding:4px 8px;background:rgba(240,180,41,0.08);border-radius:6px;margin-bottom:4px;font-size:0.82rem;color:var(--text)">' + p + '</div>';
-        });
-        html += '</div></div>';
-      });
+    html += '<p style="font-size:0.88rem;color:var(--text);line-height:1.7">' + (task.instruction || '') + '</p></div>';
+
+    // topic (singular)
+    if (task.topic) {
+      html += '<div style="background:var(--surface);border-radius:10px;padding:14px;margin-bottom:12px">';
+      html += '<p style="font-size:0.85rem;color:var(--text);margin-bottom:10px">' + (task.topic || '') + '</p></div>';
     }
-    
+
+    // structure (array of strings)
+    if (task.structure && task.structure.length) {
+      html += '<div style="margin-bottom:12px"><p style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px">📐 Struktura:</p>';
+      task.structure.forEach(function(s) {
+        html += '<div style="padding:5px 8px;border-bottom:1px solid var(--border);font-size:0.83rem;color:var(--text)">' + (s || '') + '</div>';
+      });
+      html += '</div>';
+    }
+
+    // tips
+    if (task.tips && task.tips.length) {
+      html += '<div style="margin-bottom:12px"><p style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px">💡 Këshilla:</p>';
+      task.tips.forEach(function(t) {
+        html += '<div style="padding:4px 8px;background:rgba(240,180,41,0.08);border-radius:6px;margin-bottom:4px;font-size:0.82rem;color:var(--text)">' + (t || '') + '</div>';
+      });
+      html += '</div>';
+    }
+
+    // scenario
     if (task.scenario) {
       var s = task.scenario;
       html += '<div style="background:var(--surface);border-radius:10px;padding:14px;margin-bottom:12px">';
-      html += '<h4 style="color:var(--a2-color);margin-bottom:8px">📝 ' + s.title + '</h4>';
-      html += '<p style="font-size:0.85rem;color:var(--text);margin-bottom:12px;line-height:1.6">' + s.situation + '</p>';
-      
-      [s.personA, s.personB].forEach(function(person) {
-        html += '<div style="background:var(--surface2);border-radius:8px;padding:12px;margin-bottom:10px">';
-        html += '<p style="font-size:0.75rem;color:var(--gold);font-weight:700;margin-bottom:8px">' + person.title + '</p>';
-        person.info.forEach(function(info) {
-          html += '<div style="font-size:0.83rem;color:var(--text);padding:3px 0">• ' + info + '</div>';
+      html += '<h4 style="color:var(--a2-color);margin-bottom:8px">📝 ' + (s.title || 'Skenar') + '</h4>';
+      html += '<p style="font-size:0.85rem;color:var(--text);margin-bottom:10px;line-height:1.6">' + (s.situation || '') + '</p>';
+      if (s.cards && s.cards.length) {
+        html += '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px">';
+        s.cards.forEach(function(card) {
+          html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;border:1px solid var(--border)">';
+          html += '<div style="font-size:0.78rem;font-weight:600;color:var(--gold);margin-bottom:4px">' + (card.label || '') + '</div>';
+          html += '<div style="font-size:0.82rem;color:var(--text)">' + (card.content || '') + '</div></div>';
         });
         html += '</div>';
-      });
-      
-      html += '<p style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;margin:10px 0 6px">✅ Detyrat tuaja:</p>';
-      s.tasks.forEach(function(t, ti) {
-        html += '<div style="font-size:0.83rem;color:var(--text);padding:4px 0">' + (ti+1) + '. ' + t + '</div>';
-      });
-      
-      html += '<div style="margin-top:12px"><p style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px">💬 Shprehje:</p>';
-      s.usefulPhrases.forEach(function(p) {
-        html += '<div style="padding:4px 8px;background:rgba(240,180,41,0.08);border-radius:6px;margin-bottom:4px;font-size:0.82rem">' + p + '</div>';
-      });
-      html += '</div></div>';
+      }
+      if (s.phrases && s.phrases.length) {
+        html += '<div style="margin-top:10px">';
+        s.phrases.forEach(function(p) {
+          html += '<div style="padding:4px 8px;background:rgba(240,180,41,0.08);border-radius:6px;margin-bottom:4px;font-size:0.82rem;color:var(--text)">' + (p || '') + '</div>';
+        });
+        html += '</div>';
+      }
+      html += '</div>';
     }
-    
-    html += '<button onclick="TTS.speak(\'Ich bin bereit. Jetzt spreche ich.\')" style="width:100%;padding:10px;background:rgba(240,180,41,0.1);border:1px solid rgba(240,180,41,0.3);border-radius:8px;color:var(--gold);cursor:pointer;font-size:0.85rem;font-family:DM Sans,sans-serif">🔊 Dëgjo shembullin e fillimit</button>';
+
+    // phrases (top level)
+    if (task.phrases && task.phrases.length) {
+      html += '<div style="margin-bottom:12px"><p style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px">💬 Shprehje:</p>';
+      task.phrases.forEach(function(p) {
+        html += '<div style="padding:4px 8px;background:rgba(240,180,41,0.08);border-radius:6px;margin-bottom:4px;font-size:0.82rem;color:var(--text)">' + (p || '') + '</div>';
+      });
+      html += '</div>';
+    }
+
+    // photoDesc
+    if (task.photoDesc) {
+      html += '<div style="background:var(--surface);border-radius:10px;padding:14px;margin-bottom:12px">';
+      html += '<p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:8px;font-style:italic">🖼️ Përshkrim fotografie:</p>';
+      html += '<p style="font-size:0.88rem;color:var(--text);line-height:1.7">' + (task.photoDesc || '') + '</p></div>';
+    }
+
+    // modelAnswer
+    if (task.modelAnswer) {
+      html += '<div style="background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.2);border-radius:10px;padding:14px;margin-bottom:12px">';
+      html += '<p style="font-size:0.75rem;color:var(--green);text-transform:uppercase;margin-bottom:6px">✅ Model-përgjigje:</p>';
+      html += '<p style="font-size:0.85rem;color:var(--text);line-height:1.7;font-style:italic">' + (task.modelAnswer || '') + '</p></div>';
+    }
+
     html += '</div>';
   });
-  html += '</div>';
-  c.innerHTML = html;
+
+  return html;
 }
+
+
 function answerGoethe(section, key, selected, correct) {
   if(goetheState[section].answers[key] !== undefined) return;
   goetheState[section].answers[key] = selected;
