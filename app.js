@@ -1,7 +1,7 @@
 // DeutschAL — Application logic
 
 function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  Array.from(document.querySelectorAll('.screen')).forEach(function(s){ s.classList.remove('active'); });
   document.getElementById(id).classList.add('active');
 }
 function startFromA1() {
@@ -100,7 +100,7 @@ function answerPlacement(i) {
   state.pAnswered = true;
   const q = PLACEMENT_QS[state.pqIndex];
   const opts = document.querySelectorAll('.p-opt');
-  opts.forEach(o => o.disabled = true);
+  opts.forEach(function(o){ o.disabled = true; });
   const fb = document.getElementById('pFeedback');
   if (i === q.a) {
     opts[i].classList.add('correct');
@@ -142,11 +142,11 @@ function renderCourse() {
 
 function updateLevelTabs() {
   document.getElementById('currentLevelLabel').textContent = '· ' + state.currentLevel;
-  ['A1','A2','B1'].forEach(l => {
+  ['A1','A2','B1'].forEach(function(l){ {
     const tab = document.getElementById('tab'+l);
     tab.classList.toggle('active', l === state.currentLevel);
     // locks removed
-  });
+  }; });
 }
 
 function switchLevel(level) {
@@ -160,7 +160,7 @@ function renderSidebar() {
   const sb = document.getElementById('sidebar');
   const mods = (MODULES[state.currentLevel] || []).filter(m => m && m.id);
   sb.innerHTML = `<div class="sidebar-level-label">Modulet ${state.currentLevel}</div>`;
-  mods.forEach(m => {
+  mods.forEach(function(m){ {
     const done = state.completedModules.includes(m.id);
     const active = m.id === state.currentModuleId;
     const div = document.createElement('div');
@@ -174,7 +174,7 @@ function renderSidebar() {
       </div>
     `;
     sb.appendChild(div);
-  });
+  }; });
 }
 
 function getCurrentModule() {
@@ -212,7 +212,7 @@ function renderLesson() {
 function goTab(tab) {
   state.lessonTab = tab;
   if (tab === 'quiz') { state.quizIndex=0; state.quizScore=0; state.quizAnswered=false; state.quizDots=[]; }
-  document.querySelectorAll('.ltab').forEach(function(t){ t.classList.remove('active'); });
+  Array.from(document.querySelectorAll('.ltab')).forEach(function(t){ t.classList.remove('active'); });
   var mod = getCurrentModule();
   renderLesson();
 }
@@ -221,7 +221,7 @@ function switchTab(tab) {
   if (tab === 'quiz') { state.quizIndex=0; state.quizScore=0; state.quizAnswered=false; state.quizDots=[]; }
   if (tab === 'think' || tab === 'scenario' || tab === 'storyplus') { /* no reset needed */ }
   const mod = getCurrentModule();
-  document.querySelectorAll('.ltab').forEach(t => t.classList.remove('active'));
+  Array.from(document.querySelectorAll('.ltab')).forEach(function(t){ t.classList.remove('active'); });
   event.target.classList.add('active');
   renderLessonSection(mod);
 }
@@ -464,7 +464,7 @@ function checkLevelUnlock() {
 
 function answerEx(i, j, correct) {
   const opts = document.querySelectorAll(`[id^="exo${i}_"]`);
-  opts.forEach(o => o.disabled = true);
+  opts.forEach(function(o){ o.disabled = true; });
   const fb = document.getElementById(`exf${i}`);
   if (j === correct) {
     document.getElementById(`exo${i}_${j}`).classList.add('correct');
@@ -480,7 +480,7 @@ function answerQuiz(j, correct) {
   if (state.quizAnswered) return;
   state.quizAnswered = true;
   const opts = document.querySelectorAll('.q-opt');
-  opts.forEach(o => o.disabled = true);
+  opts.forEach(function(o){ o.disabled = true; });
   const fb = document.getElementById('qfb');
   const mod = getCurrentModule();
   const q = mod && mod.quiz ? mod.quiz[state.quizIndex] : null;
@@ -526,7 +526,7 @@ function toggleVcard(i) {
 // ── VOCAB BROWSER FUNCTIONS ──
 function showVocabBrowser() {
   buildAllVocab();
-  document.querySelectorAll('[id^="vbTab"]').forEach(function(t){ t.classList.remove('active'); });
+  Array.from(document.querySelectorAll('[id^="vbTab"]')).forEach(function(t){ t.classList.remove('active'); });
   var tab = document.getElementById('vbTabA1');
   if(tab) tab.classList.add('active');
   var lvl = document.getElementById('vbLevel');
@@ -539,7 +539,7 @@ function showVocabBrowser() {
 }
 function switchVBLevel(level) {
   state._vbLevel = level;
-  document.querySelectorAll('[id^="vbTab"]').forEach(function(t){ t.classList.remove('active'); });
+  Array.from(document.querySelectorAll('[id^="vbTab"]')).forEach(function(t){ t.classList.remove('active'); });
   var tab = document.getElementById('vbTab'+level);
   if(tab) tab.classList.add('active');
   renderVocabBrowser();
@@ -829,7 +829,7 @@ let goetheState = {
 
 function showGoetheTest() {
   // Highlight the tab
-  document.querySelectorAll('.level-tab').forEach(function(t){ t.classList.remove('active'); });
+  Array.from(document.querySelectorAll('.level-tab')).forEach(function(t){ t.classList.remove('active'); });
   var gt = document.getElementById('tabGoethe');
   if(gt){ gt.style.color='#e879f9'; gt.style.borderBottomColor='#e879f9'; }
   goetheState.tab = 'info';
@@ -1112,7 +1112,7 @@ var grammarState = {
 };
 
 function showGrammarScreen() {
-  document.querySelectorAll('.level-tab').forEach(function(t){ t.classList.remove('active'); });
+  Array.from(document.querySelectorAll('.level-tab')).forEach(function(t){ t.classList.remove('active'); });
   var gt = document.getElementById('tabGrammar');
   if(gt){ gt.style.color='#34d399'; gt.style.borderBottomColor='#34d399'; }
   grammarState.level = 'A1';
@@ -1301,7 +1301,7 @@ function showFlashcards() {
 
 function startFlashcards(level) {
   fcState.level = level;
-  document.querySelectorAll('[id^="fcTab"]').forEach(function(t){ t.classList.remove('active'); });
+  Array.from(document.querySelectorAll('[id^="fcTab"]')).forEach(function(t){ t.classList.remove('active'); });
   var tab = document.getElementById('fcTab'+level);
   if(tab) tab.classList.add('active');
 
@@ -1512,7 +1512,7 @@ const TTS = {
 
   setRate: function(v) {
     this.rate = parseFloat(v);
-    document.querySelectorAll('.ttsRateLbl').forEach(function(el){ el.textContent = parseFloat(v).toFixed(1)+'x'; });
+    Array.from(document.querySelectorAll('.ttsRateLbl')).forEach(function(el){ el.textContent = parseFloat(v).toFixed(1)+'x'; });
   },
 
   // Play all dialogue lines in sequence
@@ -1968,7 +1968,7 @@ const LEITNER = {
   getStats: function() {
     const data = this.load();
     const counts = [0,0,0,0,0,0];
-    Object.values(data).forEach(c => { counts[c.box] = (counts[c.box]||0)+1; });
+    Object.values(data).forEach(function(c){ { counts[c.box] = (counts[c.box]||0)+1; }; });
     return { box1: counts[1]||0, box2: counts[2]||0, box3: counts[3]||0, box4: counts[4]||0, box5: counts[5]||0, total: Object.keys(data).length };
   }
 };
@@ -2172,13 +2172,13 @@ function showLesenResults() {
   const c = document.getElementById('lesenContent');
   if (!c) return;
   let total = 0, correct = 0;
-  LESEN_TESTS.forEach(t => {
+  LESEN_TESTS.forEach(function(t){ {
     const ans = lesenState.answers[t.id] || {};
     t.questions.forEach((q,qi) => {
       total++;
       if (ans['q'+qi] === q.a) correct++;
     });
-  });
+  }; });
   const pct = Math.round(correct/total*100);
   c.innerHTML = `
     <div style="max-width:600px;margin:0 auto;text-align:center;padding:40px 20px">
