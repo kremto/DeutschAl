@@ -1,4 +1,4 @@
-// DeutschAL — Data (MODULES, GRAMMAR_DB, VOCAB, static content)
+// DeutschAL — Data
 
 // ════════════════════════════════════════════
 // DATA — All content
@@ -26,8 +26,8 @@ const MODULES = {
         {de:'Guten Tag',sq:'Mirëdita',type:'Përshëndetje',ex:'Guten Tag, Herr Müller! — Mirëdita, z. Müller!'},
         {de:'Guten Abend',sq:'Mirëmbrëma',type:'Përshëndetje',ex:'Guten Abend! Willkommen! — Mirëmbrëma! Mirë se vini!'},
         {de:'Gute Nacht',sq:'Natën e mirë',type:'Lamtumirë',ex:'Gute Nacht! Schlaf gut! — Natën e mirë! Fli mirë!'},
-        {de:'Tschüss',sq:'Çao / Mirupafshim',type:'Lamtumirë',ex:'Tschüss! Bis morgen! — Çao! Deri nesër!'},
-        {de:'Auf Wiedersehen',sq:'Mirupafshim (formale)',type:'Lamtumirë',ex:'Auf Wiedersehen, Frau Schmidt! — Mirupafshim, znj. Schmidt!'},
+        {de:'Tschüss',sq:'Çao / Mirëupafshim',type:'Lamtumirë',ex:'Tschüss! Bis morgen! — Çao! Deri nesër!'},
+        {de:'Auf Wiedersehen',sq:'Mirëupafshim (formale)',type:'Lamtumirë',ex:'Auf Wiedersehen, Frau Schmidt! — Mirupafshim, znj. Schmidt!'},
         {de:'Ich heiße',sq:'Unë quhem',type:'Prezantim',ex:'Ich heiße Anna. — Unë quhem Anna.'},
         {de:'Mein Name ist',sq:'Emri im është',type:'Prezantim',ex:'Mein Name ist Klaus. — Emri im është Klaus.'},
         {de:'Wie heißt du?',sq:'Si quhesh?',type:'Pyetje',ex:'Hallo! Wie heißt du? — Përshëndetje! Si quhesh?'},
@@ -384,7 +384,7 @@ const MODULES = {
         {type:'narr',text:'Dion ka harruar takimin e tij. Klea e pret në kafene prej 30 minutash.'},
         {type:'line',speaker:'Klea',de:'Endlich! Es ist schon halb zwei! Wir hatten um ein Uhr verabredet!',sq:'Në fund! Është tashmë një e gjysmë! Kishim takim në orën një!'},
         {type:'line',speaker:'Dion',de:'Entschuldigung! Der Bus hatte Verspätung!',sq:'Më fal! Autobusi kishte vonesë!'},
-        {type:'line',speaker:'Klea',de:'Kein Problem. Welcher Tag ist heute?',sq:'Nuk ka problem. Çfarë dite është sot?'},
+        {type:'line',speaker:'Klea',de:'Kein Problem. Welcher Tag ist heute?',sq:'Nuk ka problem. Çfarë ditë është sot?'},
         {type:'line',speaker:'Dion',de:'Heute ist Donnerstag, der fünfte März.',sq:'Sot është e enjte, pesë mars.'},
         {type:'line',speaker:'Klea',de:'Richtig! Und morgen haben wir frei!',sq:'Saktë! Dhe nesër kemi pushim!'},
       ]},
@@ -3269,7 +3269,7 @@ const REMAINING_UPGRADES = {
     {type:'narr', text:'Dion ka një problem: ka blerë xhaketa e gabuar numrin. Klea e shoqëron ta ndërrojë.'},
     {type:'line', speaker:'Shitësi', de:'Kann ich Ihnen helfen?', sq:'Mund t\'ju ndihmoj?'},
     {type:'line', speaker:'Dion', de:'Ja bitte. Ich habe diese Jacke gekauft, aber sie ist zu groß. Ich möchte sie umtauschen.', sq:'Po, ju lutem. E bleva këtë xhaketë, por është shumë e madhe. Dua ta ndërroj.'},
-    {type:'line', speaker:'Shitësi', de:'Kein Problem. Haben Sie den Kassenbon dabei?', sq:'Nuk ka problem. E keni kuponin e arkes me vete?'},
+    {type:'line', speaker:'Shitësi', de:'Kein Problem. Haben Sie den Kassenbon dabei?', sq:'Nuk ka problem. E keni kuponin e arkes me vetë?'},
     {type:'line', speaker:'Dion', de:'Ja, natürlich. Hier ist er. Ich brauche Größe Medium, nicht Large.', sq:'Po, natyrisht. Ja ku është. Më duhet numri Medium, jo Large.'},
     {type:'line', speaker:'Shitësi', de:'Moment bitte... leider haben wir diese Jacke nur noch in Blau auf Medium, nicht in Schwarz.', sq:'Një moment... fatkeqësisht e kemi këtë xhaketë vetëm në blu në Medium, jo në të zezë.'},
     {type:'line', speaker:'Dion', de:'Hm. Wie finden Sie das Blau? Passt das zu einer schwarzen Hose?', sq:'Hm. Si e gjeni ju blu-në? I shkon pantallonave të zeza?'},
@@ -4045,7 +4045,7 @@ const REMAINING_UPGRADES = {
     {type:'line', speaker:'Dion', de:'In Albanien ist das normal! Die Hauptmahlzeit ist abends, wenn alle zuhause sind. Und Mama kocht seit 14 Jahren nur für mich — heute kocht sie für fünf!', sq:'Në Shqipëri kjo është normale! Vakti kryesor është mbrëmjen, kur të gjithë janë në shtëpi. Dhe nëna ka gatuar prej 14 vitesh vetëm për mua — sot gatuan për pesë!'},
     {type:'line', speaker:'Jonas', de:'Die Gastfreundschaft hier ist unglaublich. Wir sind seit zwei Stunden hier und haben schon dreimal Kaffee, Raki und Baklava bekommen!', sq:'Mikëpritja këtu është e pabesueshme. Jemi dy orë këtu dhe kemi marrë tashmë tre herë kafe, raki dhe baklava!'},
     {type:'line', speaker:'Nëna', de:'Esst! Esst! Ihr seid zu dünn! In Albanien macht man so.', sq:'Hani! Hani! Jeni shumë të hollë! Në Shqipëri bëhet kështu.'},
-    {type:'line', speaker:'Klea', de:'Deine Mutter sagt das auf Deutsch! Sie hat extra für uns gelernt!', sq:'Nëna jote flet gjermanisht! Ka mësuar enë e vete për ne!'},
+    {type:'line', speaker:'Klea', de:'Deine Mutter sagt das auf Deutsch! Sie hat extra für uns gelernt!', sq:'Nëna jote flet gjermanisht! Ka mësuar enë e vetë për ne!'},
     {type:'line', speaker:'Dion', de:'Ich weiß! Sie hat sechs Monate lang "Hallo, Willkommen, Esst" geübt. Das ist albanische Liebe!', sq:'E di! Ka ushtruar gjashtë muaj "Hallo, Willkommen, Esst". Kjo është dashuria shqiptare!'},
     {type:'narr', text:'Klea qan pak. Jonas fotografon çdo moment. Dion kupton: shtëpia nuk është koordinata gjeografike — është ndjesia kur njerëzit e tu takojnë njerëzit e tu.'},
   ],
