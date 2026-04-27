@@ -11,11 +11,11 @@ const MODULES = {
       story: {
         ep:'Episodi 1', title:'Dita e parë në Wien',
         lines:[
-          {type:'narr', text:'Dion vjen nga Shqipëria. Ai mbrin në Wien për herë të parë. Bie kembanin tek familja Bauer.'},
+          {type:'narr', text:'Dion vjen nga Kosova, nga Prishtina. Ai mbrin në Wien për herë të parë. I bie ziles së familjes Bauer.'},
           {type:'line', speaker:'Znj. Bauer', de:'Hallo! Sie sind Dion, oder?', sq:'Përshëndetje! Ju jeni Dion, apo jo?'},
           {type:'line', speaker:'Dion', de:'Ja, guten Tag! Ich heiße Dion. Ich komme aus Albanien.', sq:'Po, mirëdita! Unë quhem Dion. Vij nga Shqipëria.'},
           {type:'line', speaker:'Znj. Bauer', de:'Willkommen! Kommen Sie herein. Mein Name ist Bauer.', sq:'Mirë se vini! Hyni brenda. Emri im është Bauer.'},
-          {type:'line', speaker:'Dion', de:'Danke schön! Es freut mich!', sq:'Shumë faleminderit! Gëzoj njohjen!'},
+          {type:'line', speaker:'Dion', de:'Danke schön! Es freut mich!', sq:'Shumë faleminderit! Gëzohem!'},
           {type:'line', speaker:'Hr. Bauer', de:'Guten Tag! Wie geht es Ihnen?', sq:'Mirëdita! Si jeni?'},
           {type:'line', speaker:'Dion', de:'Gut, danke! Und Ihnen?', sq:'Mirë, faleminderit! Por ju?'},
         ]
@@ -27,7 +27,7 @@ const MODULES = {
         {de:'Guten Abend',sq:'Mirëmbrëma',type:'Përshëndetje',ex:'Guten Abend! Willkommen! — Mirëmbrëma! Mirë se vini!'},
         {de:'Gute Nacht',sq:'Natën e mirë',type:'Lamtumirë',ex:'Gute Nacht! Schlaf gut! — Natën e mirë! Fli mirë!'},
         {de:'Tschüss',sq:'Çao / Mirëupafshim',type:'Lamtumirë',ex:'Tschüss! Bis morgen! — Çao! Deri nesër!'},
-        {de:'Auf Wiedersehen',sq:'Mirëupafshim (formale)',type:'Lamtumirë',ex:'Auf Wiedersehen, Frau Schmidt! — Mirupafshim, znj. Schmidt!'},
+        {de:'Auf Wiedersehen',sq:'Mirëupafshim (formale)',type:'Lamtumirë',ex:'Auf Wiedersehen, Frau Schmidt! — Mirëupafshim, znj. Schmidt!'},
         {de:'Ich heiße',sq:'Unë quhem',type:'Prezantim',ex:'Ich heiße Anna. — Unë quhem Anna.'},
         {de:'Mein Name ist',sq:'Emri im është',type:'Prezantim',ex:'Mein Name ist Klaus. — Emri im është Klaus.'},
         {de:'Wie heißt du?',sq:'Si quhesh?',type:'Pyetje',ex:'Hallo! Wie heißt du? — Përshëndetje! Si quhesh?'},
@@ -114,7 +114,7 @@ const MODULES = {
            ['4','vier','14','vierzehn'],['5','fünf','15','fünfzehn'],['6','sechs','16','sechzehn'],
            ['7','sieben','17','siebzehn'],['8','acht','18','achtzehn'],['9','neun','19','neunzehn'],['10','zehn','20','zwanzig'],
          ]}},
-        {title:'Numrat 20–100 — Rregulli i madh',body:'Nga 21-99 gjermanishtja thotë FILLIMISHT njëshjet, pastaj dhjetëshet. Rregulli: njëshi + "und" + dhjetëshi:',
+        {title:'Numrat 20–100 — Rregulli i madh',body:'Nga 21-99 gjermanishtja thotë FILLIMISHT Njëshet, pastaj dhjetëshet. Rregulli: njëshi + "und" + dhjetëshi:',
          table:{heads:['Nr','Gjermanisht','Si ndërtohet'],rows:[
            ['21','einundzwanzig','eins + und + zwanzig'],
            ['35','fünfunddreißig','fünf + und + dreißig'],
@@ -149,7 +149,7 @@ const MODULES = {
         {type:'line',speaker:'Klea',de:'Hast du Fotos von deiner Familie?',sq:'Ke foto të familjes tënde?'},
         {type:'line',speaker:'Dion',de:'Ja! Das ist meine Mutter. Sie heißt Elona.',sq:'Po! Kjo është nëna ime. Ajo quhet Elona.'},
         {type:'line',speaker:'Klea',de:'Und wer ist das?',sq:'Dhe kush është kjo?'},
-        {type:'line',speaker:'Dion',de:'Das ist mein Vater. Er heißt Arben. Er ist Ingenieur.',sq:'Kjo është babai im. Ai quhet Arben. Ai është inxhinier.'},
+        {type:'line',speaker:'Dion',de:'Das ist mein Vater. Er heißt Arben. Er ist Ingenieur.',sq:'Ky është babai im. Ai quhet Arben. Ai është inxhinier.'},
         {type:'line',speaker:'Klea',de:'Hast du Geschwister?',sq:'Ke vëllezër ose motra?'},
         {type:'line',speaker:'Dion',de:'Ja, ich habe eine Schwester. Sie ist 24 Jahre alt.',sq:'Po, kam një motër. Ajo është 24 vjeç.'},
       ]},
@@ -382,7 +382,7 @@ const MODULES = {
       id:'a1m7', num:7, title:'Ditët & Ora', sub:'Tage, Monate & Uhrzeit',
       story:{ep:'Episodi 7',title:'Vonë si gjithmonë',lines:[
         {type:'narr',text:'Dion ka harruar takimin e tij. Klea e pret në kafene prej 30 minutash.'},
-        {type:'line',speaker:'Klea',de:'Endlich! Es ist schon halb zwei! Wir hatten um ein Uhr verabredet!',sq:'Në fund! Është tashmë një e gjysmë! Kishim takim në orën një!'},
+        {type:'line',speaker:'Klea',de:'Endlich! Es ist schon halb zwei! Wir hatten um ein Uhr verabredet!',sq:'Më në fund! Është tashmë një e gjysmë! Kishim takim në orën një!'},
         {type:'line',speaker:'Dion',de:'Entschuldigung! Der Bus hatte Verspätung!',sq:'Më fal! Autobusi kishte vonesë!'},
         {type:'line',speaker:'Klea',de:'Kein Problem. Welcher Tag ist heute?',sq:'Nuk ka problem. Çfarë ditë është sot?'},
         {type:'line',speaker:'Dion',de:'Heute ist Donnerstag, der fünfte März.',sq:'Sot është e enjte, pesë mars.'},
@@ -438,7 +438,7 @@ const MODULES = {
         {type:'narr',text:'Dion duhet të shkojë vetëm me metro për herë të parë. Klea i jep udhëzime.'},
         {type:'line',speaker:'Klea',de:'Du nimmst die U-Bahn Linie U2, Richtung Schottenring.',sq:'Merr metron linjë U2, drejtim Schottenring.'},
         {type:'line',speaker:'Dion',de:'Und wo steige ich aus?',sq:'Dhe ku zbres?'},
-        {type:'line',speaker:'Klea',de:'Du steigst an der Station Karlsplatz aus. Das sind vier Stationen.',sq:'Zbriti në stacionin Karlsplatz. Janë katër stacione.'},
+        {type:'line',speaker:'Klea',de:'Du steigst an der Station Karlsplatz aus. Das sind vier Stationen.',sq:'Ti zbret në stacionin, në Karlsplatz. Janë katër stacione.'},
         {type:'line',speaker:'Dion',de:'Muss ich umsteigen?',sq:'Duhet të ndërroj linjë?'},
         {type:'line',speaker:'Klea',de:'Nein, direkt! Kein Umsteigen nötig.',sq:'Jo, direkt! Nuk ka nevojë të ndërrosh.'},
         {type:'line',speaker:'Dion',de:'Wie lange dauert die Fahrt?',sq:'Sa kohë zgjat udhëtimi?'},
@@ -546,7 +546,7 @@ const MODULES = {
         {type:'line',speaker:'Menaxheri',de:'Guten Tag! Bitte setzen Sie sich. Was sind Sie von Beruf?',sq:'Mirëdita! Ju lutem uluni. Çfarë profesioni keni?'},
         {type:'line',speaker:'Dion',de:'Ich bin Student. Ich studiere Informatik.',sq:'Jam student. Studioj informatikë.'},
         {type:'line',speaker:'Menaxheri',de:'Sehr gut. Haben Sie Erfahrung als Kellner?',opts:['Jo, por dua të mësoj shpejt.']},
-        {type:'line',speaker:'Menaxheri',de:'Sehr gut. Haben Sie Erfahrung als Kellner?',sq:'Shumë mirë. Keni përvojë si kamarier?'},
+        {type:'line',speaker:'Menaxheri',de:'',sq:'Shumë mirë. Keni përvojë si kamarier?'},
         {type:'line',speaker:'Dion',de:'Nein, aber ich lerne schnell und bin sehr motiviert!',sq:'Jo, por mësoj shpejt dhe jam shumë i motivuar!'},
         {type:'line',speaker:'Menaxheri',de:'Wann können Sie anfangen?',sq:'Kur mund të filloni?'},
         {type:'line',speaker:'Dion',de:'Ab nächste Woche! Ich freue mich sehr auf die Arbeit!',sq:'Nga java e ardhshme! Pres me shumë entuziazëm punën!'},
@@ -2755,7 +2755,7 @@ const MODULE_UPGRADES = {
 'a1m2': {
   storyExtension: [
     {type:'narr', text:'Ditën tjetër, Dion shkon me Znj. Bauer në treg. Duhet të blejë disa gjëra bazike. Por nuk di çmimet gjermane.'},
-    {type:'line', speaker:'Znj. Bauer', de:'Hier ist der Markt. Was brauchen Sie?', sq:'Ja tregu. Çfarë ju duhet?'},
+    {type:'line', speaker:'Znj. Bauer', de:'Hier ist der Markt. Was brauchen Sie?', sq:'Këtu është tregu. Çfarë ju duhet?'},
     {type:'line', speaker:'Dion', de:'Ich brauche Äpfel, Brot und Wasser. Wie viel kostet das alles ungefähr?', sq:'Më duhen mollë, bukë dhe ujë. Sa kushton gjithçka përafërsisht?'},
     {type:'line', speaker:'Znj. Bauer', de:'Etwa fünf bis sieben Euro, schätze ich. Deutsches Brot ist sehr gut!', sq:'Rreth pesë deri shtatë euro, mendoj. Buka gjermane është shumë e mirë!'},
     {type:'line', speaker:'Shitësi', de:'Guten Morgen! Was darf es sein?', sq:'Mirëmëngjes! Çfarë dëshironi?'},
@@ -2841,7 +2841,7 @@ const MODULE_UPGRADES = {
     {type:'line', speaker:'Znj. Bauer', de:'Guten Morgen, Dion! Haben Sie gut geschlafen?', sq:'Mirëmëngjes, Dion! Keni fjetur mirë?'},
     {type:'line', speaker:'Dion', de:'Ja, sehr gut, danke! Das Bett ist sehr bequem. Oh — was ist das alles?', sq:'Po, shumë mirë, faleminderit! Krevati është shumë i rehatshëm. Oh — çfarë janë të gjitha këto?'},
     {type:'line', speaker:'Znj. Bauer', de:'Das ist ein typisches deutsches Frühstück! Brot, Butter, Käse, Wurst, Marmelade, Müsli...', sq:'Ky është mëngjes tipik gjerman! Bukë, gjalpë, djathë, sallam, reçel, muesli...'},
-    {type:'line', speaker:'Dion', de:'Das ist viel mehr als in Albanien! Bei uns gibt es morgens oft nur Kaffee und Brot.', sq:'Kjo është shumë më tepër se në Shqipëri! Tek ne shpesh ka vetëm kafe dhe bukë.'},
+    {type:'line', speaker:'Dion', de:'Das ist viel mehr als in Albanien! Bei uns gibt es morgens oft nur Kaffee und Brot.', sq:'Kjo është shumë më tepër se në Shqipëri! Tek ne shpesh ka vetëm çaj dhe bukë.'},
     {type:'line', speaker:'Znj. Bauer', de:'Frühstück ist die wichtigste Mahlzeit! Möchten Sie Rührei dazu?', sq:'Mëngjesi është vakti më i rëndësishëm! Dëshironi vezë të fërguar?'},
     {type:'line', speaker:'Dion', de:'Ja, gerne! Darf ich fragen — was ist Müsli genau?', sq:'Po, me dëshirë! Mund të pyes — çfarë është saktësisht muesli?'},
     {type:'line', speaker:'Znj. Bauer', de:'Müsli ist eine Mischung aus Haferflocken, Nüssen und Trockenfrüchten. Sehr gesund!', sq:'Muesli është përzieje e thekoneve të tërshërës, arrave dhe frutave të thata. Shumë e shëndetshme!'},
@@ -3222,11 +3222,11 @@ const REMAINING_UPGRADES = {
 'a1m5': {
   storyExtension: [
     {type:'narr', text:'Dion kërkon të kuptojë sistemin gjerman të banesave. Znj. Bauer e shpjegon çdo dhomë me durim.'},
-    {type:'line', speaker:'Znj. Bauer', de:'Darf ich Ihnen die Wohnung zeigen? Kennen Sie schon alles?', sq:'Mund t\'ju tregoj apartamentin? A e njihni gjithçka?'},
+    {type:'line', speaker:'Znj. Bauer', de:'Darf ich Ihnen die Wohnung zeigen? Kennen Sie schon alles?', sq:'Mund t\'ju tregoj apartamentin? A i dini tashmë të gjitha?'},
     {type:'line', speaker:'Dion', de:'Ich kenne mein Zimmer, aber den Rest noch nicht gut.', sq:'Dhomën time e njoh, por pjesën tjetër ende jo mirë.'},
-    {type:'line', speaker:'Znj. Bauer', de:'Also — das hier ist das Wohnzimmer. Der Fernseher, das Sofa, der Tisch.', sq:'Pra — ky është dhoma e ndenjies. Televizori, sofaja, tavolina.'},
+    {type:'line', speaker:'Znj. Bauer', de:'Also — das hier ist das Wohnzimmer. Der Fernseher, das Sofa, der Tisch.', sq:'Pra, kjo është dhoma e ndenjes. Televizori, sofaja, tavolina.'},
     {type:'line', speaker:'Dion', de:'Sehr schön! Und was ist dort — die große Tür?', sq:'Shumë e bukur! Dhe çfarë është atje — dera e madhe?'},
-    {type:'line', speaker:'Znj. Bauer', de:'Das ist der Keller. Dort können Sie Ihre Koffer lagern, wenn Sie möchten.', sq:'Ky është bodrumin. Atje mund të ruani valixhet, nëse dëshironi.'},
+    {type:'line', speaker:'Znj. Bauer', de:'Das ist der Keller. Dort können Sie Ihre Koffer lagern, wenn Sie möchten.', sq:'Ky është bodrumi. Atje mund t\'i vendosni valixhet, nëse dëshironi.'},
     {type:'line', speaker:'Dion', de:'Oh super! Ich habe tatsächlich zu viel Gepäck mitgebracht.', sq:'Oh super! Kam sjellë vërtet shumë bagazh.'},
     {type:'line', speaker:'Znj. Bauer', de:'Das ist kein Problem. Deutsche Wohnungen haben immer einen Keller. Das ist typisch!', sq:'Kjo nuk është problem. Banesat gjermane kanë gjithmonë bodrum. Kjo është tipike!'},
     {type:'line', speaker:'Dion', de:'Interessant! Bei uns in Albanien haben die meisten Wohnungen keinen Keller.', sq:'Interesante! Tek ne në Shqipëri shumica e banesave nuk kanë bodrum.'},
@@ -3272,7 +3272,7 @@ const REMAINING_UPGRADES = {
     {type:'line', speaker:'Shitësi', de:'Kein Problem. Haben Sie den Kassenbon dabei?', sq:'Nuk ka problem. E keni kuponin e arkes me vetë?'},
     {type:'line', speaker:'Dion', de:'Ja, natürlich. Hier ist er. Ich brauche Größe Medium, nicht Large.', sq:'Po, natyrisht. Ja ku është. Më duhet numri Medium, jo Large.'},
     {type:'line', speaker:'Shitësi', de:'Moment bitte... leider haben wir diese Jacke nur noch in Blau auf Medium, nicht in Schwarz.', sq:'Një moment... fatkeqësisht e kemi këtë xhaketë vetëm në blu në Medium, jo në të zezë.'},
-    {type:'line', speaker:'Dion', de:'Hm. Wie finden Sie das Blau? Passt das zu einer schwarzen Hose?', sq:'Hm. Si e gjeni ju blu-në? I shkon pantallonave të zeza?'},
+    {type:'line', speaker:'Dion', de:'Hm. Wie finden Sie das Blau? Passt das zu einer schwarzen Hose?', sq:'Hm. Si ju duket juve blu-ja? I shkon pantallonave të zeza?'},
     {type:'line', speaker:'Klea', de:'Ja, total! Blau und Schwarz ist ein Klassiker. Nimm die blaue!', sq:'Po, totalisht! Blu dhe e zezë është klasike. Merr atë blu!'},
     {type:'line', speaker:'Dion', de:'Okay, ich nehme die blaue dann. Wie viel kostet die — ist der Preis gleich?', sq:'Mirë, marr atë blu atëherë. Sa kushton — a është çmimi i njëjtë?'},
     {type:'line', speaker:'Shitësi', de:'Ja, gleicher Preis. Möchten Sie die Jacke anprobieren?', sq:'Po, i njëjti çmim. Dëshironi të provoni xhaketën?'},
@@ -3312,7 +3312,7 @@ const REMAINING_UPGRADES = {
 'a1m7': {
   storyExtension: [
     {type:'narr', text:'E mërkura në mbrëmje. Dion dhe Klea kanë bërë plan, por Dion harron. Klea e pret prej 20 minutash.'},
-    {type:'line', speaker:'Klea', de:'Dion! Es ist schon Viertel nach sieben! Wir hatten uns für halb sieben verabredet!', sq:'Dion! Është tashmë shtatë e një çerek! Kishim bërë plan për gjysmë shtatë!'},
+    {type:'line', speaker:'Klea', de:'Dion! Es ist schon Viertel nach sieben! Wir hatten uns für halb sieben verabredet!', sq:'Dion! Tashmë është shtatë e një çerek! Kishim bërë plan për gjysmë shtatë!'},
     {type:'line', speaker:'Dion', de:'Oh nein! Ich habe die Zeit komplett vergessen. Es tut mir sehr leid! Der Bus hatte auch Verspätung.', sq:'Oh jo! E harrova plotësisht kohën. Më vjen shumë keq! Edhe autobusi kishte vonesë.'},
     {type:'line', speaker:'Klea', de:'Immer der Bus! Dion, du musst eine Uhr kaufen!', sq:'Gjithmonë autobusi! Dion, duhet të blesh orë!'},
     {type:'line', speaker:'Dion', de:'Ich habe mein Handy — aber der Akku war leer. Darf ich dein Handy leihen?', sq:'Kam telefonin — por bateria ishte e zbrazët. Mund të marr hua telefonin tënd?'},
@@ -3356,7 +3356,7 @@ const REMAINING_UPGRADES = {
   storyExtension: [
     {type:'narr', text:'Dion humbet në metro për herë të parë. I kërkon ndihmë një vjeneze.'},
     {type:'line', speaker:'Dion', de:'Entschuldigung! Ich glaube, ich bin falsch gefahren. Wo bin ich jetzt?', sq:'Më fal! Besoj kam marrë drejtim të gabuar. Ku ndodhem tani?'},
-    {type:'line', speaker:'Vjenezja', de:'Sie sind an der Station Stephansplatz. Wo möchten Sie hin?', sq:'Ndoheni në stacionin Stephansplatz. Ku dëshironi të shkoni?'},
+    {type:'line', speaker:'Vjenezja', de:'Sie sind an der Station Stephansplatz. Wo möchten Sie hin?', sq:'Ndodheni në stacionin Stephansplatz. Ku dëshironi të shkoni?'},
     {type:'line', speaker:'Dion', de:'Zum Hauptbahnhof. Ich muss um 17 Uhr dort sein!', sq:'Në stacionin kryesor. Duhet të jem atje në orën 17!'},
     {type:'line', speaker:'Vjenezja', de:'Kein Problem! Nehmen Sie die U1 in Richtung Reumannplatz — vier Stationen.', sq:'Nuk ka problem! Merrni U1 drejt Reumannplatz — katër stacione.'},
     {type:'line', speaker:'Dion', de:'U1 — Reumannplatz — vier Stationen. Und wie lange dauert das?', sq:'U1 — Reumannplatz — katër stacione. Dhe sa kohë zgjat?'},
@@ -3405,7 +3405,7 @@ const REMAINING_UPGRADES = {
     {type:'line', speaker:'Klea', de:'Das klingt wunderbar! Und der Sommer? Wie heiß wird es?', sq:'Kjo tingëllon mrekullueshëm! Dhe vera? Sa nxehtë bëhet?'},
     {type:'line', speaker:'Dion', de:'Sehr heiß — 38 bis 40 Grad manchmal! Alle gehen ans Meer. Keine Arbeit, nur Strand!', sq:'Shumë nxehtë — 38 deri 40 gradë ndonjëherë! Të gjithë shkojnë në det. Asnjë punë, vetëm plazh!'},
     {type:'line', speaker:'Klea', de:'Das klingt nach Urlaub! Kannst du mir Albanien zeigen — irgendwann?', sq:'Kjo tingëllon si pushime! Mund të më tregosh Shqipërinë — ndonjëherë?'},
-    {type:'line', speaker:'Dion', de:'Mit Freude! Im Sommer. Meine Mutter kocht das beste Essen der Welt und das Meer ist wunderschön.', sq:'Me kënaqësi! Në verë. Nëna ime gatuon ushqimin më të mirë në botë dhe deti është i mrekullueshëm.'},
+    {type:'line', speaker:'Dion', de:'Mit Freude! Im Sommer. Meine Mutter kocht das beste Essen der Welt und das Meer ist wunderschön.', sq:'Me kënaqësi! Në verë. Nëna ime gatuan ushqimin më të mirë në botë dhe deti është i mrekullueshëm.'},
     {type:'narr', text:'Klea shënon datën. Dion kupton: miqtë e rinj janë ura mes dy botëve.'},
   ],
   thinkInGerman: [
