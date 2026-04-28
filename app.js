@@ -854,11 +854,35 @@ function renderGoetheContent() {
   if(!c) return;
   var tab = goetheState.tab;
 
-  if(tab === 'info') { c.innerHTML = renderGoetheInfo(); return; }
-  if(tab === 'lesen') { c.innerHTML = renderGoetheLesen(); return; }
-  if(tab === 'hoeren') { c.innerHTML = renderGoetheHoeren(); return; }
+  if(tab === 'info') {
+    c.innerHTML = renderGoetheInfo();
+    // Attach click handlers (avoids CSP inline onclick issues)
+    var btnLesen = document.getElementById('goetheStartLesen');
+    if(btnLesen) btnLesen.addEventListener('click', function(){ switchGoetheTab('lesen'); });
+    var btnHoeren = document.getElementById('goetheStartHoeren');
+    if(btnHoeren) btnHoeren.addEventListener('click', function(){ switchGoetheTab('hoeren'); });
+    var btnSchreiben = document.getElementById('goetheStartSchreiben');
+    if(btnSchreiben) btnSchreiben.addEventListener('click', function(){ switchGoetheTab('schreiben'); });
+    var btnSprechen = document.getElementById('goetheStartSprechen');
+    if(btnSprechen) btnSprechen.addEventListener('click', function(){ switchGoetheTab('sprechen'); });
+    return;
+  }
+  if(tab === 'lesen') { c.innerHTML = renderGoetheLesen(); attachGoetheAnswers('lesen'); return; }
+  if(tab === 'hoeren') { c.innerHTML = renderGoetheHoeren(); attachGoetheAnswers('hoeren'); return; }
   if(tab === 'schreiben') { c.innerHTML = renderGoetheSchreiben(); return; }
   if(tab === 'sprechen') { c.innerHTML = renderGoetheSprechen(); return; }
+}
+
+function attachGoetheAnswers(section) {
+  var btns = document.querySelectorAll('[data-goethe-key]');
+  Array.from(btns).forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var key = btn.getAttribute('data-goethe-key');
+      var selected = parseInt(btn.getAttribute('data-goethe-sel'));
+      var correct = parseInt(btn.getAttribute('data-goethe-cor'));
+      answerGoethe(section, key, selected, correct);
+    });
+  });
 }
 
 function renderGoetheInfo() {
@@ -885,7 +909,7 @@ function renderGoetheInfo() {
     d.tips.map(function(t){ return '<div style="display:flex;gap:10px;margin-bottom:8px"><span style="color:var(--gold)">→</span><span style="font-size:0.88rem;color:var(--text-dim)">' + t + '</span></div>'; }).join('') +
     '</div>' +
     '<div class="btn-row" style="margin-top:20px">' +
-    '<button class="btn" onclick="switchGoetheTab(\'lesen\')">Fillo me Leximin →</button>' +
+    '<button class=\"btn\" id=\"goetheStartLesen\">Fillo me Leximin →</button>' +
     '</div>' +
     '</div>';
   return html;
@@ -4270,7 +4294,7 @@ const INTERACTIVE_STORIES = {
           {speaker:'Dion', de:'Danke schoen! Das ist sehr nett.', sq:'Shume faleminderit! Jeni shume i/e mire.'},
           {speaker:'Frau Wagner', de:'Bitte schoen! Viel Erfolg in Wien!', sq:'Ka gjë! Suksese ne Vjene!'}
         ],
-        feedback:'Shume mire! Ke mesuar: drejtimi + falenderiminm. Fjale: geradeaus (drejt), links (majtas), die Ampel (semafori).'
+        feedback:'Shume mire! Ke mesuar: drejtimi + falënderimin. Fjale: geradeaus (drejt), links (majtas), die Ampel (semafori).'
       },
       map: {
         title:'Dioni perdor harten',
@@ -4306,7 +4330,7 @@ const INTERACTIVE_STORIES = {
         lines:[
           {speaker:'Interviewer', de:'Warum moechten Sie bei uns arbeiten?', sq:'Pse deshironi te punoni tek ne?'},
           {speaker:'Dion', de:'Ehrlich gesagt liebe ich Technologie! Seit Jahren programmiere ich in meiner Freizeit.', sq:'Sinqerisht e dua teknologjine! Prej vitesh programoj ne kohen e lire.'},
-          {speaker:'Interviewer', de:'Das gefaellt mir! Zeigen Sie mir etwas, das Sie selbst entwickelt haben.', sq:'Kjo me pelqen! Me tregoni dicka qe keni zhvilluar vete.'},
+          {speaker:'Interviewer', de:'Das gefaellt mir! Zeigen Sie mir etwas, das Sie selbst entwickelt haben.', sq:'Kjo me pelqen! Me tregoni dicka qe keni zhvilluar vetë.'},
           {speaker:'Dion', de:'Natuerlich! Ich habe eine App fuer albanische Lernende entwickelt.', sq:'Sigurisht! Kam zhvilluar nje app per nxenesit shqiptare.'}
         ],
         feedback:'Pasioni autentik impresionon! Fjale: ehrlich gesagt (sinqerisht), die Freizeit (koha e lire), entwickeln (te zhvillosh).'
@@ -5039,7 +5063,7 @@ const VOCAB_V18 = {
   {de:"das Produkt",sq:"produkti",type:"Biznes",ex:"Das Produkt ist neu. — Produkti është i ri."},
   {de:"verhandeln",sq:"të negociosh",type:"Biznes",ex:"Wir verhandeln über den Preis. — Negociojmë çmimin."},
   {de:"zumindest",sq:"të paktën",type:"Lidhëz",ex:"Zumindest ist er ehrlich. — Të paktën është i ndershëm."},
-  {de:"nach wie vor",sq:"edhe sot e kësaj dite",type:"Shprehje",ex:"Das Problem besteht nach wie vor. — Problemi vazhdon edhe sot."},
+  {de:"nach wie vor",sq:"edhe sot e kësaj ditë",type:"Shprehje",ex:"Das Problem besteht nach wie vor. — Problemi vazhdon edhe sot."},
   {de:"im Gegenteil",sq:"përkundrazi",type:"Shprehje",ex:"Im Gegenteil, das ist gut! — Përkundrazi, kjo është mirë!"},
   {de:"auf jeden Fall",sq:"domosdoshmërisht/patjetër",type:"Shprehje",ex:"Das muss auf jeden Fall gemacht werden. — Kjo duhet patjetër të bëhet."},
   {de:"im Vergleich zu",sq:"në krahasim me",type:"Shprehje",ex:"Im Vergleich zu letztem Jahr ist es besser. — Në krahasim me vitin e kaluar është më mirë."},
@@ -5127,7 +5151,7 @@ const VOCAB_V18 = {
   buildAllVocab=function(){
     _o4();
     function tg(a,s){return a.map(function(w){return Object.assign({},w,{source:s});});}
-    var fa1=[{de:"sich anziehen",sq:"të veshesh",type:"Folje",ex:"Ich ziehe mich schnell an. — Vishem shpejt."},{de:"sich ausziehen",sq:"të zhveshesh",type:"Folje",ex:"Die Kinder ziehen sich aus. — Fëmijët zhvishen."},{de:"sich rasieren",sq:"të rruahesh",type:"Folje",ex:"Er rasiert sich täglich. — Ai rruhet çdo ditë."},{de:"sich schminken",sq:"të bëhesh make-up",type:"Folje",ex:"Sie schminkt sich morgens. — Ajo bëhet make-up mëngjeseve."},{de:"sich kämmen",sq:"të krehesh",type:"Folje",ex:"Das Kind kämmt sich. — Fëmija krehët."},{de:"wischen",sq:"të fshish (dyshemenë)",type:"Folje",ex:"Den Boden wischen. — Fshij dyshemenë."},{de:"staubsaugen",sq:"të fshish me fshirëse elektrike",type:"Folje",ex:"Einmal pro Woche staubsaugen. — Njëherë në javë fshij me fshirëse."},{de:"nähen",sq:"të qepësh",type:"Folje",ex:"Ich nähe den Knopf an. — Qep butonin."},{de:"basteln",sq:"të bësh punë dore",type:"Folje",ex:"Die Kinder basteln. — Fëmijët bëjnë punë dore."},{de:"aufnehmen",sq:"të incizosh/xhirosh",type:"Folje",ex:"Das Video aufnehmen. — Incizoj videon."},{de:"bearbeiten",sq:"të punësosh/modifikosh",type:"Folje",ex:"Das Foto bearbeiten. — Modifikoj foton."},{de:"drehen",sq:"të xhirosh/rrotullosh",type:"Folje",ex:"Einen Film drehen. — Xhiroj film."},{de:"aufmerksam",sq:"i vëmendshëm",type:"Mbiemër",ex:"Sei aufmerksam! — Bëj i vëmendshëm!"},{de:"sorgfältig",sq:"me kujdes/i kujdesshëm",type:"Mbiemër",ex:"Sorgfältig arbeiten. — Punoj me kujdes."},{de:"gewissenhaft",sq:"ndërgjegjshëm/me ndërgjegjshmëri",type:"Mbiemër",ex:"Er ist gewissenhaft. — Ai është ndërgjegjshëm."},{de:"hilfsbereit",sq:"i gatshëm për ndihmë",type:"Mbiemër",ex:"Sie ist sehr hilfsbereit. — Ajo është shumë e gatshme për ndihmë."},{de:"freundlich",sq:"i sjellshëm/miqësor",type:"Mbiemër",ex:"Der Verkäufer ist freundlich. — Shitësi është i sjellshëm."},{de:"pünktlich",sq:"i pikësaktë",type:"Mbiemër",ex:"Sei pünktlich! — Bëj i pikësaktë!"},{de:"verantwortungsbewusst",sq:"i ndërgjegjshëm",type:"Mbiemër",ex:"Sie handelt verantwortungsbewusst. — Ajo vepron me ndërgjegjshmëri."},{de:"selbstbewusst",sq:"i sigurt në vete",type:"Mbiemër",ex:"Er tritt selbstbewusst auf. — Ai shfaqet i sigurt në vete."},{de:"kreativ",sq:"kreativ",type:"Mbiemër",ex:"Er ist sehr kreativ. — Ai është shumë kreativ."},{de:"kritisch",sq:"kritik",type:"Mbiemër",ex:"Denk kritisch! — Mendo kritikisht!"},{de:"analytisch",sq:"analitik",type:"Mbiemër",ex:"Analytisches Denken ist gefragt. — Mendimi analitik kërkohet."},{de:"systematisch",sq:"sistematik",type:"Mbiemër",ex:"Systematisch vorgehen. — Veproj sistematikisht."},{de:"praktisch",sq:"praktik/i dobishëm",type:"Mbiemër",ex:"Das ist sehr praktisch. — Kjo është shumë praktike."},{de:"der Saft",sq:"lëngu i frutave",type:"Ushqim",ex:"Ein Glas Orangensaft. — Një gotë lëng portokalli."},{de:"der Joghurt",sq:"kosi",type:"Ushqim",ex:"Joghurt zum Frühstück. — Kos për mëngjes."},{de:"die Wurst",sq:"suxhuku/proshuta",type:"Ushqim",ex:"Brot mit Wurst. — Bukë me suxhuk."},{de:"das Obst",sq:"frutat",type:"Ushqim",ex:"Täglich Obst essen. — Ha fruta çdo ditë."},{de:"die Gurke",sq:"kastraveci",type:"Ushqim",ex:"Gurke in den Salat. — Kastravec në sallatë."}];
+    var fa1=[{de:"sich anziehen",sq:"të veshesh",type:"Folje",ex:"Ich ziehe mich schnell an. — Vishem shpejt."},{de:"sich ausziehen",sq:"të zhveshesh",type:"Folje",ex:"Die Kinder ziehen sich aus. — Fëmijët zhvishen."},{de:"sich rasieren",sq:"të rruahesh",type:"Folje",ex:"Er rasiert sich täglich. — Ai rruhet çdo ditë."},{de:"sich schminken",sq:"të bëhesh make-up",type:"Folje",ex:"Sie schminkt sich morgens. — Ajo bëhet make-up mëngjeseve."},{de:"sich kämmen",sq:"të krehesh",type:"Folje",ex:"Das Kind kämmt sich. — Fëmija krehët."},{de:"wischen",sq:"të fshish (dyshemenë)",type:"Folje",ex:"Den Boden wischen. — Fshij dyshemenë."},{de:"staubsaugen",sq:"të fshish me fshirëse elektrike",type:"Folje",ex:"Einmal pro Woche staubsaugen. — Njëherë në javë fshij me fshirëse."},{de:"nähen",sq:"të qepësh",type:"Folje",ex:"Ich nähe den Knopf an. — Qep butonin."},{de:"basteln",sq:"të bësh punë dore",type:"Folje",ex:"Die Kinder basteln. — Fëmijët bëjnë punë dore."},{de:"aufnehmen",sq:"të incizosh/xhirosh",type:"Folje",ex:"Das Video aufnehmen. — Incizoj videon."},{de:"bearbeiten",sq:"të punësosh/modifikosh",type:"Folje",ex:"Das Foto bearbeiten. — Modifikoj foton."},{de:"drehen",sq:"të xhirosh/rrotullosh",type:"Folje",ex:"Einen Film drehen. — Xhiroj film."},{de:"aufmerksam",sq:"i vëmendshëm",type:"Mbiemër",ex:"Sei aufmerksam! — Bëj i vëmendshëm!"},{de:"sorgfältig",sq:"me kujdes/i kujdesshëm",type:"Mbiemër",ex:"Sorgfältig arbeiten. — Punoj me kujdes."},{de:"gewissenhaft",sq:"ndërgjegjshëm/me ndërgjegjshmëri",type:"Mbiemër",ex:"Er ist gewissenhaft. — Ai është ndërgjegjshëm."},{de:"hilfsbereit",sq:"i gatshëm për ndihmë",type:"Mbiemër",ex:"Sie ist sehr hilfsbereit. — Ajo është shumë e gatshme për ndihmë."},{de:"freundlich",sq:"i sjellshëm/miqësor",type:"Mbiemër",ex:"Der Verkäufer ist freundlich. — Shitësi është i sjellshëm."},{de:"pünktlich",sq:"i pikësaktë",type:"Mbiemër",ex:"Sei pünktlich! — Bëj i pikësaktë!"},{de:"verantwortungsbewusst",sq:"i ndërgjegjshëm",type:"Mbiemër",ex:"Sie handelt verantwortungsbewusst. — Ajo vepron me ndërgjegjshmëri."},{de:"selbstbewusst",sq:"i sigurt në vetë",type:"Mbiemër",ex:"Er tritt selbstbewusst auf. — Ai shfaqet i sigurt në vete."},{de:"kreativ",sq:"kreativ",type:"Mbiemër",ex:"Er ist sehr kreativ. — Ai është shumë kreativ."},{de:"kritisch",sq:"kritik",type:"Mbiemër",ex:"Denk kritisch! — Mendo kritikisht!"},{de:"analytisch",sq:"analitik",type:"Mbiemër",ex:"Analytisches Denken ist gefragt. — Mendimi analitik kërkohet."},{de:"systematisch",sq:"sistematik",type:"Mbiemër",ex:"Systematisch vorgehen. — Veproj sistematikisht."},{de:"praktisch",sq:"praktik/i dobishëm",type:"Mbiemër",ex:"Das ist sehr praktisch. — Kjo është shumë praktike."},{de:"der Saft",sq:"lëngu i frutave",type:"Ushqim",ex:"Ein Glas Orangensaft. — Një gotë lëng portokalli."},{de:"der Joghurt",sq:"kosi",type:"Ushqim",ex:"Joghurt zum Frühstück. — Kos për mëngjes."},{de:"die Wurst",sq:"suxhuku/proshuta",type:"Ushqim",ex:"Brot mit Wurst. — Bukë me suxhuk."},{de:"das Obst",sq:"frutat",type:"Ushqim",ex:"Täglich Obst essen. — Ha fruta çdo ditë."},{de:"die Gurke",sq:"kastraveci",type:"Ushqim",ex:"Gurke in den Salat. — Kastravec në sallatë."}];
     ALL_VOCAB.A1=ALL_VOCAB.A1.concat(tg(fa1,"Fjalori Final"));
     var fa2=[{de:"der Salat",sq:"sallatë/marule",type:"Ushqim",ex:"Ein frischer Salat. — Sallatë e freskët."},{de:"die Bluse",sq:"blluzë femrore",type:"Rroba",ex:"Eine elegante Bluse. — Blluzë elegante."},{de:"der Stiefel",sq:"çizmet",type:"Rroba",ex:"Stiefel im Regen. — Çizme në shi."}];
     ALL_VOCAB.A2=ALL_VOCAB.A2.concat(tg(fa2,"Fjalori Final"));
@@ -5322,7 +5346,7 @@ function showStudyGuide() {
   });
   innerHtml += '<div style="background:rgba(240,180,41,0.07);border:1px solid rgba(240,180,41,0.2);border-radius:9px;padding:11px;margin-bottom:16px;font-size:0.84rem;color:var(--text);line-height:1.6">'
     + '<strong style="color:var(--gold)">💡 Rregulli i artë:</strong> 15 min çdo ditë &gt; 2 orë të premten.</div>'
-    + '<button id="closeGuideBtn2" style="width:100%;padding:11px;background:var(--gold);border:none;border-radius:9px;color:#000;cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.9rem;font-weight:700">E kuptova ✓</button>';
+    ;
   box.innerHTML = innerHtml;
   modal.appendChild(box);
   document.body.appendChild(modal);

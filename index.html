@@ -4,12 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DeutschAL — Gjermanisht për Shqiptarët</title>
-  <!-- Open Graph -->
-<meta property="og:title" content="DeutschAL — Gjermanisht për Shqiptarët">
-<meta property="og:description" content="Mëso gjermanisht shpejt dhe thjesht me DeutschAL.">
-<meta property="og:image" content="https://www.deutschal.com/og-image.jpg">
-<meta property="og:url" content="https://www.deutschal.com">
-<meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -852,7 +846,7 @@ h1.landing-title{font-size:2rem}
 
     <p class="landing-note" style="margin-top:16px">A1 → A2 → B1 &nbsp;•&nbsp; 36 module &nbsp;•&nbsp; ~2000 fjalë &nbsp;•&nbsp; Historia me Dion</p>
   </div>
-    <div style="text-align:center;padding:12px;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text-muted);margin-top:10px"><span>E krijuar nga <strong style="color:var(--gold)">KS</strong></span> &nbsp;·&nbsp; <span>© 2026 DeutschAL</span></div>
+    <div style="text-align:center;padding:14px 20px;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text-muted);margin-top:10px"><span>E krijuar nga <strong style="color:var(--gold)">KS</strong></span> &nbsp;·&nbsp; <span>© 2026 DeutschAL</span><div style="display:flex;justify-content:center;gap:16px;margin-top:8px"><button onclick="showAbout()" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.78rem;padding:0;text-decoration:underline">Rreth nesh</button><button onclick="showPrivacy()" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.78rem;padding:0;text-decoration:underline">Privatësia</button><button onclick="showContact()" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.78rem;padding:0;text-decoration:underline">Kontakt</button></div></div>
 </div>
 
 <!-- ═══════════════════════════════════════════
@@ -891,7 +885,8 @@ h1.landing-title{font-size:2rem}
       <button class="level-tab" style="color:var(--text-muted)" id="toolsMenuBtn" onclick="toggleCourseMenu()">⋯ Mjete</button>
       <!-- Dropdown tools menu -->
       <div id="courseToolsMenu" style="display:none;position:fixed;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:8px;z-index:10000;min-width:220px;box-shadow:0 8px 32px rgba(0,0,0,0.5);max-height:80vh;overflow-y:auto">
-        <div style="padding:6px 10px;font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--border);margin-bottom:6px">Mjetet e të mësuarit</div>
+        <div style="padding:6px 10px;font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--border);margin-bottom:6px">Mjetet e të mësuarit
+      </div>
         <button onclick="showGrammarScreen();toggleCourseMenu()" style="width:100%;text-align:left;padding:8px 12px;background:none;border:none;cursor:pointer;color:var(--text-dim);font-size:0.85rem;font-family:DM Sans,sans-serif;border-radius:6px;display:flex;gap:10px" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.background='none'">📐 Gramatika <span style="color:var(--text-muted);font-size:0.75rem;margin-left:auto">38 tema</span></button>
         <button onclick="showFlashcards();toggleCourseMenu()" style="width:100%;text-align:left;padding:8px 12px;background:none;border:none;cursor:pointer;color:var(--text-dim);font-size:0.85rem;font-family:DM Sans,sans-serif;border-radius:6px;display:flex;gap:10px" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='none'">🃏 Kartela SRS</button>
         <button onclick="showChatbot();toggleCourseMenu()" style="width:100%;text-align:left;padding:8px 12px;background:none;border:none;cursor:pointer;color:var(--gold);font-size:0.85rem;font-family:DM Sans,sans-serif;border-radius:6px;display:flex;gap:10px" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='none'">🤖 AI Chat</button>
@@ -924,11 +919,11 @@ const MODULES = {
       story: {
         ep:'Episodi 1', title:'Dita e parë në Wien',
         lines:[
-          {type:'narr', text:'Dion vjen nga Shqipëria. Ai mbrin në Wien për herë të parë. Bie kembanin tek familja Bauer.'},
+          {type:'narr', text:'Dion vjen nga Kosova, nga Prishtina. Ai mbrin në Wien për herë të parë. I bie ziles së familjes Bauer.'},
           {type:'line', speaker:'Znj. Bauer', de:'Hallo! Sie sind Dion, oder?', sq:'Përshëndetje! Ju jeni Dion, apo jo?'},
           {type:'line', speaker:'Dion', de:'Ja, guten Tag! Ich heiße Dion. Ich komme aus Albanien.', sq:'Po, mirëdita! Unë quhem Dion. Vij nga Shqipëria.'},
           {type:'line', speaker:'Znj. Bauer', de:'Willkommen! Kommen Sie herein. Mein Name ist Bauer.', sq:'Mirë se vini! Hyni brenda. Emri im është Bauer.'},
-          {type:'line', speaker:'Dion', de:'Danke schön! Es freut mich!', sq:'Shumë faleminderit! Gëzoj njohjen!'},
+          {type:'line', speaker:'Dion', de:'Danke schön! Es freut mich!', sq:'Shumë faleminderit! Gëzohem!'},
           {type:'line', speaker:'Hr. Bauer', de:'Guten Tag! Wie geht es Ihnen?', sq:'Mirëdita! Si jeni?'},
           {type:'line', speaker:'Dion', de:'Gut, danke! Und Ihnen?', sq:'Mirë, faleminderit! Por ju?'},
         ]
@@ -939,8 +934,8 @@ const MODULES = {
         {de:'Guten Tag',sq:'Mirëdita',type:'Përshëndetje',ex:'Guten Tag, Herr Müller! — Mirëdita, z. Müller!'},
         {de:'Guten Abend',sq:'Mirëmbrëma',type:'Përshëndetje',ex:'Guten Abend! Willkommen! — Mirëmbrëma! Mirë se vini!'},
         {de:'Gute Nacht',sq:'Natën e mirë',type:'Lamtumirë',ex:'Gute Nacht! Schlaf gut! — Natën e mirë! Fli mirë!'},
-        {de:'Tschüss',sq:'Çao / Mirupafshim',type:'Lamtumirë',ex:'Tschüss! Bis morgen! — Çao! Deri nesër!'},
-        {de:'Auf Wiedersehen',sq:'Mirupafshim (formale)',type:'Lamtumirë',ex:'Auf Wiedersehen, Frau Schmidt! — Mirupafshim, znj. Schmidt!'},
+        {de:'Tschüss',sq:'Çao / Mirëupafshim',type:'Lamtumirë',ex:'Tschüss! Bis morgen! — Çao! Deri nesër!'},
+        {de:'Auf Wiedersehen',sq:'Mirëupafshim (formale)',type:'Lamtumirë',ex:'Auf Wiedersehen, Frau Schmidt! — Mirëupafshim, znj. Schmidt!'},
         {de:'Ich heiße',sq:'Unë quhem',type:'Prezantim',ex:'Ich heiße Anna. — Unë quhem Anna.'},
         {de:'Mein Name ist',sq:'Emri im është',type:'Prezantim',ex:'Mein Name ist Klaus. — Emri im është Klaus.'},
         {de:'Wie heißt du?',sq:'Si quhesh?',type:'Pyetje',ex:'Hallo! Wie heißt du? — Përshëndetje! Si quhesh?'},
@@ -1027,7 +1022,7 @@ const MODULES = {
            ['4','vier','14','vierzehn'],['5','fünf','15','fünfzehn'],['6','sechs','16','sechzehn'],
            ['7','sieben','17','siebzehn'],['8','acht','18','achtzehn'],['9','neun','19','neunzehn'],['10','zehn','20','zwanzig'],
          ]}},
-        {title:'Numrat 20–100 — Rregulli i madh',body:'Nga 21-99 gjermanishtja thotë FILLIMISHT njëshjet, pastaj dhjetëshet. Rregulli: njëshi + "und" + dhjetëshi:',
+        {title:'Numrat 20–100 — Rregulli i madh',body:'Nga 21-99 gjermanishtja thotë FILLIMISHT Njëshet, pastaj dhjetëshet. Rregulli: njëshi + "und" + dhjetëshi:',
          table:{heads:['Nr','Gjermanisht','Si ndërtohet'],rows:[
            ['21','einundzwanzig','eins + und + zwanzig'],
            ['35','fünfunddreißig','fünf + und + dreißig'],
@@ -1062,7 +1057,7 @@ const MODULES = {
         {type:'line',speaker:'Klea',de:'Hast du Fotos von deiner Familie?',sq:'Ke foto të familjes tënde?'},
         {type:'line',speaker:'Dion',de:'Ja! Das ist meine Mutter. Sie heißt Elona.',sq:'Po! Kjo është nëna ime. Ajo quhet Elona.'},
         {type:'line',speaker:'Klea',de:'Und wer ist das?',sq:'Dhe kush është kjo?'},
-        {type:'line',speaker:'Dion',de:'Das ist mein Vater. Er heißt Arben. Er ist Ingenieur.',sq:'Kjo është babai im. Ai quhet Arben. Ai është inxhinier.'},
+        {type:'line',speaker:'Dion',de:'Das ist mein Vater. Er heißt Arben. Er ist Ingenieur.',sq:'Ky është babai im. Ai quhet Arben. Ai është inxhinier.'},
         {type:'line',speaker:'Klea',de:'Hast du Geschwister?',sq:'Ke vëllezër ose motra?'},
         {type:'line',speaker:'Dion',de:'Ja, ich habe eine Schwester. Sie ist 24 Jahre alt.',sq:'Po, kam një motër. Ajo është 24 vjeç.'},
       ]},
@@ -1295,9 +1290,9 @@ const MODULES = {
       id:'a1m7', num:7, title:'Ditët & Ora', sub:'Tage, Monate & Uhrzeit',
       story:{ep:'Episodi 7',title:'Vonë si gjithmonë',lines:[
         {type:'narr',text:'Dion ka harruar takimin e tij. Klea e pret në kafene prej 30 minutash.'},
-        {type:'line',speaker:'Klea',de:'Endlich! Es ist schon halb zwei! Wir hatten um ein Uhr verabredet!',sq:'Në fund! Është tashmë një e gjysmë! Kishim takim në orën një!'},
+        {type:'line',speaker:'Klea',de:'Endlich! Es ist schon halb zwei! Wir hatten um ein Uhr verabredet!',sq:'Më në fund! Është tashmë një e gjysmë! Kishim takim në orën një!'},
         {type:'line',speaker:'Dion',de:'Entschuldigung! Der Bus hatte Verspätung!',sq:'Më fal! Autobusi kishte vonesë!'},
-        {type:'line',speaker:'Klea',de:'Kein Problem. Welcher Tag ist heute?',sq:'Nuk ka problem. Çfarë dite është sot?'},
+        {type:'line',speaker:'Klea',de:'Kein Problem. Welcher Tag ist heute?',sq:'Nuk ka problem. Çfarë ditë është sot?'},
         {type:'line',speaker:'Dion',de:'Heute ist Donnerstag, der fünfte März.',sq:'Sot është e enjte, pesë mars.'},
         {type:'line',speaker:'Klea',de:'Richtig! Und morgen haben wir frei!',sq:'Saktë! Dhe nesër kemi pushim!'},
       ]},
@@ -1351,7 +1346,7 @@ const MODULES = {
         {type:'narr',text:'Dion duhet të shkojë vetëm me metro për herë të parë. Klea i jep udhëzime.'},
         {type:'line',speaker:'Klea',de:'Du nimmst die U-Bahn Linie U2, Richtung Schottenring.',sq:'Merr metron linjë U2, drejtim Schottenring.'},
         {type:'line',speaker:'Dion',de:'Und wo steige ich aus?',sq:'Dhe ku zbres?'},
-        {type:'line',speaker:'Klea',de:'Du steigst an der Station Karlsplatz aus. Das sind vier Stationen.',sq:'Zbriti në stacionin Karlsplatz. Janë katër stacione.'},
+        {type:'line',speaker:'Klea',de:'Du steigst an der Station Karlsplatz aus. Das sind vier Stationen.',sq:'Ti zbret në stacionin, në Karlsplatz. Janë katër stacione.'},
         {type:'line',speaker:'Dion',de:'Muss ich umsteigen?',sq:'Duhet të ndërroj linjë?'},
         {type:'line',speaker:'Klea',de:'Nein, direkt! Kein Umsteigen nötig.',sq:'Jo, direkt! Nuk ka nevojë të ndërrosh.'},
         {type:'line',speaker:'Dion',de:'Wie lange dauert die Fahrt?',sq:'Sa kohë zgjat udhëtimi?'},
@@ -1459,7 +1454,7 @@ const MODULES = {
         {type:'line',speaker:'Menaxheri',de:'Guten Tag! Bitte setzen Sie sich. Was sind Sie von Beruf?',sq:'Mirëdita! Ju lutem uluni. Çfarë profesioni keni?'},
         {type:'line',speaker:'Dion',de:'Ich bin Student. Ich studiere Informatik.',sq:'Jam student. Studioj informatikë.'},
         {type:'line',speaker:'Menaxheri',de:'Sehr gut. Haben Sie Erfahrung als Kellner?',opts:['Jo, por dua të mësoj shpejt.']},
-        {type:'line',speaker:'Menaxheri',de:'Sehr gut. Haben Sie Erfahrung als Kellner?',sq:'Shumë mirë. Keni përvojë si kamarier?'},
+        {type:'line',speaker:'Menaxheri',de:'',sq:'Shumë mirë. Keni përvojë si kamarier?'},
         {type:'line',speaker:'Dion',de:'Nein, aber ich lerne schnell und bin sehr motiviert!',sq:'Jo, por mësoj shpejt dhe jam shumë i motivuar!'},
         {type:'line',speaker:'Menaxheri',de:'Wann können Sie anfangen?',sq:'Kur mund të filloni?'},
         {type:'line',speaker:'Dion',de:'Ab nächste Woche! Ich freue mich sehr auf die Arbeit!',sq:'Nga java e ardhshme! Pres me shumë entuziazëm punën!'},
@@ -3668,7 +3663,7 @@ const MODULE_UPGRADES = {
 'a1m2': {
   storyExtension: [
     {type:'narr', text:'Ditën tjetër, Dion shkon me Znj. Bauer në treg. Duhet të blejë disa gjëra bazike. Por nuk di çmimet gjermane.'},
-    {type:'line', speaker:'Znj. Bauer', de:'Hier ist der Markt. Was brauchen Sie?', sq:'Ja tregu. Çfarë ju duhet?'},
+    {type:'line', speaker:'Znj. Bauer', de:'Hier ist der Markt. Was brauchen Sie?', sq:'Këtu është tregu. Çfarë ju duhet?'},
     {type:'line', speaker:'Dion', de:'Ich brauche Äpfel, Brot und Wasser. Wie viel kostet das alles ungefähr?', sq:'Më duhen mollë, bukë dhe ujë. Sa kushton gjithçka përafërsisht?'},
     {type:'line', speaker:'Znj. Bauer', de:'Etwa fünf bis sieben Euro, schätze ich. Deutsches Brot ist sehr gut!', sq:'Rreth pesë deri shtatë euro, mendoj. Buka gjermane është shumë e mirë!'},
     {type:'line', speaker:'Shitësi', de:'Guten Morgen! Was darf es sein?', sq:'Mirëmëngjes! Çfarë dëshironi?'},
@@ -3754,7 +3749,7 @@ const MODULE_UPGRADES = {
     {type:'line', speaker:'Znj. Bauer', de:'Guten Morgen, Dion! Haben Sie gut geschlafen?', sq:'Mirëmëngjes, Dion! Keni fjetur mirë?'},
     {type:'line', speaker:'Dion', de:'Ja, sehr gut, danke! Das Bett ist sehr bequem. Oh — was ist das alles?', sq:'Po, shumë mirë, faleminderit! Krevati është shumë i rehatshëm. Oh — çfarë janë të gjitha këto?'},
     {type:'line', speaker:'Znj. Bauer', de:'Das ist ein typisches deutsches Frühstück! Brot, Butter, Käse, Wurst, Marmelade, Müsli...', sq:'Ky është mëngjes tipik gjerman! Bukë, gjalpë, djathë, sallam, reçel, muesli...'},
-    {type:'line', speaker:'Dion', de:'Das ist viel mehr als in Albanien! Bei uns gibt es morgens oft nur Kaffee und Brot.', sq:'Kjo është shumë më tepër se në Shqipëri! Tek ne shpesh ka vetëm kafe dhe bukë.'},
+    {type:'line', speaker:'Dion', de:'Das ist viel mehr als in Albanien! Bei uns gibt es morgens oft nur Kaffee und Brot.', sq:'Kjo është shumë më tepër se në Shqipëri! Tek ne shpesh ka vetëm çaj dhe bukë.'},
     {type:'line', speaker:'Znj. Bauer', de:'Frühstück ist die wichtigste Mahlzeit! Möchten Sie Rührei dazu?', sq:'Mëngjesi është vakti më i rëndësishëm! Dëshironi vezë të fërguar?'},
     {type:'line', speaker:'Dion', de:'Ja, gerne! Darf ich fragen — was ist Müsli genau?', sq:'Po, me dëshirë! Mund të pyes — çfarë është saktësisht muesli?'},
     {type:'line', speaker:'Znj. Bauer', de:'Müsli ist eine Mischung aus Haferflocken, Nüssen und Trockenfrüchten. Sehr gesund!', sq:'Muesli është përzieje e thekoneve të tërshërës, arrave dhe frutave të thata. Shumë e shëndetshme!'},
@@ -4135,11 +4130,11 @@ const REMAINING_UPGRADES = {
 'a1m5': {
   storyExtension: [
     {type:'narr', text:'Dion kërkon të kuptojë sistemin gjerman të banesave. Znj. Bauer e shpjegon çdo dhomë me durim.'},
-    {type:'line', speaker:'Znj. Bauer', de:'Darf ich Ihnen die Wohnung zeigen? Kennen Sie schon alles?', sq:'Mund t\'ju tregoj apartamentin? A e njihni gjithçka?'},
+    {type:'line', speaker:'Znj. Bauer', de:'Darf ich Ihnen die Wohnung zeigen? Kennen Sie schon alles?', sq:'Mund t\'ju tregoj apartamentin? A i dini tashmë të gjitha?'},
     {type:'line', speaker:'Dion', de:'Ich kenne mein Zimmer, aber den Rest noch nicht gut.', sq:'Dhomën time e njoh, por pjesën tjetër ende jo mirë.'},
-    {type:'line', speaker:'Znj. Bauer', de:'Also — das hier ist das Wohnzimmer. Der Fernseher, das Sofa, der Tisch.', sq:'Pra — ky është dhoma e ndenjies. Televizori, sofaja, tavolina.'},
+    {type:'line', speaker:'Znj. Bauer', de:'Also — das hier ist das Wohnzimmer. Der Fernseher, das Sofa, der Tisch.', sq:'Pra, kjo është dhoma e ndenjes. Televizori, sofaja, tavolina.'},
     {type:'line', speaker:'Dion', de:'Sehr schön! Und was ist dort — die große Tür?', sq:'Shumë e bukur! Dhe çfarë është atje — dera e madhe?'},
-    {type:'line', speaker:'Znj. Bauer', de:'Das ist der Keller. Dort können Sie Ihre Koffer lagern, wenn Sie möchten.', sq:'Ky është bodrumin. Atje mund të ruani valixhet, nëse dëshironi.'},
+    {type:'line', speaker:'Znj. Bauer', de:'Das ist der Keller. Dort können Sie Ihre Koffer lagern, wenn Sie möchten.', sq:'Ky është bodrumi. Atje mund t\'i vendosni valixhet, nëse dëshironi.'},
     {type:'line', speaker:'Dion', de:'Oh super! Ich habe tatsächlich zu viel Gepäck mitgebracht.', sq:'Oh super! Kam sjellë vërtet shumë bagazh.'},
     {type:'line', speaker:'Znj. Bauer', de:'Das ist kein Problem. Deutsche Wohnungen haben immer einen Keller. Das ist typisch!', sq:'Kjo nuk është problem. Banesat gjermane kanë gjithmonë bodrum. Kjo është tipike!'},
     {type:'line', speaker:'Dion', de:'Interessant! Bei uns in Albanien haben die meisten Wohnungen keinen Keller.', sq:'Interesante! Tek ne në Shqipëri shumica e banesave nuk kanë bodrum.'},
@@ -4182,10 +4177,10 @@ const REMAINING_UPGRADES = {
     {type:'narr', text:'Dion ka një problem: ka blerë xhaketa e gabuar numrin. Klea e shoqëron ta ndërrojë.'},
     {type:'line', speaker:'Shitësi', de:'Kann ich Ihnen helfen?', sq:'Mund t\'ju ndihmoj?'},
     {type:'line', speaker:'Dion', de:'Ja bitte. Ich habe diese Jacke gekauft, aber sie ist zu groß. Ich möchte sie umtauschen.', sq:'Po, ju lutem. E bleva këtë xhaketë, por është shumë e madhe. Dua ta ndërroj.'},
-    {type:'line', speaker:'Shitësi', de:'Kein Problem. Haben Sie den Kassenbon dabei?', sq:'Nuk ka problem. E keni kuponin e arkes me vete?'},
+    {type:'line', speaker:'Shitësi', de:'Kein Problem. Haben Sie den Kassenbon dabei?', sq:'Nuk ka problem. E keni kuponin e arkes me vetë?'},
     {type:'line', speaker:'Dion', de:'Ja, natürlich. Hier ist er. Ich brauche Größe Medium, nicht Large.', sq:'Po, natyrisht. Ja ku është. Më duhet numri Medium, jo Large.'},
     {type:'line', speaker:'Shitësi', de:'Moment bitte... leider haben wir diese Jacke nur noch in Blau auf Medium, nicht in Schwarz.', sq:'Një moment... fatkeqësisht e kemi këtë xhaketë vetëm në blu në Medium, jo në të zezë.'},
-    {type:'line', speaker:'Dion', de:'Hm. Wie finden Sie das Blau? Passt das zu einer schwarzen Hose?', sq:'Hm. Si e gjeni ju blu-në? I shkon pantallonave të zeza?'},
+    {type:'line', speaker:'Dion', de:'Hm. Wie finden Sie das Blau? Passt das zu einer schwarzen Hose?', sq:'Hm. Si ju duket juve blu-ja? I shkon pantallonave të zeza?'},
     {type:'line', speaker:'Klea', de:'Ja, total! Blau und Schwarz ist ein Klassiker. Nimm die blaue!', sq:'Po, totalisht! Blu dhe e zezë është klasike. Merr atë blu!'},
     {type:'line', speaker:'Dion', de:'Okay, ich nehme die blaue dann. Wie viel kostet die — ist der Preis gleich?', sq:'Mirë, marr atë blu atëherë. Sa kushton — a është çmimi i njëjtë?'},
     {type:'line', speaker:'Shitësi', de:'Ja, gleicher Preis. Möchten Sie die Jacke anprobieren?', sq:'Po, i njëjti çmim. Dëshironi të provoni xhaketën?'},
@@ -4225,7 +4220,7 @@ const REMAINING_UPGRADES = {
 'a1m7': {
   storyExtension: [
     {type:'narr', text:'E mërkura në mbrëmje. Dion dhe Klea kanë bërë plan, por Dion harron. Klea e pret prej 20 minutash.'},
-    {type:'line', speaker:'Klea', de:'Dion! Es ist schon Viertel nach sieben! Wir hatten uns für halb sieben verabredet!', sq:'Dion! Është tashmë shtatë e një çerek! Kishim bërë plan për gjysmë shtatë!'},
+    {type:'line', speaker:'Klea', de:'Dion! Es ist schon Viertel nach sieben! Wir hatten uns für halb sieben verabredet!', sq:'Dion! Tashmë është shtatë e një çerek! Kishim bërë plan për gjysmë shtatë!'},
     {type:'line', speaker:'Dion', de:'Oh nein! Ich habe die Zeit komplett vergessen. Es tut mir sehr leid! Der Bus hatte auch Verspätung.', sq:'Oh jo! E harrova plotësisht kohën. Më vjen shumë keq! Edhe autobusi kishte vonesë.'},
     {type:'line', speaker:'Klea', de:'Immer der Bus! Dion, du musst eine Uhr kaufen!', sq:'Gjithmonë autobusi! Dion, duhet të blesh orë!'},
     {type:'line', speaker:'Dion', de:'Ich habe mein Handy — aber der Akku war leer. Darf ich dein Handy leihen?', sq:'Kam telefonin — por bateria ishte e zbrazët. Mund të marr hua telefonin tënd?'},
@@ -4269,7 +4264,7 @@ const REMAINING_UPGRADES = {
   storyExtension: [
     {type:'narr', text:'Dion humbet në metro për herë të parë. I kërkon ndihmë një vjeneze.'},
     {type:'line', speaker:'Dion', de:'Entschuldigung! Ich glaube, ich bin falsch gefahren. Wo bin ich jetzt?', sq:'Më fal! Besoj kam marrë drejtim të gabuar. Ku ndodhem tani?'},
-    {type:'line', speaker:'Vjenezja', de:'Sie sind an der Station Stephansplatz. Wo möchten Sie hin?', sq:'Ndoheni në stacionin Stephansplatz. Ku dëshironi të shkoni?'},
+    {type:'line', speaker:'Vjenezja', de:'Sie sind an der Station Stephansplatz. Wo möchten Sie hin?', sq:'Ndodheni në stacionin Stephansplatz. Ku dëshironi të shkoni?'},
     {type:'line', speaker:'Dion', de:'Zum Hauptbahnhof. Ich muss um 17 Uhr dort sein!', sq:'Në stacionin kryesor. Duhet të jem atje në orën 17!'},
     {type:'line', speaker:'Vjenezja', de:'Kein Problem! Nehmen Sie die U1 in Richtung Reumannplatz — vier Stationen.', sq:'Nuk ka problem! Merrni U1 drejt Reumannplatz — katër stacione.'},
     {type:'line', speaker:'Dion', de:'U1 — Reumannplatz — vier Stationen. Und wie lange dauert das?', sq:'U1 — Reumannplatz — katër stacione. Dhe sa kohë zgjat?'},
@@ -4318,7 +4313,7 @@ const REMAINING_UPGRADES = {
     {type:'line', speaker:'Klea', de:'Das klingt wunderbar! Und der Sommer? Wie heiß wird es?', sq:'Kjo tingëllon mrekullueshëm! Dhe vera? Sa nxehtë bëhet?'},
     {type:'line', speaker:'Dion', de:'Sehr heiß — 38 bis 40 Grad manchmal! Alle gehen ans Meer. Keine Arbeit, nur Strand!', sq:'Shumë nxehtë — 38 deri 40 gradë ndonjëherë! Të gjithë shkojnë në det. Asnjë punë, vetëm plazh!'},
     {type:'line', speaker:'Klea', de:'Das klingt nach Urlaub! Kannst du mir Albanien zeigen — irgendwann?', sq:'Kjo tingëllon si pushime! Mund të më tregosh Shqipërinë — ndonjëherë?'},
-    {type:'line', speaker:'Dion', de:'Mit Freude! Im Sommer. Meine Mutter kocht das beste Essen der Welt und das Meer ist wunderschön.', sq:'Me kënaqësi! Në verë. Nëna ime gatuon ushqimin më të mirë në botë dhe deti është i mrekullueshëm.'},
+    {type:'line', speaker:'Dion', de:'Mit Freude! Im Sommer. Meine Mutter kocht das beste Essen der Welt und das Meer ist wunderschön.', sq:'Me kënaqësi! Në verë. Nëna ime gatuan ushqimin më të mirë në botë dhe deti është i mrekullueshëm.'},
     {type:'narr', text:'Klea shënon datën. Dion kupton: miqtë e rinj janë ura mes dy botëve.'},
   ],
   thinkInGerman: [
@@ -4958,7 +4953,7 @@ const REMAINING_UPGRADES = {
     {type:'line', speaker:'Dion', de:'In Albanien ist das normal! Die Hauptmahlzeit ist abends, wenn alle zuhause sind. Und Mama kocht seit 14 Jahren nur für mich — heute kocht sie für fünf!', sq:'Në Shqipëri kjo është normale! Vakti kryesor është mbrëmjen, kur të gjithë janë në shtëpi. Dhe nëna ka gatuar prej 14 vitesh vetëm për mua — sot gatuan për pesë!'},
     {type:'line', speaker:'Jonas', de:'Die Gastfreundschaft hier ist unglaublich. Wir sind seit zwei Stunden hier und haben schon dreimal Kaffee, Raki und Baklava bekommen!', sq:'Mikëpritja këtu është e pabesueshme. Jemi dy orë këtu dhe kemi marrë tashmë tre herë kafe, raki dhe baklava!'},
     {type:'line', speaker:'Nëna', de:'Esst! Esst! Ihr seid zu dünn! In Albanien macht man so.', sq:'Hani! Hani! Jeni shumë të hollë! Në Shqipëri bëhet kështu.'},
-    {type:'line', speaker:'Klea', de:'Deine Mutter sagt das auf Deutsch! Sie hat extra für uns gelernt!', sq:'Nëna jote flet gjermanisht! Ka mësuar enë e vete për ne!'},
+    {type:'line', speaker:'Klea', de:'Deine Mutter sagt das auf Deutsch! Sie hat extra für uns gelernt!', sq:'Nëna jote flet gjermanisht! Ka mësuar enë e vetë për ne!'},
     {type:'line', speaker:'Dion', de:'Ich weiß! Sie hat sechs Monate lang "Hallo, Willkommen, Esst" geübt. Das ist albanische Liebe!', sq:'E di! Ka ushtruar gjashtë muaj "Hallo, Willkommen, Esst". Kjo është dashuria shqiptare!'},
     {type:'narr', text:'Klea qan pak. Jonas fotografon çdo moment. Dion kupton: shtëpia nuk është koordinata gjeografike — është ndjesia kur njerëzit e tu takojnë njerëzit e tu.'},
   ],
@@ -8448,11 +8443,35 @@ function renderGoetheContent() {
   if(!c) return;
   var tab = goetheState.tab;
 
-  if(tab === 'info') { c.innerHTML = renderGoetheInfo(); return; }
-  if(tab === 'lesen') { c.innerHTML = renderGoetheLesen(); return; }
-  if(tab === 'hoeren') { c.innerHTML = renderGoetheHoeren(); return; }
+  if(tab === 'info') {
+    c.innerHTML = renderGoetheInfo();
+    // Attach click handlers (avoids CSP inline onclick issues)
+    var btnLesen = document.getElementById('goetheStartLesen');
+    if(btnLesen) btnLesen.addEventListener('click', function(){ switchGoetheTab('lesen'); });
+    var btnHoeren = document.getElementById('goetheStartHoeren');
+    if(btnHoeren) btnHoeren.addEventListener('click', function(){ switchGoetheTab('hoeren'); });
+    var btnSchreiben = document.getElementById('goetheStartSchreiben');
+    if(btnSchreiben) btnSchreiben.addEventListener('click', function(){ switchGoetheTab('schreiben'); });
+    var btnSprechen = document.getElementById('goetheStartSprechen');
+    if(btnSprechen) btnSprechen.addEventListener('click', function(){ switchGoetheTab('sprechen'); });
+    return;
+  }
+  if(tab === 'lesen') { c.innerHTML = renderGoetheLesen(); attachGoetheAnswers('lesen'); return; }
+  if(tab === 'hoeren') { c.innerHTML = renderGoetheHoeren(); attachGoetheAnswers('hoeren'); return; }
   if(tab === 'schreiben') { c.innerHTML = renderGoetheSchreiben(); return; }
   if(tab === 'sprechen') { c.innerHTML = renderGoetheSprechen(); return; }
+}
+
+function attachGoetheAnswers(section) {
+  var btns = document.querySelectorAll('[data-goethe-key]');
+  Array.from(btns).forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var key = btn.getAttribute('data-goethe-key');
+      var selected = parseInt(btn.getAttribute('data-goethe-sel'));
+      var correct = parseInt(btn.getAttribute('data-goethe-cor'));
+      answerGoethe(section, key, selected, correct);
+    });
+  });
 }
 
 function renderGoetheInfo() {
@@ -8479,7 +8498,7 @@ function renderGoetheInfo() {
     d.tips.map(function(t){ return '<div style="display:flex;gap:10px;margin-bottom:8px"><span style="color:var(--gold)">→</span><span style="font-size:0.88rem;color:var(--text-dim)">' + t + '</span></div>'; }).join('') +
     '</div>' +
     '<div class="btn-row" style="margin-top:20px">' +
-    '<button class="btn" onclick="switchGoetheTab(\'lesen\')">Fillo me Leximin →</button>' +
+    '<button class=\"btn\" id=\"goetheStartLesen\">Fillo me Leximin →</button>' +
     '</div>' +
     '</div>';
   return html;
@@ -8487,55 +8506,74 @@ function renderGoetheInfo() {
 
 function renderGoetheLesen() {
   var tests = GOETHE_B1_DATA.lesen;
+  if (!tests || !tests.length) return '<p style="color:var(--text-muted)">Të dhënat nuk u ngarkuan.</p>';
   var html = '<div style="margin-bottom:16px"><p style="color:var(--text-muted);font-size:0.88rem">📖 <strong style="color:var(--text)">Lesen</strong> — ' + tests.length + ' detyra leximi sipas formatit të Goethe-Institut B1.</p></div>';
 
   tests.forEach(function(test, ti) {
+    if (!test) return;
     html += '<div class="grammar-section" style="border-left:4px solid var(--blue);margin-bottom:24px">' +
-      '<h3>' + test.type + ': ' + test.title + '</h3>' +
-      '<p style="background:rgba(59,130,246,0.08);border-radius:8px;padding:12px;font-size:0.85rem;color:var(--text-dim);margin-bottom:16px;border:1px solid rgba(59,130,246,0.2)">📋 ' + test.instruction + '</p>';
+      '<h3>' + (test.type || '') + ': ' + (test.title || '') + '</h3>' +
+      '<p style="background:rgba(59,130,246,0.08);border-radius:8px;padding:12px;font-size:0.85rem;color:var(--text-dim);margin-bottom:16px;border:1px solid rgba(59,130,246,0.2)">📋 ' + (test.instruction || '') + '</p>';
 
-    if(test.text) {
+    if (test.text) {
       html += '<div style="background:var(--surface2);border-radius:8px;padding:16px;margin-bottom:16px;border:1px solid var(--border);font-size:0.88rem;line-height:1.8;color:var(--text-dim)">' + test.text.replace(/\n/g,'<br>') + '</div>';
     }
 
-    if(test.ads) {
+    if (test.ads && test.ads.length) {
       html += '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-bottom:16px">' +
         test.ads.map(function(a){
           return '<div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px">' +
-            '<div style="font-weight:700;color:var(--gold);font-size:0.78rem;margin-bottom:4px">[' + a.letter.toUpperCase() + ']</div>' +
-            '<div style="font-weight:600;color:var(--text);font-size:0.85rem;margin-bottom:6px">' + a.title + '</div>' +
-            '<div style="font-size:0.78rem;color:var(--text-muted)">' + a.body + '</div>' +
+            '<div style="font-weight:700;color:var(--gold);font-size:0.78rem;margin-bottom:4px">[' + (a.letter || '').toUpperCase() + ']</div>' +
+            '<div style="font-weight:600;color:var(--text);font-size:0.85rem;margin-bottom:6px">' + (a.title || '') + '</div>' +
+            '<div style="font-size:0.78rem;color:var(--text-muted)">' + (a.body || '') + '</div>' +
             '</div>';
         }).join('') +
       '</div>';
     }
 
-    test.questions.forEach(function(q, qi) {
-      var key = 'L'+ti+'Q'+qi;
-      var answered = goetheState.lesen.answers[key] !== undefined;
-      var userAns = goetheState.lesen.answers[key];
-      html += '<div style="margin-bottom:16px;padding:14px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)">' +
-        '<p style="font-weight:600;color:var(--text);margin-bottom:10px;font-size:0.9rem">' + (qi+1) + '. ' + q.q + '</p>' +
-        '<div style="display:flex;flex-direction:column;gap:6px">' +
-        q.opts.map(function(opt, oi) {
-          var isCorrect = oi === q.a;
-          var isSelected = userAns === oi;
-          var bg = '';
-          if(answered && isCorrect) bg = 'background:rgba(34,197,94,0.15);border-color:var(--green);color:var(--green);';
-          else if(answered && isSelected && !isCorrect) bg = 'background:rgba(239,68,68,0.15);border-color:var(--red);color:var(--red);';
-          return '<button onclick="answerGoethe(\'lesen\',\'' + key + '\',' + oi + ',' + q.a + ')" ' +
-            (answered ? 'disabled ' : '') +
-            'style="text-align:left;background:var(--surface3);border:2px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--text-dim);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.85rem;' + bg + '">' +
-            opt + '</button>';
-        }).join('') +
-        '</div>' +
-        (answered ? '<div style="margin-top:10px;padding:10px;background:rgba(240,180,41,0.08);border-radius:6px;border:1px solid rgba(240,180,41,0.2);font-size:0.8rem;color:var(--text-dim)">💡 ' + q.exp + '</div>' : '') +
-        '</div>';
-    });
+    if (test.statements && test.statements.length) {
+      html += '<div style="margin-bottom:16px">';
+      test.statements.forEach(function(s, si) {
+        html += '<div style="padding:8px 12px;background:var(--surface2);border-radius:6px;margin-bottom:6px;font-size:0.85rem;color:var(--text-dim)">' + (si+1) + '. ' + (s || '') + '</div>';
+      });
+      html += '</div>';
+    }
+
+    if (test.questions && test.questions.length) {
+      test.questions.forEach(function(q, qi) {
+        if (!q) return;
+        var key = 'L'+ti+'Q'+qi;
+        var answered = goetheState.lesen.answers[key] !== undefined;
+        var userAns = goetheState.lesen.answers[key];
+        html += '<div style="margin-bottom:16px;padding:14px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)">' +
+          '<p style="font-weight:600;color:var(--text);margin-bottom:10px;font-size:0.9rem">' + (qi+1) + '. ' + (q.q || '') + '</p>' +
+          '<div style="display:flex;flex-direction:column;gap:6px">';
+        if (q.opts && q.opts.length) {
+          q.opts.forEach(function(opt, oi) {
+            var isCorrect = oi === q.a;
+            var isSelected = userAns === oi;
+            var bg = '';
+            if(answered && isCorrect) bg = 'background:rgba(34,197,94,0.15);border-color:var(--green);color:var(--green);';
+            else if(answered && isSelected && !isCorrect) bg = 'background:rgba(239,68,68,0.15);border-color:var(--red);color:var(--red);';
+            html += '<button onclick="answerGoethe(\'lesen\',\'' + key + '\',' + oi + ',' + (q.a||0) + ')" ' +
+              (answered ? 'disabled ' : '') +
+              'style="text-align:left;background:var(--surface3);border:2px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--text-dim);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.85rem;' + bg + '">' +
+              (opt || '') + '</button>';
+          });
+        }
+        html += '</div>' +
+          (answered ? '<div style="margin-top:10px;padding:10px;background:rgba(240,180,41,0.08);border-radius:6px;border:1px solid rgba(240,180,41,0.2);font-size:0.8rem;color:var(--text-dim)">💡 ' + (q.exp || '') + '</div>' : '') +
+          '</div>';
+      });
+    } else {
+      html += '<p style="color:var(--text-muted);font-size:0.85rem;padding:10px">Pyetjet për këtë detyra janë duke u përgatitur.</p>';
+    }
+
     html += '</div>';
   });
   return html;
 }
+
 
 function renderGoetheHoeren() {
   var tests = GOETHE_B1_DATA.hoeren;
@@ -8550,6 +8588,7 @@ function renderGoetheHoeren() {
       '<div style="font-size:0.85rem;color:var(--text-dim);line-height:1.8;white-space:pre-line">' + test.transcript + '</div>' +
       '</div>';
 
+    if(!test.questions || !test.questions.length) { html += '<p style="color:var(--text-muted);font-size:0.88rem;padding:10px">Pyetjet janë duke u përgatitur.</p>'; } else
     test.questions.forEach(function(q, qi) {
       var key = 'H'+ti+'Q'+qi;
       var answered = goetheState.hoeren.answers[key] !== undefined;
@@ -8611,82 +8650,102 @@ function renderGoetheSchreiben() {
 }
 
 function renderGoetheSprechen() {
-  var c = document.getElementById('goetheMain');
-  if (!c) return;
-  var tasks = (GOETHE_B1_DATA.sprechen && GOETHE_B1_DATA.sprechen.length > 0) 
-    ? GOETHE_B1_DATA.sprechen 
-    : [];
-  
-  if (tasks.length === 0) {
-    c.innerHTML = '<div style="padding:32px;text-align:center;color:var(--text-muted)">Po ngarkohet...</div>';
-    return;
-  }
-  
-  var html = '<div style="display:grid;gap:16px">';
-  tasks.forEach(function(task) {
-    html += '<div style="background:var(--surface2);border-radius:14px;padding:22px;border:1px solid var(--border)">';
-    html += '<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">';
-    html += '<div style="font-size:1.5rem">🎤</div>';
-    html += '<div><div style="font-size:0.72rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px">' + task.type + '</div>';
-    html += '<h3 style="color:var(--text);margin:2px 0">' + task.title + '</h3></div></div>';
-    
+  var tasks = GOETHE_B1_DATA.sprechen || [];
+  if (!tasks.length) return '<p style="color:var(--text-muted);padding:20px">Duke u ngarkuar...</p>';
+
+  var html = '<div style="margin-bottom:16px"><p style="color:var(--text-muted);font-size:0.88rem">🗣️ <strong style="color:var(--text)">Sprechen</strong> — ' + tasks.length + ' detyra fjalimi sipas formatit Goethe B1.</p></div>';
+
+  tasks.forEach(function(task, ti) {
+    if (!task) return;
+    html += '<div class="grammar-section" style="border-left:4px solid var(--b1-color);margin-bottom:24px">';
+    html += '<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">';
+    html += '<div style="font-size:1.3rem">🎤</div>';
+    html += '<div><div style="font-size:0.72rem;color:var(--b1-color);text-transform:uppercase;letter-spacing:1px">' + (task.type || '') + '</div>';
+    html += '<h3 style="color:var(--text);margin:2px 0">' + (task.title || '') + '</h3></div></div>';
+
     html += '<div style="background:var(--surface);border-radius:10px;padding:14px;margin-bottom:14px;border-left:3px solid var(--gold)">';
     html += '<p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:6px;font-style:italic">📋 Udhëzimi:</p>';
-    html += '<p style="font-size:0.88rem;color:var(--text);line-height:1.7">' + task.instruction + '</p></div>';
-    
-    if (task.topics) {
-      task.topics.forEach(function(topic, ti) {
-        html += '<div style="background:var(--surface);border-radius:10px;padding:14px;margin-bottom:12px">';
-        html += '<h4 style="color:var(--a2-color);margin-bottom:10px">Tema ' + (ti+1) + ': ' + topic.title + '</h4>';
-        html += '<p style="font-size:0.85rem;color:var(--text);margin-bottom:10px">' + topic.prompt + '</p>';
-        
-        html += '<div style="margin-bottom:10px"><p style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px">📐 Struktura e prezantimit:</p>';
-        topic.structure.forEach(function(s) {
-          html += '<div style="padding:5px 0;border-bottom:1px solid var(--border);font-size:0.83rem;color:var(--text)">' + s + '</div>';
-        });
-        html += '</div>';
-        
-        html += '<div><p style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px">💬 Shprehje të dobishme:</p>';
-        topic.usefulPhrases.forEach(function(p) {
-          html += '<div style="padding:4px 8px;background:rgba(240,180,41,0.08);border-radius:6px;margin-bottom:4px;font-size:0.82rem;color:var(--text)">' + p + '</div>';
-        });
-        html += '</div></div>';
-      });
+    html += '<p style="font-size:0.88rem;color:var(--text);line-height:1.7">' + (task.instruction || '') + '</p></div>';
+
+    // topic (singular)
+    if (task.topic) {
+      html += '<div style="background:var(--surface);border-radius:10px;padding:14px;margin-bottom:12px">';
+      html += '<p style="font-size:0.85rem;color:var(--text);margin-bottom:10px">' + (task.topic || '') + '</p></div>';
     }
-    
+
+    // structure (array of strings)
+    if (task.structure && task.structure.length) {
+      html += '<div style="margin-bottom:12px"><p style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px">📐 Struktura:</p>';
+      task.structure.forEach(function(s) {
+        html += '<div style="padding:5px 8px;border-bottom:1px solid var(--border);font-size:0.83rem;color:var(--text)">' + (s || '') + '</div>';
+      });
+      html += '</div>';
+    }
+
+    // tips
+    if (task.tips && task.tips.length) {
+      html += '<div style="margin-bottom:12px"><p style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px">💡 Këshilla:</p>';
+      task.tips.forEach(function(t) {
+        html += '<div style="padding:4px 8px;background:rgba(240,180,41,0.08);border-radius:6px;margin-bottom:4px;font-size:0.82rem;color:var(--text)">' + (t || '') + '</div>';
+      });
+      html += '</div>';
+    }
+
+    // scenario
     if (task.scenario) {
       var s = task.scenario;
       html += '<div style="background:var(--surface);border-radius:10px;padding:14px;margin-bottom:12px">';
-      html += '<h4 style="color:var(--a2-color);margin-bottom:8px">📝 ' + s.title + '</h4>';
-      html += '<p style="font-size:0.85rem;color:var(--text);margin-bottom:12px;line-height:1.6">' + s.situation + '</p>';
-      
-      [s.personA, s.personB].forEach(function(person) {
-        html += '<div style="background:var(--surface2);border-radius:8px;padding:12px;margin-bottom:10px">';
-        html += '<p style="font-size:0.75rem;color:var(--gold);font-weight:700;margin-bottom:8px">' + person.title + '</p>';
-        person.info.forEach(function(info) {
-          html += '<div style="font-size:0.83rem;color:var(--text);padding:3px 0">• ' + info + '</div>';
+      html += '<h4 style="color:var(--a2-color);margin-bottom:8px">📝 ' + (s.title || 'Skenar') + '</h4>';
+      html += '<p style="font-size:0.85rem;color:var(--text);margin-bottom:10px;line-height:1.6">' + (s.situation || '') + '</p>';
+      if (s.cards && s.cards.length) {
+        html += '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px">';
+        s.cards.forEach(function(card) {
+          html += '<div style="background:var(--surface2);border-radius:8px;padding:10px;border:1px solid var(--border)">';
+          html += '<div style="font-size:0.78rem;font-weight:600;color:var(--gold);margin-bottom:4px">' + (card.label || '') + '</div>';
+          html += '<div style="font-size:0.82rem;color:var(--text)">' + (card.content || '') + '</div></div>';
         });
         html += '</div>';
-      });
-      
-      html += '<p style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;margin:10px 0 6px">✅ Detyrat tuaja:</p>';
-      s.tasks.forEach(function(t, ti) {
-        html += '<div style="font-size:0.83rem;color:var(--text);padding:4px 0">' + (ti+1) + '. ' + t + '</div>';
-      });
-      
-      html += '<div style="margin-top:12px"><p style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px">💬 Shprehje:</p>';
-      s.usefulPhrases.forEach(function(p) {
-        html += '<div style="padding:4px 8px;background:rgba(240,180,41,0.08);border-radius:6px;margin-bottom:4px;font-size:0.82rem">' + p + '</div>';
-      });
-      html += '</div></div>';
+      }
+      if (s.phrases && s.phrases.length) {
+        html += '<div style="margin-top:10px">';
+        s.phrases.forEach(function(p) {
+          html += '<div style="padding:4px 8px;background:rgba(240,180,41,0.08);border-radius:6px;margin-bottom:4px;font-size:0.82rem;color:var(--text)">' + (p || '') + '</div>';
+        });
+        html += '</div>';
+      }
+      html += '</div>';
     }
-    
-    html += '<button onclick="TTS.speak(\'Ich bin bereit. Jetzt spreche ich.\')" style="width:100%;padding:10px;background:rgba(240,180,41,0.1);border:1px solid rgba(240,180,41,0.3);border-radius:8px;color:var(--gold);cursor:pointer;font-size:0.85rem;font-family:DM Sans,sans-serif">🔊 Dëgjo shembullin e fillimit</button>';
+
+    // phrases (top level)
+    if (task.phrases && task.phrases.length) {
+      html += '<div style="margin-bottom:12px"><p style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px">💬 Shprehje:</p>';
+      task.phrases.forEach(function(p) {
+        html += '<div style="padding:4px 8px;background:rgba(240,180,41,0.08);border-radius:6px;margin-bottom:4px;font-size:0.82rem;color:var(--text)">' + (p || '') + '</div>';
+      });
+      html += '</div>';
+    }
+
+    // photoDesc
+    if (task.photoDesc) {
+      html += '<div style="background:var(--surface);border-radius:10px;padding:14px;margin-bottom:12px">';
+      html += '<p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:8px;font-style:italic">🖼️ Përshkrim fotografie:</p>';
+      html += '<p style="font-size:0.88rem;color:var(--text);line-height:1.7">' + (task.photoDesc || '') + '</p></div>';
+    }
+
+    // modelAnswer
+    if (task.modelAnswer) {
+      html += '<div style="background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.2);border-radius:10px;padding:14px;margin-bottom:12px">';
+      html += '<p style="font-size:0.75rem;color:var(--green);text-transform:uppercase;margin-bottom:6px">✅ Model-përgjigje:</p>';
+      html += '<p style="font-size:0.85rem;color:var(--text);line-height:1.7;font-style:italic">' + (task.modelAnswer || '') + '</p></div>';
+    }
+
     html += '</div>';
   });
-  html += '</div>';
-  c.innerHTML = html;
+
+  return html;
 }
+
+
 function answerGoethe(section, key, selected, correct) {
   if(goetheState[section].answers[key] !== undefined) return;
   goetheState[section].answers[key] = selected;
@@ -11824,7 +11883,7 @@ const INTERACTIVE_STORIES = {
           {speaker:'Dion', de:'Danke schoen! Das ist sehr nett.', sq:'Shume faleminderit! Jeni shume i/e mire.'},
           {speaker:'Frau Wagner', de:'Bitte schoen! Viel Erfolg in Wien!', sq:'Ka gjë! Suksese ne Vjene!'}
         ],
-        feedback:'Shume mire! Ke mesuar: drejtimi + falenderiminm. Fjale: geradeaus (drejt), links (majtas), die Ampel (semafori).'
+        feedback:'Shume mire! Ke mesuar: drejtimi + falënderimin. Fjale: geradeaus (drejt), links (majtas), die Ampel (semafori).'
       },
       map: {
         title:'Dioni perdor harten',
@@ -11860,7 +11919,7 @@ const INTERACTIVE_STORIES = {
         lines:[
           {speaker:'Interviewer', de:'Warum moechten Sie bei uns arbeiten?', sq:'Pse deshironi te punoni tek ne?'},
           {speaker:'Dion', de:'Ehrlich gesagt liebe ich Technologie! Seit Jahren programmiere ich in meiner Freizeit.', sq:'Sinqerisht e dua teknologjine! Prej vitesh programoj ne kohen e lire.'},
-          {speaker:'Interviewer', de:'Das gefaellt mir! Zeigen Sie mir etwas, das Sie selbst entwickelt haben.', sq:'Kjo me pelqen! Me tregoni dicka qe keni zhvilluar vete.'},
+          {speaker:'Interviewer', de:'Das gefaellt mir! Zeigen Sie mir etwas, das Sie selbst entwickelt haben.', sq:'Kjo me pelqen! Me tregoni dicka qe keni zhvilluar vetë.'},
           {speaker:'Dion', de:'Natuerlich! Ich habe eine App fuer albanische Lernende entwickelt.', sq:'Sigurisht! Kam zhvilluar nje app per nxenesit shqiptare.'}
         ],
         feedback:'Pasioni autentik impresionon! Fjale: ehrlich gesagt (sinqerisht), die Freizeit (koha e lire), entwickeln (te zhvillosh).'
@@ -11961,7 +12020,7 @@ function renderInteractiveLine() {
       '<p style="color:var(--green);font-size:0.9rem;line-height:1.7;margin:0">' + branch.feedback + '</p></div>' +
       '<div style="display:flex;gap:10px">' +
       '<button class="btn-outline" onclick="showInteractiveChoice(\'' + interactiveState.moduleId + '\')" style="flex:1">Provo zgjedhje tjeter</button>' +
-      '<button class="btn" onclick="switchLessonTab(\'vocab\')" style="flex:1">Vazhdo Fjalori</button>' +
+      '<button class="btn" onclick="switchTab(\'vocab\')" style="flex:1">Vazhdo Fjalori</button>' +
       '</div></div>';
     TTS.stop();
     return;
@@ -12593,7 +12652,7 @@ const VOCAB_V18 = {
   {de:"das Produkt",sq:"produkti",type:"Biznes",ex:"Das Produkt ist neu. — Produkti është i ri."},
   {de:"verhandeln",sq:"të negociosh",type:"Biznes",ex:"Wir verhandeln über den Preis. — Negociojmë çmimin."},
   {de:"zumindest",sq:"të paktën",type:"Lidhëz",ex:"Zumindest ist er ehrlich. — Të paktën është i ndershëm."},
-  {de:"nach wie vor",sq:"edhe sot e kësaj dite",type:"Shprehje",ex:"Das Problem besteht nach wie vor. — Problemi vazhdon edhe sot."},
+  {de:"nach wie vor",sq:"edhe sot e kësaj ditë",type:"Shprehje",ex:"Das Problem besteht nach wie vor. — Problemi vazhdon edhe sot."},
   {de:"im Gegenteil",sq:"përkundrazi",type:"Shprehje",ex:"Im Gegenteil, das ist gut! — Përkundrazi, kjo është mirë!"},
   {de:"auf jeden Fall",sq:"domosdoshmërisht/patjetër",type:"Shprehje",ex:"Das muss auf jeden Fall gemacht werden. — Kjo duhet patjetër të bëhet."},
   {de:"im Vergleich zu",sq:"në krahasim me",type:"Shprehje",ex:"Im Vergleich zu letztem Jahr ist es besser. — Në krahasim me vitin e kaluar është më mirë."},
@@ -12681,7 +12740,7 @@ const VOCAB_V18 = {
   buildAllVocab=function(){
     _o4();
     function tg(a,s){return a.map(function(w){return Object.assign({},w,{source:s});});}
-    var fa1=[{de:"sich anziehen",sq:"të veshesh",type:"Folje",ex:"Ich ziehe mich schnell an. — Vishem shpejt."},{de:"sich ausziehen",sq:"të zhveshesh",type:"Folje",ex:"Die Kinder ziehen sich aus. — Fëmijët zhvishen."},{de:"sich rasieren",sq:"të rruahesh",type:"Folje",ex:"Er rasiert sich täglich. — Ai rruhet çdo ditë."},{de:"sich schminken",sq:"të bëhesh make-up",type:"Folje",ex:"Sie schminkt sich morgens. — Ajo bëhet make-up mëngjeseve."},{de:"sich kämmen",sq:"të krehesh",type:"Folje",ex:"Das Kind kämmt sich. — Fëmija krehët."},{de:"wischen",sq:"të fshish (dyshemenë)",type:"Folje",ex:"Den Boden wischen. — Fshij dyshemenë."},{de:"staubsaugen",sq:"të fshish me fshirëse elektrike",type:"Folje",ex:"Einmal pro Woche staubsaugen. — Njëherë në javë fshij me fshirëse."},{de:"nähen",sq:"të qepësh",type:"Folje",ex:"Ich nähe den Knopf an. — Qep butonin."},{de:"basteln",sq:"të bësh punë dore",type:"Folje",ex:"Die Kinder basteln. — Fëmijët bëjnë punë dore."},{de:"aufnehmen",sq:"të incizosh/xhirosh",type:"Folje",ex:"Das Video aufnehmen. — Incizoj videon."},{de:"bearbeiten",sq:"të punësosh/modifikosh",type:"Folje",ex:"Das Foto bearbeiten. — Modifikoj foton."},{de:"drehen",sq:"të xhirosh/rrotullosh",type:"Folje",ex:"Einen Film drehen. — Xhiroj film."},{de:"aufmerksam",sq:"i vëmendshëm",type:"Mbiemër",ex:"Sei aufmerksam! — Bëj i vëmendshëm!"},{de:"sorgfältig",sq:"me kujdes/i kujdesshëm",type:"Mbiemër",ex:"Sorgfältig arbeiten. — Punoj me kujdes."},{de:"gewissenhaft",sq:"ndërgjegjshëm/me ndërgjegjshmëri",type:"Mbiemër",ex:"Er ist gewissenhaft. — Ai është ndërgjegjshëm."},{de:"hilfsbereit",sq:"i gatshëm për ndihmë",type:"Mbiemër",ex:"Sie ist sehr hilfsbereit. — Ajo është shumë e gatshme për ndihmë."},{de:"freundlich",sq:"i sjellshëm/miqësor",type:"Mbiemër",ex:"Der Verkäufer ist freundlich. — Shitësi është i sjellshëm."},{de:"pünktlich",sq:"i pikësaktë",type:"Mbiemër",ex:"Sei pünktlich! — Bëj i pikësaktë!"},{de:"verantwortungsbewusst",sq:"i ndërgjegjshëm",type:"Mbiemër",ex:"Sie handelt verantwortungsbewusst. — Ajo vepron me ndërgjegjshmëri."},{de:"selbstbewusst",sq:"i sigurt në vete",type:"Mbiemër",ex:"Er tritt selbstbewusst auf. — Ai shfaqet i sigurt në vete."},{de:"kreativ",sq:"kreativ",type:"Mbiemër",ex:"Er ist sehr kreativ. — Ai është shumë kreativ."},{de:"kritisch",sq:"kritik",type:"Mbiemër",ex:"Denk kritisch! — Mendo kritikisht!"},{de:"analytisch",sq:"analitik",type:"Mbiemër",ex:"Analytisches Denken ist gefragt. — Mendimi analitik kërkohet."},{de:"systematisch",sq:"sistematik",type:"Mbiemër",ex:"Systematisch vorgehen. — Veproj sistematikisht."},{de:"praktisch",sq:"praktik/i dobishëm",type:"Mbiemër",ex:"Das ist sehr praktisch. — Kjo është shumë praktike."},{de:"der Saft",sq:"lëngu i frutave",type:"Ushqim",ex:"Ein Glas Orangensaft. — Një gotë lëng portokalli."},{de:"der Joghurt",sq:"kosi",type:"Ushqim",ex:"Joghurt zum Frühstück. — Kos për mëngjes."},{de:"die Wurst",sq:"suxhuku/proshuta",type:"Ushqim",ex:"Brot mit Wurst. — Bukë me suxhuk."},{de:"das Obst",sq:"frutat",type:"Ushqim",ex:"Täglich Obst essen. — Ha fruta çdo ditë."},{de:"die Gurke",sq:"kastraveci",type:"Ushqim",ex:"Gurke in den Salat. — Kastravec në sallatë."}];
+    var fa1=[{de:"sich anziehen",sq:"të veshesh",type:"Folje",ex:"Ich ziehe mich schnell an. — Vishem shpejt."},{de:"sich ausziehen",sq:"të zhveshesh",type:"Folje",ex:"Die Kinder ziehen sich aus. — Fëmijët zhvishen."},{de:"sich rasieren",sq:"të rruahesh",type:"Folje",ex:"Er rasiert sich täglich. — Ai rruhet çdo ditë."},{de:"sich schminken",sq:"të bëhesh make-up",type:"Folje",ex:"Sie schminkt sich morgens. — Ajo bëhet make-up mëngjeseve."},{de:"sich kämmen",sq:"të krehesh",type:"Folje",ex:"Das Kind kämmt sich. — Fëmija krehët."},{de:"wischen",sq:"të fshish (dyshemenë)",type:"Folje",ex:"Den Boden wischen. — Fshij dyshemenë."},{de:"staubsaugen",sq:"të fshish me fshirëse elektrike",type:"Folje",ex:"Einmal pro Woche staubsaugen. — Njëherë në javë fshij me fshirëse."},{de:"nähen",sq:"të qepësh",type:"Folje",ex:"Ich nähe den Knopf an. — Qep butonin."},{de:"basteln",sq:"të bësh punë dore",type:"Folje",ex:"Die Kinder basteln. — Fëmijët bëjnë punë dore."},{de:"aufnehmen",sq:"të incizosh/xhirosh",type:"Folje",ex:"Das Video aufnehmen. — Incizoj videon."},{de:"bearbeiten",sq:"të punësosh/modifikosh",type:"Folje",ex:"Das Foto bearbeiten. — Modifikoj foton."},{de:"drehen",sq:"të xhirosh/rrotullosh",type:"Folje",ex:"Einen Film drehen. — Xhiroj film."},{de:"aufmerksam",sq:"i vëmendshëm",type:"Mbiemër",ex:"Sei aufmerksam! — Bëj i vëmendshëm!"},{de:"sorgfältig",sq:"me kujdes/i kujdesshëm",type:"Mbiemër",ex:"Sorgfältig arbeiten. — Punoj me kujdes."},{de:"gewissenhaft",sq:"ndërgjegjshëm/me ndërgjegjshmëri",type:"Mbiemër",ex:"Er ist gewissenhaft. — Ai është ndërgjegjshëm."},{de:"hilfsbereit",sq:"i gatshëm për ndihmë",type:"Mbiemër",ex:"Sie ist sehr hilfsbereit. — Ajo është shumë e gatshme për ndihmë."},{de:"freundlich",sq:"i sjellshëm/miqësor",type:"Mbiemër",ex:"Der Verkäufer ist freundlich. — Shitësi është i sjellshëm."},{de:"pünktlich",sq:"i pikësaktë",type:"Mbiemër",ex:"Sei pünktlich! — Bëj i pikësaktë!"},{de:"verantwortungsbewusst",sq:"i ndërgjegjshëm",type:"Mbiemër",ex:"Sie handelt verantwortungsbewusst. — Ajo vepron me ndërgjegjshmëri."},{de:"selbstbewusst",sq:"i sigurt në vetë",type:"Mbiemër",ex:"Er tritt selbstbewusst auf. — Ai shfaqet i sigurt në vete."},{de:"kreativ",sq:"kreativ",type:"Mbiemër",ex:"Er ist sehr kreativ. — Ai është shumë kreativ."},{de:"kritisch",sq:"kritik",type:"Mbiemër",ex:"Denk kritisch! — Mendo kritikisht!"},{de:"analytisch",sq:"analitik",type:"Mbiemër",ex:"Analytisches Denken ist gefragt. — Mendimi analitik kërkohet."},{de:"systematisch",sq:"sistematik",type:"Mbiemër",ex:"Systematisch vorgehen. — Veproj sistematikisht."},{de:"praktisch",sq:"praktik/i dobishëm",type:"Mbiemër",ex:"Das ist sehr praktisch. — Kjo është shumë praktike."},{de:"der Saft",sq:"lëngu i frutave",type:"Ushqim",ex:"Ein Glas Orangensaft. — Një gotë lëng portokalli."},{de:"der Joghurt",sq:"kosi",type:"Ushqim",ex:"Joghurt zum Frühstück. — Kos për mëngjes."},{de:"die Wurst",sq:"suxhuku/proshuta",type:"Ushqim",ex:"Brot mit Wurst. — Bukë me suxhuk."},{de:"das Obst",sq:"frutat",type:"Ushqim",ex:"Täglich Obst essen. — Ha fruta çdo ditë."},{de:"die Gurke",sq:"kastraveci",type:"Ushqim",ex:"Gurke in den Salat. — Kastravec në sallatë."}];
     ALL_VOCAB.A1=ALL_VOCAB.A1.concat(tg(fa1,"Fjalori Final"));
     var fa2=[{de:"der Salat",sq:"sallatë/marule",type:"Ushqim",ex:"Ein frischer Salat. — Sallatë e freskët."},{de:"die Bluse",sq:"blluzë femrore",type:"Rroba",ex:"Eine elegante Bluse. — Blluzë elegante."},{de:"der Stiefel",sq:"çizmet",type:"Rroba",ex:"Stiefel im Regen. — Çizme në shi."}];
     ALL_VOCAB.A2=ALL_VOCAB.A2.concat(tg(fa2,"Fjalori Final"));
@@ -12791,7 +12850,222 @@ function selectMobileModule(modId) {
   window.scrollTo(0, 0);
 }
 
+
+
+function showAlphabet() {
+  showScreen('alphabetScreen');
+  setTimeout(function() {
+    var c = document.getElementById('alphabetContent');
+    if (!c) return;
+    var sounds = [
+      {l:'ä', ipa:'[ɛ]', sq:'Si "e" e hapur — si "e" në "jetë"', tip:'Thuaj "a" por ngre buzët si për "e".',
+       words:[{de:'Mädchen',sq:'vajzë'},{de:'spät',sq:'vonë'},{de:'Käse',sq:'djathë'}]},
+      {l:'ö', ipa:'[ø]', sq:'Buzët si "o" por tingullon si "e"', tip:'Formëso buzët si "o", provo të thuash "e".',
+       words:[{de:'schön',sq:'i bukur'},{de:'können',sq:'të mundesh'},{de:'Öl',sq:'vaj'}]},
+      {l:'ü', ipa:'[y]', sq:'Buzët si "u" por tingullon si "i"', tip:'Formëso buzët si "u", provo të thuash "i".',
+       words:[{de:'über',sq:'mbi'},{de:'müde',sq:'i lodhur'},{de:'fünf',sq:'pesë'}]},
+      {l:'ß', ipa:'[s]', sq:'Si "s" e fortë — pas vokaleve të gjata', tip:'"Straße" lexo "Strase".',
+       words:[{de:'Straße',sq:'rrugë'},{de:'heiß',sq:'nxehtë'},{de:'groß',sq:'i madh'}]},
+      {l:'ch', ipa:'[x]/[ç]', sq:'Pas a/o/u: si "h" i fortë. Pas e/i: i butë', tip:'"nach"=h i fortë. "ich"=si "hj" i butë.',
+       words:[{de:'nach',sq:'pas'},{de:'ich',sq:'unë'},{de:'Buch',sq:'libër'}]},
+      {l:'sch', ipa:'[ʃ]', sq:'Saktësisht si "sh" shqipe', tip:'E lehtë! "Schule"="Shule".',
+       words:[{de:'Schule',sq:'shkolla'},{de:'schön',sq:'i bukur'},{de:'Tisch',sq:'tryezë'}]},
+      {l:'ei', ipa:'[aɪ]', sq:'Si "aj" shqipe', tip:'ei="aj". KUJDES: "ie"="i e gjatë".',
+       words:[{de:'mein',sq:'im'},{de:'drei',sq:'tre'},{de:'Eis',sq:'akull'}]},
+      {l:'ie', ipa:'[iː]', sq:'Si "i" e gjatë shqipe', tip:'ie=i i gjatë. "Wie"="Vi-".',
+       words:[{de:'wie',sq:'si'},{de:'viel',sq:'shumë'},{de:'Liebe',sq:'dashuria'}]},
+      {l:'w', ipa:'[v]', sq:'Gjermanishtja "w" = "v" shqipe', tip:'"Wasser" lexohet "Vaser".',
+       words:[{de:'Wasser',sq:'ujë'},{de:'wohnen',sq:'të banosh'},{de:'Wie',sq:'si'}]},
+      {l:'v', ipa:'[f]', sq:'Gjermanishtja "v" = "f" shqipe', tip:'"Vater"="Fater".',
+       words:[{de:'Vater',sq:'baba'},{de:'von',sq:'nga'},{de:'viel',sq:'shumë'}]},
+      {l:'z', ipa:'[ts]', sq:'Si "ts" — si "c" shqipe', tip:'"Zehn"="Tsen".',
+       words:[{de:'zehn',sq:'dhjetë'},{de:'Zeit',sq:'koha'},{de:'Zucker',sq:'sheqer'}]},
+      {l:'st/sp', ipa:'[ʃt]/[ʃp]', sq:'Në fillim: st="sht", sp="shp"', tip:'"Stadt"="Shtadt".',
+       words:[{de:'Stadt',sq:'qytet'},{de:'spielen',sq:'të luash'},{de:'Straße',sq:'rrugë'}]}
+    ];
+    var html = '<div style="max-width:660px;margin:0 auto">';
+    html += '<div style="background:rgba(240,180,41,0.08);border:1px solid rgba(240,180,41,0.2);border-radius:12px;padding:14px;margin-bottom:18px;font-size:0.88rem;color:var(--text);line-height:1.7">Para se të fillosh A1, mëso tingujt e veçantë gjermanë. Kliko 🔊 për të dëgjuar.</div>';
+    sounds.forEach(function(s) {
+      html += '<div style="background:var(--surface2);border-radius:12px;padding:16px;margin-bottom:12px;border-left:4px solid var(--gold)">';
+      html += '<div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:10px">';
+      html += '<div style="font-size:2.2rem;font-weight:900;color:var(--gold);min-width:52px;text-align:center;line-height:1.1">'+s.l+'</div>';
+      html += '<div style="flex:1"><div style="font-size:0.75rem;color:var(--text-muted);font-family:monospace;margin-bottom:3px">'+s.ipa+'</div>';
+      html += '<div style="font-size:0.87rem;color:var(--text)">'+s.sq+'</div></div></div>';
+      html += '<div style="background:rgba(96,165,250,0.08);border-radius:7px;padding:8px 11px;margin-bottom:10px;font-size:0.82rem;color:#60a5fa">💡 '+s.tip+'</div>';
+      html += '<div style="display:flex;gap:7px;flex-wrap:wrap">';
+      s.words.forEach(function(w) {
+        html += '<div class="tts-btn" data-de="'+w.de+'" onclick="TTS.speak(this.dataset.de)" style="background:var(--surface);border-radius:7px;padding:6px 11px;cursor:pointer">';
+        html += '<div style="font-size:0.88rem;font-weight:600;color:var(--text)">'+w.de+' <span style="color:var(--gold);font-size:0.7rem">🔊</span></div>';
+        html += '<div style="font-size:0.74rem;color:var(--text-muted)">'+w.sq+'</div></div>';
+      });
+      html += '</div></div>';
+    });
+    html += '<button class="btn" onclick="switchLevel(\'A1\');showScreen(\'course\')">Fillo A1 →</button>';
+    html += '</div>';
+    c.innerHTML = html;
+  }, 50);
+}
+
+
+
+
+
+function showStudyGuide() {
+  var existing = document.getElementById('studyGuideModal');
+  if (existing) { existing.style.display = 'flex'; return; }
+  var modal = document.createElement('div');
+  modal.id = 'studyGuideModal';
+  modal.style.cssText = 'display:flex;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:9997;align-items:center;justify-content:center;padding:16px';
+  var box = document.createElement('div');
+  box.style.cssText = 'background:var(--surface);border-radius:20px;padding:26px;width:90%;max-width:500px;max-height:88vh;overflow-y:auto;border:1px solid var(--border)';
+  var steps = [
+    {c:'var(--a1-color)',t:'Hapi 1 — Historia (5 min)',d:'Lexo dialogun e Dion-it. Kliko 🔊 për shqiptim.'},
+    {c:'var(--a2-color)',t:'Hapi 2 — Fjalori (5 min)',d:'Shiko fjalët e reja. Shto në kartela ato që nuk i di.'},
+    {c:'var(--b1-color)',t:'Hapi 3 — Gramatika (5 min)',d:'Lexo rregullin dhe bëj ushtrimet.'},
+    {c:'var(--gold)',t:'Hapi 4 — Quiz (3-5 min)',d:'Nën 70%? Rishiko modulin. Mbi 70%? Vazhdo.'}
+  ];
+  var innerHtml = '<div style="text-align:center;margin-bottom:18px">'
+    + '<div style="font-size:2.2rem;margin-bottom:6px">📚</div>'
+    + '<h2 style="color:var(--gold);margin-bottom:4px;font-size:1.3rem">Si të studiosh me DeutschAL</h2>'
+    + '<p style="color:var(--text-muted);font-size:0.83rem">15-20 min/ditë</p></div>';
+  steps.forEach(function(s) {
+    innerHtml += '<div style="background:var(--surface2);border-radius:10px;padding:13px;border-left:3px solid '
+      + s.c + ';margin-bottom:10px"><div style="font-weight:700;color:var(--text);margin-bottom:3px;font-size:0.9rem">'
+      + s.t + '</div><div style="font-size:0.83rem;color:var(--text-muted);line-height:1.6">' + s.d + '</div></div>';
+  });
+  innerHtml += '<div style="background:rgba(240,180,41,0.07);border:1px solid rgba(240,180,41,0.2);border-radius:9px;padding:11px;margin-bottom:16px;font-size:0.84rem;color:var(--text);line-height:1.6">'
+    + '<strong style="color:var(--gold)">💡 Rregulli i artë:</strong> 15 min çdo ditë &gt; 2 orë të premten.</div>'
+    ;
+  box.innerHTML = innerHtml;
+  modal.appendChild(box);
+  document.body.appendChild(modal);
+  var btn = document.getElementById('closeGuideBtn2');
+  if (btn) btn.addEventListener('click', function() { modal.style.display = 'none'; });
+}
 </script>
+<div id="aboutScreen" class="screen">
+  <div class="course-header">
+    <div class="course-header-top">
+      <div class="brand">DeutschAL <span>· Rreth nesh</span></div>
+      <button class="btn-outline" onclick="showScreen('landing')" style="padding:8px 16px;font-size:0.85rem">← Kthehu</button>
+    </div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:32px 24px;max-width:680px;margin:0 auto;width:100%">
+    <div style="text-align:center;margin-bottom:36px">
+      <div style="font-size:3rem;margin-bottom:12px">🇦🇱 → 🇩🇪</div>
+      <h1 style="color:var(--gold);font-size:2rem;margin-bottom:8px">DeutschAL</h1>
+      <p style="color:var(--text-muted);font-size:1rem">Kursi falas i gjermanishtes për shqiptarët</p>
+    </div>
+    <div style="background:var(--surface2);border-radius:14px;padding:22px;margin-bottom:20px;border-left:4px solid var(--gold)">
+      <h2 style="color:var(--text);font-size:1.1rem;margin-bottom:10px">Çfarë është DeutschAL?</h2>
+      <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.8">DeutschAL është një kurs falas i gjermanishtes, ndërtuar posaçërisht për folësit shqiptarë. Të gjitha shpjegimet janë në shqip, duke e bërë mësimin sa më të natyrshëm dhe efektiv.</p>
+    </div>
+    <div style="background:var(--surface2);border-radius:14px;padding:22px;margin-bottom:20px;border-left:4px solid var(--a1-color)">
+      <h2 style="color:var(--text);font-size:1.1rem;margin-bottom:10px">Çfarë ofron?</h2>
+      <div style="color:var(--text-dim);font-size:0.9rem;line-height:2">
+        ✅ 36 module — A1, A2, B1<br>
+        ✅ 2500+ fjalë gjermane me shpjegim shqip<br>
+        ✅ Historia e Dion-it nga Kosova në Wien<br>
+        ✅ Përgatitje për provimin Goethe B1<br>
+        ✅ Audio TTS, kartela SRS, quiz interaktiv<br>
+        ✅ 100% falas — pa llogari, pa reklama (tani për tani)<br>
+        ✅ Punon offline
+      </div>
+    </div>
+    <div style="background:var(--surface2);border-radius:14px;padding:22px;margin-bottom:20px;border-left:4px solid var(--b1-color)">
+      <h2 style="color:var(--text);font-size:1.1rem;margin-bottom:10px">Kush e krijoi?</h2>
+      <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.8">DeutschAL u krijua nga <strong style="color:var(--gold)">KS</strong> — me qëllimin e vetëm për t'i ndihmuar shqiptarët të mësojnë gjermanisht falas dhe me efikasitet. Projekti është me burim të hapur dhe në zhvillim të vazhdueshëm.</p>
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <button class="btn" onclick="showScreen('contact')" style="margin-right:12px;padding:12px 24px">📧 Na kontaktoni</button>
+      <button class="btn-outline" onclick="showScreen('landing')" style="padding:12px 24px">← Ballina</button>
+    </div>
+  </div>
+</div>
+
+<div id="privacyScreen" class="screen">
+  <div class="course-header">
+    <div class="course-header-top">
+      <div class="brand">DeutschAL <span>· Politika e Privatësisë</span></div>
+      <button class="btn-outline" onclick="showScreen('landing')" style="padding:8px 16px;font-size:0.85rem">← Kthehu</button>
+    </div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:32px 24px;max-width:680px;margin:0 auto;width:100%">
+    <h1 style="color:var(--gold);font-size:1.6rem;margin-bottom:6px">Politika e Privatësisë</h1>
+    <p style="color:var(--text-muted);font-size:0.8rem;margin-bottom:28px">Përditësuar: Prill 2026</p>
+
+    <div style="background:var(--surface2);border-radius:14px;padding:22px;margin-bottom:16px">
+      <h2 style="color:var(--text);font-size:1rem;margin-bottom:8px">1. Të dhënat që mbledhim</h2>
+      <p style="color:var(--text-dim);font-size:0.88rem;line-height:1.8">DeutschAL <strong>nuk mbledh asnjë të dhënë personale</strong>. Nuk kemi regjistrim, nuk kemi llogari, nuk ka email, nuk ka emër. Asgjë.</p>
+    </div>
+
+    <div style="background:var(--surface2);border-radius:14px;padding:22px;margin-bottom:16px">
+      <h2 style="color:var(--text);font-size:1rem;margin-bottom:8px">2. localStorage (ruajtja lokale)</h2>
+      <p style="color:var(--text-dim);font-size:0.88rem;line-height:1.8">App-i ruan progresin tuaj (modulet e përfunduara, pikët, shënimet) vetëm <strong>në pajisjen tuaj</strong> përmes localStorage të browser-it. Këto të dhëna <strong>nuk dërgohen kurrë</strong> te ndonjë server.</p>
+    </div>
+
+    <div style="background:var(--surface2);border-radius:14px;padding:22px;margin-bottom:16px">
+      <h2 style="color:var(--text);font-size:1rem;margin-bottom:8px">3. Cookies</h2>
+      <p style="color:var(--text-dim);font-size:0.88rem;line-height:1.8">DeutschAL nuk përdor cookies. Nuk ka analitikë, nuk ka tracking, nuk ka reklama (tani për tani).</p>
+    </div>
+
+    <div style="background:var(--surface2);border-radius:14px;padding:22px;margin-bottom:16px">
+      <h2 style="color:var(--text);font-size:1rem;margin-bottom:8px">4. Shërbime të palës së tretë</h2>
+      <p style="color:var(--text-dim);font-size:0.88rem;line-height:1.8">App-i përdor <strong>Google Fonts</strong> për tipografi dhe <strong>Web Speech API</strong> të browser-it për audio. Këto janë shërbime standarde të browser-it dhe nuk ndajnë të dhëna personale me ne.</p>
+    </div>
+
+    <div style="background:var(--surface2);border-radius:14px;padding:22px;margin-bottom:16px">
+      <h2 style="color:var(--text);font-size:1rem;margin-bottom:8px">5. Hosting</h2>
+      <p style="color:var(--text-dim);font-size:0.88rem;line-height:1.8">Faqja hostohet në <strong>GitHub Pages</strong>. GitHub mund të regjistrojë adresa IP sipas politikës së tyre të privatësisë: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" style="color:var(--gold)">github.com/privacy</a></p>
+    </div>
+
+    <div style="background:var(--surface2);border-radius:14px;padding:22px;margin-bottom:28px">
+      <h2 style="color:var(--text);font-size:1rem;margin-bottom:8px">6. Kontakt</h2>
+      <p style="color:var(--text-dim);font-size:0.88rem;line-height:1.8">Për çdo pyetje rreth privatësisë: <a href="mailto:kremtims@gmx.de" style="color:var(--gold)">kremtims@gmx.de</a></p>
+    </div>
+  </div>
+</div>
+
+<div id="contactScreen" class="screen">
+  <div class="course-header">
+    <div class="course-header-top">
+      <div class="brand">DeutschAL <span>· Kontakt</span></div>
+      <button class="btn-outline" onclick="showScreen('landing')" style="padding:8px 16px;font-size:0.85rem">← Kthehu</button>
+    </div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:32px 24px;max-width:560px;margin:0 auto;width:100%">
+    <div style="text-align:center;margin-bottom:36px">
+      <div style="font-size:3rem;margin-bottom:12px">📧</div>
+      <h1 style="color:var(--gold);font-size:1.8rem;margin-bottom:8px">Na Kontaktoni</h1>
+      <p style="color:var(--text-muted);font-size:0.9rem">Kemi dëshirë të dëgjojmë mendimet tuaja</p>
+    </div>
+    <div style="background:var(--surface2);border-radius:14px;padding:28px;margin-bottom:20px;text-align:center">
+      <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.8;margin-bottom:20px">Për sugjerime, gabime, ose bashkëpunim:</p>
+      <a href="mailto:kremtims@gmx.de" style="display:inline-block;background:var(--gold);color:#000;padding:14px 32px;border-radius:10px;font-weight:700;font-size:1rem;text-decoration:none;font-family:DM Sans,sans-serif">kremtims@gmx.de</a>
+    </div>
+    <div style="background:var(--surface2);border-radius:14px;padding:22px;margin-bottom:20px">
+      <h2 style="color:var(--text);font-size:1rem;margin-bottom:10px">Çfarë mund të na shkruani?</h2>
+      <div style="color:var(--text-dim);font-size:0.88rem;line-height:2">
+        🐛 Gabime në tekst ose funksione<br>
+        💡 Sugjerime për module të reja<br>
+        🤝 Bashkëpunim ose sponsorizim<br>
+        ⭐ Feedback i përgjithshëm
+      </div>
+    </div>
+    <div style="background:rgba(240,180,41,0.06);border:1px solid rgba(240,180,41,0.2);border-radius:14px;padding:18px;text-align:center">
+      <p style="color:var(--text-muted);font-size:0.85rem">DeutschAL është projekt vullnetar.<br>Çdo feedback ndihmon për ta bërë më të mirë.</p>
+    </div>
+  </div>
+</div>
+<div id="alphabetScreen" class="screen">
+  <div class="course-header">
+    <div class="course-header-top">
+      <div class="brand">DeutschAL <span>· Alfabet + Tingujt 🔤</span></div>
+      <button class="btn-outline" style="padding:8px 16px;font-size:0.8rem" onclick="showScreen('landing')">← Kthehu</button>
+    </div>
+  </div>
+  <div id="alphabetContent" style="flex:1;overflow-y:auto;padding:20px"></div>
+</div>
 <div id="moduleDrawerOverlay" onclick="toggleModuleDrawer()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:998"></div>
 <div id="moduleDrawer" style="display:none;position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-radius:20px 20px 0 0;z-index:999;max-height:75vh;overflow-y:auto;padding-bottom:env(safe-area-inset-bottom,20px)">
   <div style="position:sticky;top:0;background:var(--surface);padding:14px 20px 10px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
@@ -12839,7 +13113,8 @@ function selectMobileModule(modId) {
     </select>
     <span id="vbCount" style="color:var(--gold);font-size:0.85rem;font-weight:600;margin-left:auto"></span>
   </div>
-  <div id="vbGrid" style="padding:20px 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;overflow-y:auto;flex:1"></div>
+  <div id="vbGrid" style="padding:20px 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;overflow-y:auto;flex:1">
+<div id="courseFooter" style="text-align:center;padding:10px 20px;border-top:1px solid var(--border);font-size:0.75rem;color:var(--text-muted);display:flex;justify-content:center;gap:16px;flex-wrap:wrap;background:var(--surface)"><button onclick="showAbout()" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.75rem;padding:0;text-decoration:underline">Rreth nesh</button> · <button onclick="showPrivacy()" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.75rem;padding:0;text-decoration:underline">Privatësia</button> · <button onclick="showContact()" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.75rem;padding:0;text-decoration:underline">Kontakt</button></div></div>
 </div>
 
 <!-- ═══════════════════════════════════════════
