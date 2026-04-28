@@ -4263,6 +4263,7 @@ document.addEventListener("DOMContentLoaded", function startApp() {
   try{TTS.init();}catch(e){}
   setTimeout(function(){
     try{renderWordOfDay();}catch(e){}
+  try{attachFooterListeners();}catch(e){}
     try{updateResumeCard();updatePrimaryBtn();}catch(e){}
     var l=document.getElementById('appLoader');
     if(l){l.style.transition='opacity 0.5s';l.style.opacity='0';setTimeout(function(){l.style.display='none';},500);}
@@ -5352,4 +5353,26 @@ function showStudyGuide() {
   document.body.appendChild(modal);
   var btn = document.getElementById('closeGuideBtn2');
   if (btn) btn.addEventListener('click', function() { modal.style.display = 'none'; });
+}
+
+function showAbout() { showScreen('aboutScreen'); }
+function showContact() { showScreen('contactScreen'); }
+function showPrivacy() { showScreen('privacyScreen'); }
+
+// Footer link listeners (CSP-safe)
+function attachFooterListeners() {
+  var pairs = [
+    ['btnAbout1', 'aboutScreen'], ['btnAbout2', 'aboutScreen'],
+    ['btnPrivacy1', 'privacyScreen'], ['btnPrivacy2', 'privacyScreen'],
+    ['btnContact1', 'contactScreen'], ['btnContact2', 'contactScreen']
+  ];
+  pairs.forEach(function(p) {
+    var el = document.getElementById(p[0]);
+    if (el) el.addEventListener('click', function(){ showScreen(p[1]); });
+  });
+  // Back buttons inside the new screens
+  ['backFromAbout','backFromPrivacy','backFromContact'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('click', function(){ showScreen('landing'); });
+  });
 }

@@ -846,7 +846,7 @@ h1.landing-title{font-size:2rem}
 
     <p class="landing-note" style="margin-top:16px">A1 → A2 → B1 &nbsp;•&nbsp; 36 module &nbsp;•&nbsp; ~2000 fjalë &nbsp;•&nbsp; Historia me Dion</p>
   </div>
-    <div style="text-align:center;padding:14px 20px;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text-muted);margin-top:10px"><span>E krijuar nga <strong style="color:var(--gold)">KS</strong></span> &nbsp;·&nbsp; <span>© 2026 DeutschAL</span><div style="display:flex;justify-content:center;gap:16px;margin-top:8px"><button onclick="showAbout()" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.78rem;padding:0;text-decoration:underline">Rreth nesh</button><button onclick="showPrivacy()" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.78rem;padding:0;text-decoration:underline">Privatësia</button><button onclick="showContact()" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.78rem;padding:0;text-decoration:underline">Kontakt</button></div></div>
+    <div style="text-align:center;padding:14px 20px;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text-muted);margin-top:10px"><span>E krijuar nga <strong style="color:var(--gold)">KS</strong></span> &nbsp;·&nbsp; <span>© 2026 DeutschAL</span><div style="display:flex;justify-content:center;gap:16px;margin-top:8px"><button id="btnAbout1" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.78rem;padding:0;text-decoration:underline">Rreth nesh</button><button id="btnPrivacy1" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.78rem;padding:0;text-decoration:underline">Privatësia</button><button id="btnContact1" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.78rem;padding:0;text-decoration:underline">Kontakt</button></div></div>
 </div>
 
 <!-- ═══════════════════════════════════════════
@@ -11852,6 +11852,7 @@ function printIrregularVerbs() {
   try{TTS.init();}catch(e){}
   setTimeout(function(){
     try{renderWordOfDay();}catch(e){}
+  try{attachFooterListeners();}catch(e){}
     try{updateResumeCard();updatePrimaryBtn();}catch(e){}
     var l=document.getElementById('appLoader');
     if(l){l.style.transition='opacity 0.5s';l.style.opacity='0';setTimeout(function(){l.style.display='none';},500);}
@@ -12942,12 +12943,34 @@ function showStudyGuide() {
   var btn = document.getElementById('closeGuideBtn2');
   if (btn) btn.addEventListener('click', function() { modal.style.display = 'none'; });
 }
+
+function showAbout() { showScreen('aboutScreen'); }
+function showContact() { showScreen('contactScreen'); }
+function showPrivacy() { showScreen('privacyScreen'); }
+
+// Footer link listeners (CSP-safe)
+function attachFooterListeners() {
+  var pairs = [
+    ['btnAbout1', 'aboutScreen'], ['btnAbout2', 'aboutScreen'],
+    ['btnPrivacy1', 'privacyScreen'], ['btnPrivacy2', 'privacyScreen'],
+    ['btnContact1', 'contactScreen'], ['btnContact2', 'contactScreen']
+  ];
+  pairs.forEach(function(p) {
+    var el = document.getElementById(p[0]);
+    if (el) el.addEventListener('click', function(){ showScreen(p[1]); });
+  });
+  // Back buttons inside the new screens
+  ['backFromAbout','backFromPrivacy','backFromContact'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('click', function(){ showScreen('landing'); });
+  });
+}
 </script>
 <div id="aboutScreen" class="screen">
   <div class="course-header">
     <div class="course-header-top">
       <div class="brand">DeutschAL <span>· Rreth nesh</span></div>
-      <button class="btn-outline" onclick="showScreen('landing')" style="padding:8px 16px;font-size:0.85rem">← Kthehu</button>
+      <button id="backFromAbout" class="btn-outline" style="padding:8px 16px;font-size:0.85rem">← Kthehu</button>
     </div>
   </div>
   <div style="flex:1;overflow-y:auto;padding:32px 24px;max-width:680px;margin:0 auto;width:100%">
@@ -12974,7 +12997,7 @@ function showStudyGuide() {
     </div>
     <div style="background:var(--surface2);border-radius:14px;padding:22px;margin-bottom:20px;border-left:4px solid var(--b1-color)">
       <h2 style="color:var(--text);font-size:1.1rem;margin-bottom:10px">Kush e krijoi?</h2>
-      <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.8">DeutschAL u krijua nga <strong style="color:var(--gold)">KS</strong> — me qëllimin e vetëm për t'i ndihmuar shqiptarët të mësojnë gjermanisht falas dhe me efikasitet. Projekti është me burim të hapur dhe në zhvillim të vazhdueshëm.</p>
+      <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.8">DeutschAL u krijua nga <strong style="color:var(--gold)">Kremtim Selimi</strong> — me qëllimin e vetëm për t'i ndihmuar shqiptarët të mësojnë gjermanisht falas dhe me efikasitet. Projekti është me burim të hapur dhe në zhvillim të vazhdueshëm.</p>
     </div>
     <div style="text-align:center;margin-top:32px">
       <button class="btn" onclick="showScreen('contact')" style="margin-right:12px;padding:12px 24px">📧 Na kontaktoni</button>
@@ -12987,7 +13010,7 @@ function showStudyGuide() {
   <div class="course-header">
     <div class="course-header-top">
       <div class="brand">DeutschAL <span>· Politika e Privatësisë</span></div>
-      <button class="btn-outline" onclick="showScreen('landing')" style="padding:8px 16px;font-size:0.85rem">← Kthehu</button>
+      <button id="backFromPrivacy" class="btn-outline" style="padding:8px 16px;font-size:0.85rem">← Kthehu</button>
     </div>
   </div>
   <div style="flex:1;overflow-y:auto;padding:32px 24px;max-width:680px;margin:0 auto;width:100%">
@@ -13030,7 +13053,7 @@ function showStudyGuide() {
   <div class="course-header">
     <div class="course-header-top">
       <div class="brand">DeutschAL <span>· Kontakt</span></div>
-      <button class="btn-outline" onclick="showScreen('landing')" style="padding:8px 16px;font-size:0.85rem">← Kthehu</button>
+      <button id="backFromContact" class="btn-outline" style="padding:8px 16px;font-size:0.85rem">← Kthehu</button>
     </div>
   </div>
   <div style="flex:1;overflow-y:auto;padding:32px 24px;max-width:560px;margin:0 auto;width:100%">
@@ -13114,7 +13137,7 @@ function showStudyGuide() {
     <span id="vbCount" style="color:var(--gold);font-size:0.85rem;font-weight:600;margin-left:auto"></span>
   </div>
   <div id="vbGrid" style="padding:20px 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;overflow-y:auto;flex:1">
-<div id="courseFooter" style="text-align:center;padding:10px 20px;border-top:1px solid var(--border);font-size:0.75rem;color:var(--text-muted);display:flex;justify-content:center;gap:16px;flex-wrap:wrap;background:var(--surface)"><button onclick="showAbout()" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.75rem;padding:0;text-decoration:underline">Rreth nesh</button> · <button onclick="showPrivacy()" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.75rem;padding:0;text-decoration:underline">Privatësia</button> · <button onclick="showContact()" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.75rem;padding:0;text-decoration:underline">Kontakt</button></div></div>
+<div id="courseFooter" style="text-align:center;padding:10px 20px;border-top:1px solid var(--border);font-size:0.75rem;color:var(--text-muted);display:flex;justify-content:center;gap:16px;flex-wrap:wrap;background:var(--surface)"><button id="btnAbout2" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.75rem;padding:0;text-decoration:underline">Rreth nesh</button> · <button id="btnPrivacy2" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.75rem;padding:0;text-decoration:underline">Privatësia</button> · <button id="btnContact2" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.75rem;padding:0;text-decoration:underline">Kontakt</button></div></div>
 </div>
 
 <!-- ═══════════════════════════════════════════
