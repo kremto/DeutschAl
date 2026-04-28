@@ -13,7 +13,7 @@ const MODULES = {
         lines:[
           {type:'narr', text:'Dion vjen nga Kosova, nga Prishtina. Ai mbrin në Wien për herë të parë. I bie ziles së familjes Bauer.'},
           {type:'line', speaker:'Znj. Bauer', de:'Hallo! Sie sind Dion, oder?', sq:'Përshëndetje! Ju jeni Dion, apo jo?'},
-          {type:'line', speaker:'Dion', de:'Ja, guten Tag! Ich heiße Dion. Ich komme aus Albanien.', sq:'Po, mirëdita! Unë quhem Dion. Vij nga Shqipëria.'},
+          {type:'line', speaker:'Dion', de:'Ja, guten Tag! Ich heiße Dion. Ich komme aus Kosovo.', sq:'Po, mirëdita! Unë quhem Dion. Vij nga Kosova.'},
           {type:'line', speaker:'Znj. Bauer', de:'Willkommen! Kommen Sie herein. Mein Name ist Bauer.', sq:'Mirë se vini! Hyni brenda. Emri im është Bauer.'},
           {type:'line', speaker:'Dion', de:'Danke schön! Es freut mich!', sq:'Shumë faleminderit! Gëzohem!'},
           {type:'line', speaker:'Hr. Bauer', de:'Guten Tag! Wie geht es Ihnen?', sq:'Mirëdita! Si jeni?'},
@@ -144,8 +144,8 @@ const MODULES = {
     },
     {
       id:'a1m3', num:3, title:'Familja', sub:'Familie & Verwandtschaft',
-      story:{ep:'Episodi 3',title:'Familja ime në Shqipëri',lines:[
-        {type:'narr',text:'Dion i tregon Kleas për familjen e tij në Shqipëri, duke parë fotografi.'},
+      story:{ep:'Episodi 3',title:'Familja ime në Kosovë',lines:[
+        {type:'narr',text:'Dion i tregon Kleas për familjen e tij në Kosovë, duke parë fotografi.'},
         {type:'line',speaker:'Klea',de:'Hast du Fotos von deiner Familie?',sq:'Ke foto të familjes tënde?'},
         {type:'line',speaker:'Dion',de:'Ja! Das ist meine Mutter. Sie heißt Elona.',sq:'Po! Kjo është nëna ime. Ajo quhet Elona.'},
         {type:'line',speaker:'Klea',de:'Und wer ist das?',sq:'Dhe kush është kjo?'},
@@ -2713,8 +2713,8 @@ const MODULE_UPGRADES = {
     {type:'line', speaker:'Dion', de:'Ja, es ist perfekt! Danke sehr. Ich bin sehr müde nach der langen Reise.', sq:'Po, është perfekte! Shumë faleminderit. Jam shumë i lodhur pas udhëtimit të gjatë.'},
     {type:'line', speaker:'Znj. Bauer', de:'Natürlich! Ruhen Sie sich aus. Das Abendessen ist um 19 Uhr. Mögen Sie Suppe?', sq:'Natyrisht! Pushoni. Darka është në orën 19. Ju pëlqen supa?'},
     {type:'line', speaker:'Dion', de:'Ja, sehr gern! In Albanien essen wir auch oft Suppe. Das ist wie zu Hause!', sq:'Po, shumë! Edhe në Shqipëri hamë shpesh supë. Kjo është si në shtëpi!'},
-    {type:'line', speaker:'Hr. Bauer', de:'Woher in Albanien kommen Sie genau?', sq:'Nga ku saktësisht në Shqipëri vini?'},
-    {type:'line', speaker:'Dion', de:'Aus Tirana, der Hauptstadt. Kennen Sie Albanien?', sq:'Nga Tirana, kryeqyteti. E njihni Shqipërinë?'},
+    {type:'line', speaker:'Hr. Bauer', de:'Woher in Kosovo kommen Sie genau?', sq:'Nga ku saktësisht në Kosovë vini?'},
+    {type:'line', speaker:'Dion', de:'Aus Pristina, der Hauptstadt des Kosovo. Kennen Sie Kosovo?', sq:'Nga Prishtina, kryeqyteti i Kosovës. E njihni Kosovën?'},
     {type:'line', speaker:'Hr. Bauer', de:'Ein bisschen. Ich war einmal in Shkodra — eine wunderschöne Stadt!', sq:'Pak. Kam qenë njëherë në Shkodër — qytet i mrekullueshëm!'},
     {type:'line', speaker:'Dion', de:'Oh wirklich? Das freut mich sehr! Shkodra ist wirklich schön.', sq:'Oh vërtet? Kjo më gëzon shumë! Shkodra është vërtet e bukur.'},
   ],
@@ -2722,7 +2722,7 @@ const MODULE_UPGRADES = {
     {
       prompt: 'Dion takon fqinjin për herë të parë. Si prezantohet?',
       hint: 'Ich heiße... / Ich komme aus... / Es freut mich!',
-      example: 'Guten Tag! Ich heiße Dion. Ich komme aus Albanien. Es freut mich, Sie kennenzulernen!',
+      example: 'Guten Tag! Ich heiße Dion. Ich komme aus Kosovo. Es freut mich, Sie kennenzulernen!',
       level: 'A1'
     },
     {
@@ -2796,7 +2796,7 @@ const MODULE_UPGRADES = {
 
 'a1m3': {
   storyExtension: [
-    {type:'narr', text:'Klea, kolega e Dionit, e fton të shikojnë fotografi nga Shqipëria. Dion emocionohet duke folur për familjen e tij.'},
+    {type:'narr', text:'Klea, kolega e Dionit, e fton të shikojnë fotografi nga Kosova. Dion emocionohet duke folur për familjen e tij.'},
     {type:'line', speaker:'Klea', de:'Ich sehe, du schaust oft auf dein Handy. Hast du Heimweh?', sq:'Shoh që shpesh shikon telefonin. A ke mall për shtëpinë?'},
     {type:'line', speaker:'Dion', de:'Ja, ein bisschen. Meine Familie ist weit weg. Ich schreibe meiner Mutter jeden Tag.', sq:'Po, pak. Familja ime është larg. I shkruaj nënës çdo ditë.'},
     {type:'line', speaker:'Klea', de:'Das ist süß! Wie groß ist deine Familie?', sq:'Kjo është e ëmbël! Sa e madhe është familja jote?'},
@@ -2910,7 +2910,7 @@ const MODULE_UPGRADES = {
       title: 'Scenario: Takimi i parë me kolegët',
       situation: 'Dita e parë në punë të re. Duhet të prezantohesh para gjithë ekipit.',
       lines: [
-        {speaker:'Shefi', de:'Darf ich vorstellen — das ist Dion, unser neuer Kollege aus Albanien!', sq:'Mund t\'ju prezantoj — ky është Dion, kolegu ynë i ri nga Shqipëria!'},
+        {speaker:'Shefi', de:'Darf ich vorstellen — das ist Dion, unser neuer Kollege aus Kosovo!', sq:'Mund t\'ju prezantoj — ky është Dion, kolegu ynë i ri nga Kosova!'},
         {speaker:'Ti (Dion)', de:'Hallo zusammen! Ich freue mich sehr, bei euch zu sein. Ich komme aus Tirana und bin seit sechs Monaten in Deutschland. Ich arbeite als Softwareentwickler und lerne gerade Deutsch — also bitte habt etwas Geduld mit mir!', sq:'Përshëndetje të gjithëve! Jam shumë i gëzuar të jem me ju. Vij nga Tirana dhe jam gjashtë muaj në Gjermani. Punoj si zhvillues softueri dhe po mësoj gjermanisht — prandaj ju lutem kini pak durim me mua!'},
         {speaker:'Kolegu', de:'Dein Deutsch ist schon sehr gut! Woher hast du es gelernt?', sq:'Gjermanishtja jote është tashmë shumë e mirë! Ku e ke mësuar?'},
         {speaker:'Ti', de:'Danke! Ich hatte einen Kurs in Wien und lerne seit einem Jahr. Ich übe jeden Tag.', sq:'Faleminderit! Pata kurs në Vjenë dhe mësoj prej një viti. Ushtroj çdo ditë.'},
@@ -5375,7 +5375,7 @@ A1: [
       {rule:'mein Name ist + [emri]', note:'Pak më formale. Përdoret në dokumente dhe email.'}
     ],
     examples:[
-      {de:'Ich heiße Dion. Ich komme aus Albanien.', sq:'Unë quhem Dion. Vij nga Shqipëria.'},
+      {de:'Ich heiße Dion. Ich komme aus Kosovo.', sq:'Unë quhem Dion. Vij nga Kosova.'},
       {de:'Ich bin Anna. Und du? Wie heißt du?', sq:'Unë jam Anna. Dhe ti? Si quhesh?'},
       {de:'Mein Name ist Thomas Müller.', sq:'Emri im është Thomas Müller.'}
     ],
