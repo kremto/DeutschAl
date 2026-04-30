@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="sq">
 <head>
+<script>
+// Early navigation handler - works before app.js loads
+document.addEventListener('click', function(e) {
+  var btn = e.target;
+  if (btn.tagName !== 'BUTTON') {
+    btn = btn.closest ? btn.closest('[data-screen]') : null;
+  }
+  if (!btn) return;
+  var screen = btn.getAttribute('data-screen');
+  if (!screen) return;
+  e.preventDefault();
+  // If showScreen is loaded, use it
+  if (typeof showScreen === 'function') {
+    showScreen(screen);
+    return;
+  }
+  // Otherwise wait for app to load then navigate
+  window.addEventListener('load', function() {
+    if (typeof showScreen === 'function') showScreen(screen);
+  });
+});
+</script>
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-L8204S81GC"></script>
 <script>
@@ -949,8 +971,8 @@ if('serviceWorker' in navigator){window.addEventListener('load',function(){navig
 </div>
 
 
-<script src="data.js" defer></script>
-<script src="app.js" defer></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
 
 <div id="aboutScreen" class="screen">
   <div class="course-header">
