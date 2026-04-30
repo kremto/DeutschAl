@@ -4484,7 +4484,7 @@ const ERROR_HUNT_EXERCISES = [
   {id:'EH4',level:'A1',wrong:'Die Buch ist interessant.',correct:'Das Buch ist interessant.',
    category:'Gjinia e emrit',hint:'Cila eshte gjinia e Buch?',
    explanation:'"Buch" (libri) eshte ASNJANES - nyja e sakte eshte "DAS Buch". Die perdoret vetem per femerin.'},
-  {id:'EH5',level:'A1',wrong:'Ich komme von Albanien.',correct:'Ich komme aus Albanien.',
+  {id:'EH5',level:'A1',wrong:'Ich komme von Albanien.',correct:'Ich komme aus Kosovo.',
    category:'Prepozicat',hint:'Cila prepozice perdoret per vendlindjen?',
    explanation:'Per vendet: "aus" (nga). "von" perdoret per njerez ose pika specifike. "Ich komme AUS Albanien."'},
   {id:'EH6',level:'A2',wrong:'Obwohl er krank ist, aber er geht arbeiten.',correct:'Obwohl er krank ist, geht er arbeiten.',
@@ -5358,6 +5358,10 @@ function showStudyGuide() {
 function showAbout() { showScreen('aboutScreen'); }
 function showContact() { showScreen('contactScreen'); }
 function showPrivacy() { showScreen('privacyScreen'); }
+// Make explicitly global for onclick handlers
+window.showAbout = showAbout;
+window.showContact = showContact;
+window.showPrivacy = showPrivacy;
 
 // Footer link listeners (CSP-safe)
 function attachFooterListeners() {
@@ -5376,3 +5380,12 @@ function attachFooterListeners() {
     if (el) el.addEventListener('click', function(){ showScreen('landing'); });
   });
 }
+
+// Global handler for footer navigation buttons
+document.addEventListener('click', function(e) {
+  var btn = e.target;
+  if (btn.tagName !== 'BUTTON') btn = btn.closest ? btn.closest('button') : null;
+  if (!btn) return;
+  var screen = btn.getAttribute('data-screen');
+  if (screen) { e.preventDefault(); showScreen(screen); }
+});
