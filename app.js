@@ -1,4 +1,7 @@
-// DeutschAL — Application logic
+// DeutschAL — deutschal.com
+// © 2026 Kremtim Selimi
+
+// Application Logic
 
 function showScreen(id) {
   Array.from(document.querySelectorAll('.screen')).forEach(function(s){ s.classList.remove('active'); });
@@ -4268,7 +4271,8 @@ document.addEventListener("DOMContentLoaded", function startApp() {
     var l=document.getElementById('appLoader');
     if(l){l.style.transition='opacity 0.5s';l.style.opacity='0';setTimeout(function(){l.style.display='none';},500);}
   },350);
-});
+
+  if(window.pendingScreen){showScreen(window.pendingScreen);window.pendingScreen=null;}});
 
 
 // v17 features placeholder
@@ -5156,7 +5160,7 @@ const VOCAB_V18 = {
     ALL_VOCAB.A1=ALL_VOCAB.A1.concat(tg(fa1,"Fjalori Final"));
     var fa2=[{de:"der Salat",sq:"sallatë/marule",type:"Ushqim",ex:"Ein frischer Salat. — Sallatë e freskët."},{de:"die Bluse",sq:"blluzë femrore",type:"Rroba",ex:"Eine elegante Bluse. — Blluzë elegante."},{de:"der Stiefel",sq:"çizmet",type:"Rroba",ex:"Stiefel im Regen. — Çizme në shi."}];
     ALL_VOCAB.A2=ALL_VOCAB.A2.concat(tg(fa2,"Fjalori Final"));
-    var fb1=[{de:"das Jahrhundert",sq:"shekulli",type:"Kohë",ex:"Im 21. Jahrhundert. — Në shekullin 21."},{de:"das Jahrzehnt",sq:"dekada",type:"Kohë",ex:"Im letzten Jahrzehnt. — Në dekadën e fundit."},{de:"die Vergangenheit",sq:"e kaluara",type:"Kohë",ex:"In der Vergangenheit war es anders. — Në të kaluarën ishte ndryshe."},{de:"die Gegenwart",sq:"e tanishmja",type:"Kohë",ex:"In der Gegenwart leben. — Jetoj në të tashmen."},{de:"die Zukunft",sq:"e ardhmja",type:"Kohë",ex:"Die Zukunft ist ungewiss. — E ardhmja është e pasigurt."},{de:"plötzlich",sq:"papritmas",type:"Kohë",ex:"Plötzlich fiel der Strom aus. — Papritmas shkoi drita."},{de:"gleichzeitig",sq:"njëkohësisht",type:"Kohë",ex:"Das passiert gleichzeitig. — Kjo ndodh njëkohësisht."},{de:"vorher",sq:"para/më parë",type:"Kohë",ex:"Was war vorher? — Çfarë ishte më parë?"},{de:"kaum",sq:"sapo/vështirë",type:"Kohë",ex:"Kaum angekommen, schon wieder weg. — Sapo arriti, tashmë ikoi."},{de:"soeben",sq:"tani/sapo",type:"Kohë",ex:"Er ist soeben angekommen. — Sapo ka mbërritur."},{de:"voraussichtlich",sq:"me shumë gjasë/me siguri",type:"Kohë",ex:"Voraussichtlich kommt er morgen. — Me shumë gjasë vjen nesër."},{de:"der Norden",sq:"veriu",type:"Drejtim",ex:"Im Norden Deutschlands. — Në veriun e Gjermanisë."},{de:"der Süden",sq:"jugu",type:"Drejtim",ex:"München liegt im Süden. — Mynihu ndodhet në jug."},{de:"der Osten",sq:"lindja",type:"Drejtim",ex:"Berlin liegt im Osten. — Berlini ndodhet në lindje."},{de:"der Westen",sq:"perëndimi",type:"Drejtim",ex:"Köln liegt im Westen. — Kolonja ndodhet në perëndim."},{de:"die Mitte",sq:"mesi/qendra",type:"Drejtim",ex:"In der Mitte Deutschlands. — Në mes të Gjermanisë."},{de:"die Umgebung",sq:"rrethinat",type:"Drejtim",ex:"Die Umgebung ist schön. — Rrethinat janë të bukura."},{de:"der Stadtrand",sq:"periferia",type:"Drejtim",ex:"Wir wohnen am Stadtrand. — Banojmë në periferi."},{de:"ländlich",sq:"rural/fshatarak",type:"Drejtim",ex:"In einer ländlichen Gegend. — Në zonë rurale."},{de:"städtisch",sq:"urban/i qytetit",type:"Drejtim",ex:"Das städtische Leben. — Jeta e qytetit."}];
+    var fb1=[{de:"das Jahrhundert",sq:"shekulli",type:"Kohë",ex:"Im 21. Jahrhundert. — Në shekullin 21."},{de:"das Jahrzehnt",sq:"dekada",type:"Kohë",ex:"Im letzten Jahrzehnt. — Në dekadën e fundit."},{de:"die Vergangenheit",sq:"e kaluara",type:"Kohë",ex:"In der Vergangenheit war es anders. — Në të kaluarën ishte ndryshe."},{de:"die Gegenwart",sq:"e tanishmja",type:"Kohë",ex:"In der Gegenwart leben. — Jetoj në të tashmen."},{de:"die Zukunft",sq:"e ardhmja",type:"Kohë",ex:"Die Zukunft ist ungewiss. — E ardhmja është e pasigurt."},{de:"plötzlich",sq:"papritmas",type:"Kohë",ex:"Plötzlich fiel der Strom aus. — Papritmas shkoi drita."},{de:"gleichzeitig",sq:"njëkohësisht",type:"Kohë",ex:"Das passiert gleichzeitig. — Kjo ndodh njëkohësisht."},{de:"vorher",sq:"para/më parë",type:"Kohë",ex:"Was war vorher? — Çfarë ishte më parë?"},{de:"kaum",sq:"sapo/vështirë",type:"Kohë",ex:"Kaum angekommen, schon wieder weg. — Sapo arriti, tashmë ikoi."},{de:"soeben",sq:"tani/sapo",type:"Kohë",ex:"Er ist soeben angekommen. — Sapo ka mbërritur."},{de:"voraussichtlich",sq:"me shumë gjasë/me siguri",type:"Kohë",ex:"Voraussichtlich kommt er morgen. — Me shumë gjasë vjen nesër."},{de:"der Norden",sq:"veriu",type:"Drejtim",ex:"Im Norden Deutschlands. — Në veriun e Gjermanisë."},{de:"der Süden",sq:"jugu",type:"Drejtim",ex:"München liegt im Süden. — Minhenu ndodhet në jug."},{de:"der Osten",sq:"lindja",type:"Drejtim",ex:"Berlin liegt im Osten. — Berlini ndodhet në lindje."},{de:"der Westen",sq:"perëndimi",type:"Drejtim",ex:"Köln liegt im Westen. — Kolonja ndodhet në perëndim."},{de:"die Mitte",sq:"mesi/qendra",type:"Drejtim",ex:"In der Mitte Deutschlands. — Në mes të Gjermanisë."},{de:"die Umgebung",sq:"rrethinat",type:"Drejtim",ex:"Die Umgebung ist schön. — Rrethinat janë të bukura."},{de:"der Stadtrand",sq:"periferia",type:"Drejtim",ex:"Wir wohnen am Stadtrand. — Banojmë në periferi."},{de:"ländlich",sq:"rural/fshatarak",type:"Drejtim",ex:"In einer ländlichen Gegend. — Në zonë rurale."},{de:"städtisch",sq:"urban/i qytetit",type:"Drejtim",ex:"Das städtische Leben. — Jeta e qytetit."}];
     ALL_VOCAB.B1=ALL_VOCAB.B1.concat(tg(fb1,"Fjalori Final"));
   };
 })();

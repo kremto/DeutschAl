@@ -1,6 +1,21 @@
-// DeutschAL Service Worker v19
-var CACHE = 'deutschal-v19';
-var FILES = ['./', 'index.html', 'data.js', 'app.js', 'og-image.png'];
+// DeutschAL Service Worker v20
+var CACHE = 'deutschal-v20';
+var FILES = [
+  './',
+  'index.html',
+  'style.css',
+  'app.js',
+  'data-modules.js',
+  'data-vocab.js',
+  'data-grammar.js',
+  'data-state.js',
+  'manifest.json',
+  'og-image.png',
+  'favicon.ico',
+  'favicon-32x32.png',
+  'favicon-16x16.png',
+  'apple-touch-icon.png'
+];
 
 self.addEventListener('install', function(e) {
   self.skipWaiting();
