@@ -2174,7 +2174,244 @@ const MODULES = {
         {q:'Çfarë do të thotë "vorhaben"?',opts:['Të kesh ndërmend/planifikosh','Të kesh frikë','Të jesh gati','Të bësh gati'],a:0,exp:'"vorhaben" = Të kesh ndërmend/planifikosh. Mëso fjalën në kontekst me shembuj — fjaloria bëhet aktive vetëm duke e dëgjuar dhe folur, jo duke e memorizuar!'},
         {q:'Plotëso: Mein Ziel ist es, B1 ___ schaffen.',opts:['um','für','von','zu'],a:3,exp:'Forma e saktë: "zu". Praktiko duke shkruar 3 fjali të ngjashme!'},
       ]
+    },,
+    {
+      id:'a2m13', num:13, title:'Die 4 Fälle',
+      sub:'Nominativ, Akkusativ, Dativ, Genitiv',
+      story:{
+        ep:'Episodi 13', title:'Dioni shpjegon rasët',
+        narr:'Klea ka vështirësi me rasët gjermane. Dioni i kujton si mëson ato — me pyetje kyçe.',
+        lines:[
+          {speaker:'Klea', de:'Dion, ich verstehe die Fälle nicht. Wann benutze ich was?', sq:'Dion, nuk i kuptoj rasët. Kur përdor çfarë?'},
+          {speaker:'Dion', de:'Gute Frage! Es gibt vier Fälle. Ich zeige dir einen Trick.', sq:'Pyetje e mirë! Ka katër rasa. Të tregoj një truk.'},
+          {speaker:'Dion', de:'Nominativ: Wer oder Was macht etwas? Das ist das Subjekt.', sq:'Nominativ: Kush ose Çfarë bën diçka? Kjo është kryefjala.'},
+          {speaker:'Klea', de:'"Der Mann kauft Brot." Der Mann ist Nominativ?', sq:'"Der Mann kauft Brot." Der Mann është Nominativ?'},
+          {speaker:'Dion', de:'Genau! Akkusativ: Wen oder Was? Das direkte Objekt.', sq:'Saktë! Akkusativ: Kë ose Çfarë? Objekti i drejtë.'},
+          {speaker:'Klea', de:'"Der Mann kauft das Brot." Das Brot ist Akkusativ?', sq:'"Der Mann kauft das Brot." Das Brot është Akkusativ?'},
+          {speaker:'Dion', de:'Perfekt! Dativ: Wem? Das indirekte Objekt.', sq:'Perfekt! Dativ: Kujt? Objekti i tërthortë.'},
+          {speaker:'Klea', de:'"Er gibt dem Kind das Buch." Dem Kind ist Dativ?', sq:'"Er gibt dem Kind das Buch." Dem Kind është Dativ?'},
+          {speaker:'Dion', de:'Richtig! Genitiv: Wessen? Er zeigt Zugehörigkeit.', sq:'Saktë! Genitiv: I kujt? Ai tregon pronësi.'},
+          {speaker:'Klea', de:'"Das ist das Auto des Mannes." Des Mannes ist Genitiv?', sq:'"Das ist das Auto des Mannes." Des Mannes është Genitiv?'},
+          {speaker:'Dion', de:'Super! Wer, Wen, Wem, Wessen — merke dir das!', sq:'Super! Kush, Kë, Kujt, I kujt — mbaji mend këtë!'},
+          {speaker:'Klea', de:'Das ist wie Albanisch! Wir haben auch Fälle!', sq:'Kjo është si shqipja! Edhe ne kemi rasa!'},
+          {speaker:'Dion', de:'Genau! Deshalb ist es für uns leichter als für andere.', sq:'Saktë! Prandaj është më e lehtë për ne se sa për të tjerët.'}
+        ]
+      },
+      vocab:[
+        {de:'der Kasus / der Fall', sq:'rasa gramatikore', ex:'Das Deutsche hat vier Kasus.'},
+        {de:'der Nominativ', sq:'emërorja — kryefjala (Wer?)', ex:'Der Mann schläft.'},
+        {de:'der Akkusativ', sq:'kallëzorja — obj. i drejtë (Wen?)', ex:'Ich sehe den Mann.'},
+        {de:'der Dativ', sq:'dhanorja — obj. i tërthortë (Wem?)', ex:'Ich helfe dem Mann.'},
+        {de:'der Genitiv', sq:'gjinorja — pronësia (Wessen?)', ex:'Das Auto des Mannes.'},
+        {de:'das Subjekt', sq:'kryefjala', ex:'Der Hund bellt. (kryefjala = Der Hund)'},
+        {de:'das Objekt', sq:'kundrinori', ex:'Ich sehe den Hund. (obj. = den Hund)'},
+        {de:'die Zugehörigkeit', sq:'pronësia, përkatësia', ex:'Das Buch des Lehrers.'},
+        {de:'maskulin', sq:'mashkullor (der)', ex:'der Mann → den → dem → des Mannes'},
+        {de:'feminin', sq:'femëror (die)', ex:'die Frau → die → der → der Frau'},
+        {de:'neutral', sq:'asnjanës (das)', ex:'das Kind → das → dem → des Kindes'},
+        {de:'bestimmter Artikel', sq:'nyjja e shquar', ex:'der/die/das ndryshon sipas rasës'},
+        {de:'unbestimmter Artikel', sq:'nyjja e pashquar', ex:'ein/eine/ein → einen/eine/ein...'},
+        {de:'die Endung', sq:'mbaresa', ex:'des Mannes — mbaresa -s tregon Genitiv'},
+        {de:'der Plural', sq:'shumësi', ex:'Dativ Plural: den Kindern (merr -n)'}
+      ],
+      grammar:[
+        {title:'4 Rasët — Pyetjet Kyçe',
+         body:'Çdo rasë ka pyetjen e saj. Kjo pyetje të ndihmon të gjesh rasën e duhur gjithmonë.',
+         table:{heads:['Rasa','Pyetja shqip','Pyetja gjermanisht','Funksioni'],
+                rows:[
+                  ['Nominativ','Kush? / Çfarë?','Wer? / Was?','Kryefjala (Subjekt)'],
+                  ['Akkusativ','Kë? / Çfarë?','Wen? / Was?','Obj. i drejtë'],
+                  ['Dativ','Kujt?','Wem?','Obj. i tërthortë'],
+                  ['Genitiv','I/E kujt?','Wessen?','Pronësia']
+                ]},
+         examples:['Wer schläft? → Der Mann. (Nominativ)','Wen siehst du? → Den Mann. (Akkusativ)','Wem hilfst du? → Dem Mann. (Dativ)','Wessen Auto? → Des Mannes. (Genitiv)']},
+        {title:'Nyjet e Shquara sipas Rasës',
+         body:'Nyjja e shquar (der/die/das) ndryshon sipas rasës. Tabela kryesore — mësoje!',
+         table:{heads:['Rasa','mask. der','fem. die','neut. das','plural die'],
+                rows:[
+                  ['Nominativ','der','die','das','die'],
+                  ['Akkusativ','den','die','das','die'],
+                  ['Dativ','dem','der','dem','den+n'],
+                  ['Genitiv','des+s','der','des+s','der']
+                ]},
+         examples:['der Mann → den Mann → dem Mann → des Mannes','die Frau → die Frau → der Frau → der Frau','das Kind → das Kind → dem Kind → des Kindes']},
+        {title:'Nyjet e Pashquara sipas Rasës',
+         body:'Nyjja e pashquar (ein/eine) ndryshon gjithashtu. Forma negative kein/keine ndjek të njëjtin model.',
+         table:{heads:['Rasa','mask.','fem.','neut.','plural kein'],
+                rows:[
+                  ['Nominativ','ein','eine','ein','keine'],
+                  ['Akkusativ','einen','eine','ein','keine'],
+                  ['Dativ','einem','einer','einem','keinen'],
+                  ['Genitiv','eines','einer','eines','keiner']
+                ]},
+         examples:['Ich habe einen Hund. (Akk. mask.)','Ich helfe einer Frau. (Dat. fem.)','Das Buch eines Lehrers. (Gen. mask.)']},
+        {title:'Nominativ — Kryefjala',
+         body:'Nominativ = kryefjala. Personi ose gjëja që kryen veprimin. Pyetja: Wer? ose Was?',
+         examples:['Der Arzt arbeitet viel. (Wer arbeitet? → der Arzt)','Das Buch liegt auf dem Tisch. (Was liegt? → das Buch)','Die Kinder spielen draußen.'],
+         tip:'Nominativ = forma bazë. Maskulini: der. Femërorja: die. Asnjanësi: das.'},
+        {title:'Akkusativ — Objekti i Drejtë',
+         body:'Akkusativ = objekti i drejtë. Çfarë preket direkt nga veprimi. Pyetja: Wen? ose Was?',
+         examples:['Ich kaufe den Mantel. (Was kaufe ich? → den Mantel)','Er liebt die Musik. (Was liebt er? → die Musik)','Sie besucht einen Freund.'],
+         tip:'VETËM maskulini ndryshon: der → den. Femërorja dhe asnjanësi mbeten njësoj!'},
+        {title:'Dativ — Objekti i Tërthortë',
+         body:'Dativ = objekti i tërthortë. Kujt i jepet ose kujt i ndihmohet. Pyetja: Wem?',
+         examples:['Ich gebe dem Kind das Buch. (Wem? → dem Kind)','Er hilft der Frau. (Wem? → der Frau)','Ich danke meinem Lehrer.'],
+         tip:'PREPOZICAT e Dativit: mit, nach, bei, von, zu, aus, seit → gjithmonë Dativ!'},
+        {title:'Genitiv — Pronësia',
+         body:'Genitiv = pronësia. Tregon se kujt i përket diçka. Pyetja: Wessen? Maskulini/asnjanësi marrin mbaresën -s.',
+         examples:['Das Auto des Mannes. (Wessen Auto? → des Mannes)','Die Tasche der Frau ist neu.','Das Spielzeug des Kindes.'],
+         tip:'Genitiv zëvendësohet shpesh me "von + Dativ": das Auto des Mannes = das Auto von dem Mann.'}
+      ],
+      exercises:[
+        {type:'mc', q:'Cila rasë tregon kryefjalën (Wer macht etwas)?', opts:['Akkusativ','Nominativ','Dativ','Genitiv'], a:1, exp:'Nominativ = kryefjala. Pyetja: Wer? Was?'},
+        {type:'mc', q:'"Ich sehe ___ Mann." (mask., obj. i drejtë)', opts:['der','dem','des','den'], a:3, exp:'"den" — maskulini Akkusativ: der → den'},
+        {type:'mc', q:'"Ich helfe ___ Frau." (fem., kujt?)', opts:['die','der','das','den'], a:1, exp:'"der" — femërorja Dativ: die → der'},
+        {type:'mc', q:'Pyetja e rasës Dativ është:', opts:['Wer?','Wen?','Wem?','Wessen?'], a:2, exp:'Wem? = kujt? Wer=Nom, Wen=Akk, Wessen=Gen'},
+        {type:'mc', q:'"Das Auto ___ Mannes." Cila rasë?', opts:['Nominativ','Akkusativ','Dativ','Genitiv'], a:3, exp:'Genitiv = pronësia. "des Mannes" = i burrit'},
+        {type:'mc', q:'Maskulini Akkusativ: der → ___', opts:['der','dem','den','des'], a:2, exp:'"den" — i vetmi ndryshim i Akkusativit: der→den, maskulin'},
+        {type:'mc', q:'"Ich gebe ___ Kind das Buch." (neut., Dativ)', opts:['das','dem','des','den'], a:1, exp:'"dem" — asnjanësi Dativ: das → dem'},
+        {type:'mc', q:'Prepozicat "mit, nach, bei, von, zu" kërkojnë:', opts:['Nominativ','Akkusativ','Dativ','Genitiv'], a:2, exp:'Këto prepozita janë GJITHMONË me Dativ!'},
+        {type:'mc', q:'Asnjanësi (das) Akkusativ: das → ___', opts:['der','dem','das','des'], a:2, exp:'"das" — asnjanësi dhe femërorja NUK ndryshojnë në Akkusativ!'},
+        {type:'mc', q:'Genitiv e "die Frau" është:', opts:['der Frau','die Frau','dem Frau','das Frau'], a:0, exp:'"der Frau" — femërorja Genitiv dhe Dativ janë njësoj: "der Frau"'}
+      ],
+      quiz:[
+        {q:'Cila rasë tregon kryefjalën?', opts:['Akkusativ','Nominativ','Dativ','Genitiv'], a:1},
+        {q:'"Ich sehe ___ Mann." (mask.)', opts:['der','dem','des','den'], a:3},
+        {q:'"Ich helfe ___ Frau." (fem.)', opts:['die','der','das','den'], a:1},
+        {q:'Pyetja e Dativit:', opts:['Wer?','Wen?','Wem?','Wessen?'], a:2},
+        {q:'"Auto ___ Mannes" — cila rasë?', opts:['Nominativ','Akkusativ','Dativ','Genitiv'], a:3},
+        {q:'der → ___ (mask. Akkusativ)', opts:['der','dem','den','des'], a:2},
+        {q:'"Ich gebe ___ Kind das Buch."', opts:['das','dem','des','den'], a:1},
+        {q:'"mit, nach, bei, von, zu" → gjithmonë:', opts:['Nominativ','Akkusativ','Dativ','Genitiv'], a:2},
+        {q:'das (neut.) Akkusativ → ___', opts:['der','dem','das','des'], a:2},
+        {q:'Genitiv e "die Frau":', opts:['der Frau','die Frau','dem Frau','des Frau'], a:0}
+      ]
     },
+    {
+      id:'a2m14', num:14, title:'Die 4 Fälle — Rasët',
+      sub:'Nominativ, Akkusativ, Dativ, Genitiv',
+      story:{
+        ep:'Episodi 14', title:'Dioni shpjegon rasët',
+        narr:'Dioni po ndihmon Klean të mësojë gramatikën gjermane. Tema e sotme: 4 rasët — sistemi që ndryshon çdo gjë.',
+        lines:[
+          {speaker:'Klea', de:'Dion, ich verstehe die Fälle nicht. Wann benutze ich "der" und wann "den"?', sq:'Dion, nuk i kuptoj rasët. Kur përdor "der" dhe kur "den"?'},
+          {speaker:'Dion', de:'Gute Frage! Es gibt vier Fälle: Nominativ, Akkusativ, Dativ und Genitiv.', sq:'Pyetje e mirë! Ka katër rasa: Nominativ, Akkusativ, Dativ dhe Genitiv.'},
+          {speaker:'Klea', de:'Was ist der Unterschied?', sq:'Cili është ndryshimi?'},
+          {speaker:'Dion', de:'Nominativ ist das Subjekt — wer macht etwas? "Der Mann kauft Brot."', sq:'Nominativi është kryefjala — kush bën diçka? "Der Mann kauft Brot."'},
+          {speaker:'Klea', de:'Und Akkusativ?', sq:'Po Akkusativi?'},
+          {speaker:'Dion', de:'Akkusativ ist das direkte Objekt — was kauft er? "Er kauft den Apfel."', sq:'Akkusativi është kundërobjekti i drejtë — çfarë blen ai? "Er kauft den Apfel."'},
+          {speaker:'Klea', de:'Ah! "Der" wird zu "den"! Und Dativ?', sq:'Ah! "Der" bëhet "den"! Po Dativi?'},
+          {speaker:'Dion', de:'Dativ ist das indirekte Objekt — für wen? Er gibt dem Mann das Brot.', sq:'Dativi është kundërobjekti i tërthortë — për kë? Ai i jep bukën njeriut.'},
+          {speaker:'Klea', de:'Und Genitiv? Das höre ich selten.', sq:'Po Genitivin? E dëgjoj rrallë.'},
+          {speaker:'Dion', de:'Genitiv zeigt Zugehörigkeit — wessen? Das ist das Auto des Mannes.', sq:'Genitivin tregon pronësi — i kujt? Kjo është makina e njeriut.'},
+          {speaker:'Klea', de:'Also: der→den (Akkusativ), der→dem (Dativ), der→des (Genitiv)?', sq:'Pra: der→den (Akk.), der→dem (Dat.), der→des (Gen.)?'},
+          {speaker:'Dion', de:'Perfekt! Du hast das Prinzip verstanden!', sq:'Perfekt! E ke kuptuar parimin!'},
+          {speaker:'Klea', de:'Aber die Adjektive ändern sich auch, oder?', sq:'Por edhe mbiemrat ndryshojnë, apo jo?'},
+          {speaker:'Dion', de:'Ja, aber das lernen wir beim nächsten Mal. Schritt für Schritt!', sq:'Po, por atë e mësojmë herën tjetër. Hap pas hapi!'}
+        ]
+      },
+      vocab:[
+        {de:'der Fall / die Fälle', sq:'rasa / rasat', ex:'Es gibt vier Fälle im Deutschen.'},
+        {de:'der Nominativ', sq:'emërorja (rasa 1)', ex:'Der Mann schläft. (Subjekt)'},
+        {de:'der Akkusativ', sq:'kallëzorja (rasa 4)', ex:'Ich sehe den Mann. (direktes Objekt)'},
+        {de:'der Dativ', sq:'dhanorja (rasa 3)', ex:'Ich helfe dem Mann. (indirektes Objekt)'},
+        {de:'der Genitiv', sq:'gjinorja (rasa 2)', ex:'Das Auto des Mannes. (Zugehörigkeit)'},
+        {de:'das Subjekt', sq:'kryefjala', ex:'Das Subjekt steht im Nominativ.'},
+        {de:'das Objekt', sq:'kundërobjekti', ex:'Das direkte Objekt steht im Akkusativ.'},
+        {de:'die Zugehörigkeit', sq:'pronësia, përkatësia', ex:'Der Genitiv zeigt Zugehörigkeit.'},
+        {de:'der Artikel', sq:'nyja', ex:'Der Artikel ändert sich je nach Kasus.'},
+        {de:'maskulin / feminin / neutral', sq:'mashkullor / femëror / asnjanës', ex:'der (mask.), die (fem.), das (neutr.)'},
+        {de:'sich ändern', sq:'ndryshoj', ex:'Der Artikel ändert sich im Akkusativ.'},
+        {de:'direkt / indirekt', sq:'direkt / i tërthortë', ex:'direktes Objekt (Akk.), indirektes Objekt (Dat.)'}
+      ],
+      grammar:[
+        {title:'Çfarë janë Rasat (Fälle)?',
+         body:'Rasat tregojnë funksionin e emrit në fjali. Gjermanisht ka 4 rasa. Ato ndryshojnë nyjet (der/die/das) dhe mbiemrat.',
+         examples:['Der Mann schläft. (Nominativ — kryefjala)','Ich sehe den Mann. (Akkusativ — objekt i drejtë)','Ich helfe dem Mann. (Dativ — objekt i tërthortë)','Das Auto des Mannes. (Genitiv — pronësia)']},
+        {title:'Nyjet sipas rasave — Tabela e plotë',
+         body:'Kjo është tabela kryesore që duhet mësuar. Shënoji ndryshimet me kujdes!',
+         table:{heads:['Rasa','mask. (der)','fem. (die)','neutr. (das)','plural (die)'],
+                rows:[
+                  ['Nominativ','der','die','das','die'],
+                  ['Akkusativ','den ⬅','die','das','die'],
+                  ['Dativ','dem ⬅','der ⬅','dem ⬅','den ⬅'],
+                  ['Genitiv','des ⬅','der ⬅','des ⬅','der ⬅']
+                ]},
+         examples:['Ndryshimet kryesore: mask. Akk.→den | Dat.→dem | Gen.→des','fem. Dat.→der | Gen.→der','⬅ = ndryshon nga Nominativi']},
+        {title:'Nominativ — Rasa 1 (Kryefjala)',
+         body:'Nominativi tregon KUSH bën veprimin. Është forma bazë — ashtu si në fjalor.',
+         examples:['Der Mann kauft Brot. — Njeriu blen bukë. (der = Nominativ)','Die Frau liest ein Buch. — Gruaja lexon një libër. (die = Nominativ)','Das Kind spielt. — Fëmija luan. (das = Nominativ)','Die Kinder schlafen. — Fëmijët flenë. (die pl. = Nominativ)'],
+         tip:'Pyete: WER? (kush?) ose WAS? (çfarë?) bën veprimin → Nominativ'},
+        {title:'Akkusativ — Rasa 4 (Objekt i drejtë)',
+         body:'Akkusativi tregon KËND ose ÇFARË preket nga veprimi. Ndryshon vetëm tek mashkullorja: der→den.',
+         table:{heads:['Gjinia','Nominativ','Akkusativ','Shembull'],
+                rows:[
+                  ['mask.','der','den ⬅','Ich sehe den Mann.'],
+                  ['fem.','die','die','Ich sehe die Frau.'],
+                  ['neutr.','das','das','Ich sehe das Kind.'],
+                  ['plural','die','die','Ich sehe die Kinder.']
+                ]},
+         examples:['Ich kaufe einen Apfel. — Blej një mollë.','Er liebt die Musik. — Ai e do muzikën.','Wir besuchen das Museum. — Vizitojmë muzeun.'],
+         tip:'Pyete: WEN? (kë?) ose WAS? (çfarë?) preket → Akkusativ'},
+        {title:'Dativ — Rasa 3 (Objekt i tërthortë)',
+         body:'Dativi tregon PËR KË ose KUJT i jepet diçka. Ndryshon tek të gjitha gjinit.',
+         table:{heads:['Gjinia','Nominativ','Dativ','Shembull'],
+                rows:[
+                  ['mask.','der','dem ⬅','Ich helfe dem Mann.'],
+                  ['fem.','die','der ⬅','Ich helfe der Frau.'],
+                  ['neutr.','das','dem ⬅','Ich helfe dem Kind.'],
+                  ['plural','die','den ⬅','Ich helfe den Kindern.']
+                ]},
+         examples:['Ich gebe dem Mann das Buch. — I jap njeriut librin.','Sie hilft der Frau. — Ajo i ndihmon gruas.','Er dankt dem Lehrer. — Ai i falënderon mësuesit.'],
+         tip:'Pyete: WEM? (kujt?) ose FÜR WEN? (për kë?) → Dativ. Foljet: helfen, danken, geben, zeigen, gehören...'},
+        {title:'Genitiv — Rasa 2 (Pronësia)',
+         body:'Genitivin tregon PRONËSINË — i kujt është diçka. Në gjuhë të folur shpesh zëvendësohet me "von + Dativ".',
+         table:{heads:['Gjinia','Nominativ','Genitiv','Shembull'],
+                rows:[
+                  ['mask.','der','des ⬅ (+s)','Das Auto des Mannes.'],
+                  ['fem.','die','der ⬅','Die Tasche der Frau.'],
+                  ['neutr.','das','des ⬅ (+s)','Das Zimmer des Kindes.'],
+                  ['plural','die','der ⬅','Die Bücher der Kinder.']
+                ]},
+         examples:['Das ist das Auto des Mannes. — Kjo është makina e njeriut.','Die Farbe der Blume ist rot. — Ngjyra e lules është e kuqe.','Alternativa: das Auto von dem Mann (von + Dativ)'],
+         tip:'Emrat mashkullor dhe asnjanës marrin -(e)s në fund: Mannes, Kindes, Tages...'},
+        {title:'Krahasim i shpejtë — të 4 rasat',
+         body:'Tabela e artë — mëso këtë me zemër!',
+         table:{heads:['','Nominativ','Akkusativ','Dativ','Genitiv'],
+                rows:[
+                  ['mask.','der Mann','den Mann','dem Mann','des Mannes'],
+                  ['fem.','die Frau','die Frau','der Frau','der Frau'],
+                  ['neutr.','das Kind','das Kind','dem Kind','des Kindes'],
+                  ['plural','die Kinder','die Kinder','den Kindern','der Kinder'],
+                  ['Pyetja','Wer/Was?','Wen/Was?','Wem?','Wessen?']
+                ]},
+         examples:['Der Mann (Nom.) gibt dem Kind (Dat.) den Apfel (Akk.) des Lehrers (Gen.).','Njeriu i jep fëmijës mollën e mësuesit.']}
+      ],
+      exercises:[
+        {type:'mc', q:'Cila nyje është e saktë? "Ich sehe ___ Mann." (Akkusativ, mashkullor)', opts:['der','die','den','dem'], a:2, exp:'"den" = Akkusativ mashkullor. der→den. Pyete: Wen sehe ich? → Akkusativ'},
+        {type:'mc', q:'"___ Frau hilft mir." — Cila nyje? (Nominativ, femëror)', opts:['Die','Der','Den','Dem'], a:0, exp:'"Die" = Nominativ femëror. Pyete: Wer hilft mir? → kryefjala = Nominativ'},
+        {type:'mc', q:'Plotëso: "Ich gebe ___ Kind das Buch." (Dativ, asnjanës)', opts:['das','des','dem','den'], a:2, exp:'"dem" = Dativ asnjanës. das→dem. Pyete: Wem gebe ich? → Dativ'},
+        {type:'mc', q:'Cila formë tregon pronësi (Genitiv)? "Das Auto ___ Mannes."', opts:['der','des','dem','den'], a:1, exp:'"des" = Genitiv mashkullor. Emrat mashkullorë marrin -(e)s: Mannes'},
+        {type:'mc', q:'"Ich helfe ___ Frau." — Cila nyje? (Dativ)', opts:['die','der','den','dem'], a:1, exp:'"der" = Dativ femëror. die→der. helfen kërkon gjithmonë Dativ!'},
+        {type:'mc', q:'Cila pyetje kontrollon Akkusativin?', opts:['Wer?','Wem?','Wen/Was?','Wessen?'], a:2, exp:'"Wen/Was?" = Akkusativ. Wer? = Nominativ. Wem? = Dativ. Wessen? = Genitiv'},
+        {type:'mc', q:'"Das Buch ___ Lehrers ist interessant." — Genitiv, mashkullor:', opts:['der','des','dem','den'], a:1, exp:'"des" = Genitiv mashkullor. Lehrers = Lehrer + s (Genitiv endung)'},
+        {type:'mc', q:'Plotëso: "Wir besuchen ___ Museum." (Akkusativ, asnjanës)', opts:['der','den','dem','das'], a:3, exp:'"das" = Akkusativ asnjanës. das qëndron i njëjtë edhe në Akkusativ!'},
+        {type:'mc', q:'Cili rast NUK ndryshon nyjen "die" (femëror)?', opts:['Nominativ','Akkusativ','Dativ','Genitiv'], a:1, exp:'Akkusativ femëror: die → die (nuk ndryshon!). Ndryshon vetëm Dativ (der) dhe Genitiv (der)'},
+        {type:'mc', q:'"Der Mann gibt ___ Frau einen Blume." — Dativ femëror:', opts:['die','der','den','dem'], a:1, exp:'"der" = Dativ femëror. die Frau → der Frau. Pyete: Wem gibt er? → Dativ'}
+      ],
+      quiz:[
+        {q:'Cila nyje është e saktë? "Ich sehe ___ Mann." (Akkusativ, mashkullor)', opts:['der','die','den','dem'], a:2},
+        {q:'"___ Frau hilft mir." — Nominativ, femëror:', opts:['Die','Der','Den','Dem'], a:0},
+        {q:'Plotëso: "Ich gebe ___ Kind das Buch." (Dativ, asnjanës)', opts:['das','des','dem','den'], a:2},
+        {q:'Genitiv mashkullor: "Das Auto ___ Mannes."', opts:['der','des','dem','den'], a:1},
+        {q:'"Ich helfe ___ Frau." — Dativ femëror:', opts:['die','der','den','dem'], a:1},
+        {q:'Cila pyetje kontrollon Akkusativin?', opts:['Wer?','Wem?','Wen/Was?','Wessen?'], a:2},
+        {q:'"Das Buch ___ Lehrers" — Genitiv mashkullor:', opts:['der','des','dem','den'], a:1},
+        {q:'"Wir besuchen ___ Museum." (Akkusativ, asnjanës)', opts:['der','den','dem','das'], a:3},
+        {q:'Cili rast NUK ndryshon "die" femëror?', opts:['Nominativ','Akkusativ','Dativ','Genitiv'], a:1},
+        {q:'"Er gibt ___ Frau eine Blume." — Dativ femëror:', opts:['die','der','den','dem'], a:1}
+      ]
+    }
   ],
   B1: [
     {
