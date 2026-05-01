@@ -12928,6 +12928,51 @@ function toggleModuleDrawer() {
   else { document.body.style.overflow = ''; }
 }
 
+// Smart overlay close - only close if user tapped (not scrolled)
+(function() {
+  var overlay = document.getElementById('moduleDrawerOverlay');
+  var drawer = document.getElementById('moduleDrawer');
+  if (!overlay) return;
+
+  var touchStartY = 0;
+  var touchStartX = 0;
+  var didScroll = false;
+
+  // Track scroll inside drawer
+  if (drawer) {
+    drawer.addEventListener('touchstart', function(e) {
+      touchStartY = e.touches[0].clientY;
+      touchStartX = e.touches[0].clientX;
+      didScroll = false;
+    }, {passive: true});
+
+    drawer.addEventListener('touchmove', function(e) {
+      var dy = Math.abs(e.touches[0].clientY - touchStartY);
+      var dx = Math.abs(e.touches[0].clientX - touchStartX);
+      if (dy > 5 || dx > 5) didScroll = true;
+    }, {passive: true});
+  }
+
+  // Overlay tap - only close if NOT scrolling
+  overlay.addEventListener('touchstart', function(e) {
+    touchStartY = e.touches[0].clientY;
+    didScroll = false;
+  }, {passive: true});
+
+  overlay.addEventListener('touchend', function(e) {
+    if (!didScroll) {
+      e.preventDefault();
+      toggleModuleDrawer();
+    }
+    didScroll = false;
+  });
+
+  // Also handle mouse click for desktop
+  overlay.addEventListener('click', function(e) {
+    if (e.type === 'click') toggleModuleDrawer();
+  });
+})();
+
 function renderDrawerModules() {
   var c = document.getElementById('drawerModuleList');
   var lbl = document.getElementById('drawerLevelLabel');
@@ -13236,8 +13281,8 @@ document.addEventListener('click', function(e) {
   </div>
   <div id="alphabetContent" style="flex:1;overflow-y:auto;padding:20px"></div>
 </div>
-<div id="moduleDrawerOverlay" onclick="toggleModuleDrawer()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:998"></div>
-<div id="moduleDrawer" style="display:none;position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-radius:20px 20px 0 0;z-index:999;max-height:75vh;overflow-y:auto;padding-bottom:env(safe-area-inset-bottom,20px)">
+<div id="moduleDrawerOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:998"></div>
+<div id="moduleDrawer" style="display:none;position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-radius:20px 20px 0 0;z-index:999;max-height:75vh;overflow-y:auto;padding-bottom:env(safe-area-inset-bottom,20px);-webkit-overflow-scrolling:touch;overscroll-behavior:contain">
   <div style="position:sticky;top:0;background:var(--surface);padding:14px 20px 10px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
     <div id="drawerLevelLabel" style="font-size:0.95rem;font-weight:700;color:var(--text)">Modulet</div>
     <button onclick="toggleModuleDrawer()" style="background:var(--surface2);border:1px solid var(--border);border-radius:50%;width:36px;height:36px;cursor:pointer;color:var(--text);font-size:1.1rem">✕</button>

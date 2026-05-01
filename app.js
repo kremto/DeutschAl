@@ -5205,6 +5205,51 @@ function toggleModuleDrawer() {
   else { document.body.style.overflow = ''; }
 }
 
+// Smart overlay close - only close if user tapped (not scrolled)
+(function() {
+  var overlay = document.getElementById('moduleDrawerOverlay');
+  var drawer = document.getElementById('moduleDrawer');
+  if (!overlay) return;
+
+  var touchStartY = 0;
+  var touchStartX = 0;
+  var didScroll = false;
+
+  // Track scroll inside drawer
+  if (drawer) {
+    drawer.addEventListener('touchstart', function(e) {
+      touchStartY = e.touches[0].clientY;
+      touchStartX = e.touches[0].clientX;
+      didScroll = false;
+    }, {passive: true});
+
+    drawer.addEventListener('touchmove', function(e) {
+      var dy = Math.abs(e.touches[0].clientY - touchStartY);
+      var dx = Math.abs(e.touches[0].clientX - touchStartX);
+      if (dy > 5 || dx > 5) didScroll = true;
+    }, {passive: true});
+  }
+
+  // Overlay tap - only close if NOT scrolling
+  overlay.addEventListener('touchstart', function(e) {
+    touchStartY = e.touches[0].clientY;
+    didScroll = false;
+  }, {passive: true});
+
+  overlay.addEventListener('touchend', function(e) {
+    if (!didScroll) {
+      e.preventDefault();
+      toggleModuleDrawer();
+    }
+    didScroll = false;
+  });
+
+  // Also handle mouse click for desktop
+  overlay.addEventListener('click', function(e) {
+    if (e.type === 'click') toggleModuleDrawer();
+  });
+})();
+
 function renderDrawerModules() {
   var c = document.getElementById('drawerModuleList');
   var lbl = document.getElementById('drawerLevelLabel');
