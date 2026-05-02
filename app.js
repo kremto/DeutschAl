@@ -5437,4 +5437,28 @@ document.addEventListener('click', function(e) {
   if (!btn) return;
   var screen = btn.getAttribute('data-screen');
   if (screen) { e.preventDefault(); showScreen(screen); }
+
+
+  // Expose to global scope for onclick handlers
+  window.getInteractiveStory = getInteractiveStory;
+  window.showInteractiveChoice = showInteractiveChoice;
+  window.chooseInteractiveBranch = chooseInteractiveBranch;
+  window.renderInteractiveLine = renderInteractiveLine;
+  window.showErrorHunting = showErrorHunting;
+  window.filterErrorHunt = filterErrorHunt;
+  window.renderErrorHuntScreen = renderErrorHuntScreen;
+  window.openPronunciation = openPronunciation;
+  window.closeSpeechModal = closeSpeechModal;
+  window.startListening = startListening;
+  window.toggleCourseMenu = toggleCourseMenu;
+  window.toggleModuleDrawer = toggleModuleDrawer;
+  window.renderDrawerModules = renderDrawerModules;
+  window.selectMobileModule = selectMobileModule;
+  window.showAlphabet = showAlphabet;
+  window.showStudyGuide = showStudyGuide;
+  window.showAbout = showAbout;
+  window.showContact = showContact;
+  window.showPrivacy = showPrivacy;
+  window.attachFooterListeners = attachFooterListeners;
+  if(window.pendingScreen){{showScreen(window.pendingScreen);window.pendingScreen=null;}}
 });
