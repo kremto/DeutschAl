@@ -10,6 +10,7 @@ function showScreen(id) {
 function startFromA1() {
   state.currentLevel = 'A1';
   state.currentModuleId = 'a1m1';
+  saveLastPosition();
   renderCourse();
   showScreen('course');
 }
@@ -4264,6 +4265,18 @@ document.addEventListener("DOMContentLoaded", function startApp() {
   try{buildAllVocab();}catch(e){}
   try{initTheme();}catch(e){}
   try{TTS.init();}catch(e){}
+  // Restore completed modules from localStorage
+  try {
+    var _pd = PROGRESS.getData();
+    if (_pd.modulesCompleted && _pd.modulesCompleted.length > 0) {
+      state.completedModules = _pd.modulesCompleted;
+    }
+    var _last = JSON.parse(localStorage.getItem('deutschal_last') || 'null');
+    if (_last && _last.level) {
+      state.currentLevel = _last.level;
+      state.currentModuleId = _last.moduleId || state.currentModuleId;
+    }
+  } catch(e) {}
   setTimeout(function(){
     try{renderWordOfDay();}catch(e){}
   try{attachFooterListeners();}catch(e){}
