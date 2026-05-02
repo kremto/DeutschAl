@@ -4536,13 +4536,19 @@ document.addEventListener("DOMContentLoaded", function startApp() {
     // Restore last screen after loader hides
     try {
       var _screen = localStorage.getItem('deutschal_screen');
-      var _last2 = JSON.parse(localStorage.getItem('deutschal_last') || 'null');
-      if (_screen && _screen !== 'landing' && _screen !== 'placement' && _last2 && _last2.moduleId) {
-        // Was in course — restore it
-        if (_screen === 'course') {
-          renderCourse();
-          showScreen('course');
-        } else if (_screen && document.getElementById(_screen)) {
+      if (_screen && _screen !== 'landing' && _screen !== 'placement') {
+        var _el = document.getElementById(_screen);
+        if (_el) {
+          if (_screen === 'course') {
+            // Restore course + module position
+            var _last2 = JSON.parse(localStorage.getItem('deutschal_last') || 'null');
+            if (_last2 && _last2.level) {
+              state.currentLevel = _last2.level;
+              state.currentModuleId = _last2.moduleId || state.currentModuleId;
+              state.lessonTab = _last2.tab || 'story';
+            }
+            renderCourse();
+          }
           showScreen(_screen);
         }
       }
