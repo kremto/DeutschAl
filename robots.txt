@@ -1,8 +1,7 @@
 User-agent: *
 Allow: /
-Sitemap: https://deutschal.github.io/sitemap.xml
+Sitemap: https://deutschal.com/sitemap.xml
 
-# Disallow nothing — full access for crawlers
 User-agent: Googlebot
 Allow: /
 
