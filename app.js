@@ -1,22 +1,3 @@
-// Lazy load guard — triggers vocab/grammar load when needed
-function _ensureLazyLoaded(callback) {
-  if (typeof GRAMMAR_DB !== 'undefined' && typeof PLACEMENT_QS !== 'undefined') {
-    if (callback) callback();
-    return;
-  }
-  if (typeof _lazyLoad === 'function') _lazyLoad();
-  // Wait for load then execute
-  var tries = 0;
-  var check = setInterval(function() {
-    tries++;
-    if (typeof GRAMMAR_DB !== 'undefined' && typeof PLACEMENT_QS !== 'undefined') {
-      clearInterval(check);
-      if (callback) callback();
-    }
-    if (tries > 50) clearInterval(check); // 5 second timeout
-  }, 100);
-}
-
 // DeutschAL — deutschal.com
 // © 2026 Kremtim Selimi
 
@@ -34,7 +15,6 @@ function startFromA1() {
   showScreen('course');
 }
 function goToPlacement() {
-  if (typeof GRAMMAR_DB === "undefined" || typeof PLACEMENT_QS === "undefined") { _ensureLazyLoaded(function(){ goToPlacement(); }); return; }
   state.placementStep = 'choose';
   renderPlacement();
   showScreen('placement');
@@ -549,7 +529,6 @@ function toggleVcard(i) {
 
 // ── VOCAB BROWSER FUNCTIONS ──
 function showVocabBrowser() {
-  if (typeof GRAMMAR_DB === "undefined" || typeof PLACEMENT_QS === "undefined") { _ensureLazyLoaded(function(){ showVocabBrowser(); }); return; }
   buildAllVocab();
   Array.from(document.querySelectorAll('[id^="vbTab"]')).forEach(function(t){ t.classList.remove('active'); });
   var tab = document.getElementById('vbTabA1');
@@ -1201,7 +1180,6 @@ var grammarState = {
 };
 
 function showGrammarScreen() {
-  if (typeof GRAMMAR_DB === "undefined" || typeof PLACEMENT_QS === "undefined") { _ensureLazyLoaded(function(){ showGrammarScreen(); }); return; }
   Array.from(document.querySelectorAll('.level-tab')).forEach(function(t){ t.classList.remove('active'); });
   var gt = document.getElementById('tabGrammar');
   if(gt){ gt.style.color='#34d399'; gt.style.borderBottomColor='#34d399'; }
@@ -1385,7 +1363,6 @@ var fcState = {
 };
 
 function showFlashcards() {
-  if (typeof GRAMMAR_DB === "undefined" || typeof PLACEMENT_QS === "undefined") { _ensureLazyLoaded(function(){ showFlashcards(); }); return; }
   startFlashcards('A1');
   showScreen('flashcardScreen');
 }
@@ -3234,7 +3211,6 @@ function renderGapScreen() {
 
 // ── 5. FJALA E DITËS — shown on landing ──
 function renderWordOfDay() {
-  if (typeof GRAMMAR_DB === "undefined" || typeof PLACEMENT_QS === "undefined") { _ensureLazyLoaded(function(){ renderWordOfDay(); }); return; }
   var el = document.getElementById('wordOfDayBox');
   if (!el) return;
   var w = WORD_OF_DAY.getForToday();
@@ -3499,7 +3475,6 @@ function selectSearchResult(idx) {
 var dailyState = { questions: [], idx: 0, score: 0, answered: false, userAns: null, done: false };
 
 function showDailyChallenge() {
-  if (typeof GRAMMAR_DB === "undefined" || typeof PLACEMENT_QS === "undefined") { _ensureLazyLoaded(function(){ showDailyChallenge(); }); return; }
   buildAllVocab();
   // Build 10 mixed questions from vocab + grammar
   var pool = [];
@@ -4236,7 +4211,6 @@ function printGrammar(level) {
 }
 
 function printVocab(level) {
-  if (typeof GRAMMAR_DB === "undefined" || typeof PLACEMENT_QS === "undefined") { _ensureLazyLoaded(function(){ printVocab(); }); return; }
   buildAllVocab();
   var words = ALL_VOCAB[level] || [];
   var win = window.open('', '_blank');
