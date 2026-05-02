@@ -180,6 +180,13 @@ function renderSidebar() {
     `;
     sb.appendChild(div);
   }; });
+  // Add Final Test button for A1
+  if (state.currentLevel === 'A1') {
+    var testBtn = document.createElement('div');
+    testBtn.style = 'margin-top:16px;padding:0 8px';
+    testBtn.innerHTML = '<button onclick="showA1Test()" style="width:100%;padding:11px;background:linear-gradient(135deg,rgba(240,180,41,0.2),rgba(240,180,41,0.05));border:1px solid var(--gold);border-radius:10px;color:var(--gold);cursor:pointer;font-size:0.82rem;font-weight:600;font-family:DM Sans,sans-serif">🏆 Testi Final A1</button>';
+    sb.appendChild(testBtn);
+  }
 }
 
 function getCurrentModule() {
@@ -2755,6 +2762,136 @@ const WORD_OF_DAY = {
 // ─────────────────────────────────────────────────────────────
 // 6. USHTRIME GAP-FILL (Lückentext)
 // ─────────────────────────────────────────────────────────────
+
+
+// ══════════════════════════════════════════════════════════════
+// TESTI FINAL A1 — 50 Pyetje
+// Mbulon: Fjalori, Gramatika, Lexim, Dialog, Gap Fill
+// ══════════════════════════════════════════════════════════════
+const A1_FINAL_TEST = [
+  // ── SEKSIONI 1: FJALORI (15 pyetje) ──────────────────────
+  {id:'T1', sec:'Fjalori', q:'Çfarë do të thotë "Guten Morgen"?',
+   opts:['Mirëmbrëma','Mirëmëngjes','Natën e mirë','Mirëdita'], a:1},
+  {id:'T2', sec:'Fjalori', q:'Si thuhet "faleminderit" në gjermanisht?',
+   opts:['Bitte','Entschuldigung','Danke','Hallo'], a:2},
+  {id:'T3', sec:'Fjalori', q:'"Das Buch" në shqip është:',
+   opts:['Lapsi','Libri','Çanta','Dera'], a:1},
+  {id:'T4', sec:'Fjalori', q:'Cila fjalë do të thotë "ujë"?',
+   opts:['Milch','Brot','Wasser','Kaffee'], a:2},
+  {id:'T5', sec:'Fjalori', q:'"Ich arbeite" do të thotë:',
+   opts:['Unë ha','Unë punoj','Unë fle','Unë shkoj'], a:1},
+  {id:'T6', sec:'Fjalori', q:'Si thuhet "spital" në gjermanisht?',
+   opts:['Apotheke','Schule','Krankenhaus','Bahnhof'], a:2},
+  {id:'T7', sec:'Fjalori', q:'"Die Mutter" do të thotë:',
+   opts:['Motra','Gjyshja','Nëna','Tezja'], a:2},
+  {id:'T8', sec:'Fjalori', q:'Cila fjalë do të thotë "bukë"?',
+   opts:['Käse','Brot','Butter','Fleisch'], a:1},
+  {id:'T9', sec:'Fjalori', q:'"Groß" do të thotë:',
+   opts:['i vogël','i kuq','i madh','i ri'], a:2},
+  {id:'T10', sec:'Fjalori', q:'Si thuhet "dysheme" në gjermanisht?',
+   opts:['die Wand','die Decke','das Fenster','der Boden'], a:3},
+  {id:'T11', sec:'Fjalori', q:'"Montag" është:',
+   opts:['E martë','E hënë','E mërkurë','E enjte'], a:1},
+  {id:'T12', sec:'Fjalori', q:'Cila fjalë do të thotë "tren"?',
+   opts:['Bus','Auto','Zug','Fahrrad'], a:2},
+  {id:'T13', sec:'Fjalori', q:'"Kalt" do të thotë:',
+   opts:['i ngrohtë','i ftohtë','i lagur','i thatë'], a:1},
+  {id:'T14', sec:'Fjalori', q:'Si thuhet "mjek" në gjermanisht?',
+   opts:['Lehrer','Arzt','Koch','Polizist'], a:1},
+  {id:'T15', sec:'Fjalori', q:'"Auf Wiedersehen" do të thotë:',
+   opts:['Përshëndetje','Faleminderit','Mirupafshim','Ju lutem'], a:2},
+
+  // ── SEKSIONI 2: GRAMATIKA (15 pyetje) ────────────────────
+  {id:'T16', sec:'Gramatika', q:'Cila formë është e saktë? "___ heiße Dion."',
+   opts:['Er','Du','Ich','Sie'], a:2},
+  {id:'T17', sec:'Gramatika', q:'Plotëso: "Das ist ___ Buch." (i/e imja)',
+   opts:['mein','meine','meiner','meinem'], a:0},
+  {id:'T18', sec:'Gramatika', q:'Cili është numri i saktë? "Ich habe ___ Katzen." (2)',
+   opts:['zwei','zweit','zweite','zweitens'], a:0},
+  {id:'T19', sec:'Gramatika', q:'Plotëso: "Wo ___ du?" (sein)',
+   opts:['ist','bin','bist','sind'], a:2},
+  {id:'T20', sec:'Gramatika', q:'Cili artikull është i saktë? "___ Mann arbeitet."',
+   opts:['Die','Das','Den','Der'], a:3},
+  {id:'T21', sec:'Gramatika', q:'Plotëso: "Ich ___ Kaffee." (trinken, ich)',
+   opts:['trinkt','trinkst','trinke','trinken'], a:2},
+  {id:'T22', sec:'Gramatika', q:'Cila formë është e saktë? "Haben Sie ___ Kinder?"',
+   opts:['ein','einen','eine','—'], a:3},
+  {id:'T23', sec:'Gramatika', q:'Plotëso: "Er ___ in Wien." (wohnen)',
+   opts:['wohne','wohnst','wohnen','wohnt'], a:3},
+  {id:'T24', sec:'Gramatika', q:'"Ich kaufe ___ Apfel." (mashkullor, Akkusativ)',
+   opts:['der','die','das','einen'], a:3},
+  {id:'T25', sec:'Gramatika', q:'Cili është pyetja e saktë për moshën?',
+   opts:['Wie alt bist du?','Wie heißt du?','Woher kommst du?','Was machst du?'], a:0},
+  {id:'T26', sec:'Gramatika', q:'Plotëso: "Das Haus ___ groß." (sein)',
+   opts:['bin','bist','ist','sind'], a:2},
+  {id:'T27', sec:'Gramatika', q:'"Nicht" në fjali: "Ich ___ müde."',
+   opts:['bin nicht','nicht bin','bist nicht','nicht bist'], a:0},
+  {id:'T28', sec:'Gramatika', q:'Cili numëror vjen pas "neun"?',
+   opts:['elf','acht','zehn','zwölf'], a:2},
+  {id:'T29', sec:'Gramatika', q:'Plotëso: "Wir ___ aus Kosovo." (kommen)',
+   opts:['komme','kommst','kommen','kommt'], a:2},
+  {id:'T30', sec:'Gramatika', q:'Cili është kuptimi i "kein/keine"?',
+   opts:['një','asnjë/pa','shumë','pak'], a:1},
+
+  // ── SEKSIONI 3: LEXIM (10 pyetje) ─────────────────────────
+  // Teksti: "Ich heiße Anna. Ich bin 23 Jahre alt und komme aus Österreich.
+  // Ich wohne in Wien und arbeite als Lehrerin. Ich spreche Deutsch und ein bisschen Englisch.
+  // Meine Hobbys sind Lesen und Kochen. Am Wochenende gehe ich gerne spazieren."
+  {id:'T31', sec:'Lexim', q:'[Teksti] Sa vjeç është Anna?',
+   opts:['21','22','23','24'], a:2},
+  {id:'T32', sec:'Lexim', q:'[Teksti] Nga vjen Anna?',
+   opts:['Gjermania','Zvicra','Kosova','Austria'], a:3},
+  {id:'T33', sec:'Lexim', q:'[Teksti] Çfarë pune bën Anna?',
+   opts:['Infermiere','Mësuese','Mjeke','Arkitekte'], a:1},
+  {id:'T34', sec:'Lexim', q:'[Teksti] Ku banon Anna?',
+   opts:['Berlin','München','Wien','Hamburg'], a:2},
+  {id:'T35', sec:'Lexim', q:'[Teksti] Çfarë gjuhe flet Anna?',
+   opts:['Gjermanisht dhe frëngjisht','Gjermanisht dhe anglisht','Vetëm gjermanisht','Anglisht dhe italisht'], a:1},
+  {id:'T36', sec:'Lexim', q:'[Teksti] Cili është hobi i Annës?',
+   opts:['Muzika dhe sporti','Leximi dhe gatimi','Udhëtimi dhe kërcimi','Piktura dhe filmat'], a:1},
+  {id:'T37', sec:'Lexim', q:'[Teksti] Çfarë bën Anna fundjavën?',
+   opts:['Shkon në kinema','Shkon për shëtitje','Qëndron në shtëpi','Shkon në palestër'], a:1},
+  {id:'T38', sec:'Lexim', q:'Çfarë do të thotë "ein bisschen"?',
+   opts:['shumë','pak','aspak','mirë'], a:1},
+  {id:'T39', sec:'Lexim', q:'"Ich spreche Deutsch" do të thotë:',
+   opts:['Mësoj gjermanisht','Dua gjermanisht','Flas gjermanisht','Shkruaj gjermanisht'], a:2},
+  {id:'T40', sec:'Lexim', q:'"gerne" në fjali "gehe ich gerne" do të thotë:',
+   opts:['shpesh','rrallë','me dëshirë','ngadalë'], a:2},
+
+  // ── SEKSIONI 4: DIALOG (5 pyetje) ─────────────────────────
+  // Dialog: A: "Guten Tag! Was möchten Sie?" B: "Einen Kaffee, bitte." A: "Groß oder klein?" B: "Klein, bitte. Was kostet das?" A: "2 Euro."
+  {id:'T41', sec:'Dialog', q:'[Dialog] Ku ndodhet ky dialog?',
+   opts:['Në spital','Në kafene/restorant','Në stacion','Në bankë'], a:1},
+  {id:'T42', sec:'Dialog', q:'[Dialog] Çfarë porosit personi B?',
+   opts:['Çaj','Ujë','Kafe','Lëng'], a:2},
+  {id:'T43', sec:'Dialog', q:'[Dialog] Çfarë madhësie zgjedh?',
+   opts:['Të madhe','Të mesme','Të vogël','Nuk thotë'], a:2},
+  {id:'T44', sec:'Dialog', q:'[Dialog] Sa kushton porosia?',
+   opts:['1 Euro','2 Euro','3 Euro','4 Euro'], a:1},
+  {id:'T45', sec:'Dialog', q:'"Was möchten Sie?" do të thotë:',
+   opts:['Si jeni?','Çfarë dëshironi?','Ku shkoni?','Kush jeni?'], a:1},
+
+  // ── SEKSIONI 5: PLOTËSO BOSHLLËQET (5 pyetje) ────────────
+  {id:'T46', sec:'Gap Fill', q:'Plotëso: "Ich ___ Student." (sein, ich)',
+   opts:['bist','bin','ist','sind'], a:1},
+  {id:'T47', sec:'Gap Fill', q:'Plotëso: "___ heißt du?" (pyetje me emrin)',
+   opts:['Was','Wo','Wie','Wer'], a:2},
+  {id:'T48', sec:'Gap Fill', q:'Plotëso: "Das kostet ___ Euro." (pesë)',
+   opts:['fünfte','fünf','fünften','fünfter'], a:1},
+  {id:'T49', sec:'Gap Fill', q:'Plotëso: "Ich ___ gern Fußball." (spielen)',
+   opts:['spielt','spielst','spiele','spielen'], a:2},
+  {id:'T50', sec:'Gap Fill', q:'Plotëso: "Woher ___ Sie?" (kommen, formal)',
+   opts:['komme','kommst','kommen','kommt'], a:2}
+];
+
+// A1 Test State
+var a1TestState = {
+  active: false,
+  index: 0,
+  score: 0,
+  answered: false,
+  answers: {}
+};
 
 const GAP_FILL_EXERCISES = [
   // A1 level
@@ -5336,6 +5473,175 @@ document.addEventListener('click', function(e) {
   if (menu && menu.style.display === 'block' && !btn) {
     menu.style.display = 'none';
   }
+
+// ══════════════════════════════════════════════════════
+// TESTI FINAL A1 — Funksionet
+// ══════════════════════════════════════════════════════
+
+function showA1Test() {
+  a1TestState = { active:true, index:0, score:0, answered:false, answers:{} };
+  showScreen('a1TestScreen');
+  renderA1Test();
+}
+
+function renderA1Test() {
+  var c = document.getElementById('a1TestContent');
+  if (!c) return;
+  var total = A1_FINAL_TEST.length;
+  var q = A1_FINAL_TEST[a1TestState.index];
+  var pct = Math.round((a1TestState.index / total) * 100);
+
+  // Sections
+  var sections = ['Fjalori','Gramatika','Lexim','Dialog','Gap Fill'];
+  var secCounts = {Fjalori:15, Gramatika:15, Lexim:10, Dialog:5, 'Gap Fill':5};
+  var secColors = {Fjalori:'var(--a1-color)', Gramatika:'var(--gold)', Lexim:'var(--a2-color)', Dialog:'#a78bfa', 'Gap Fill':'#34d399'};
+
+  // Reading text for Lexim
+  var lexText = a1TestState.index >= 30 && a1TestState.index < 40 ?
+    '<div style="background:var(--surface2);border-radius:10px;padding:14px;margin-bottom:14px;font-size:0.85rem;line-height:1.8;border-left:3px solid var(--a2-color)">' +
+    '<strong style="color:var(--a2-color)">📖 Teksti:</strong><br>' +
+    'Ich heiße Anna. Ich bin 23 Jahre alt und komme aus Österreich. ' +
+    'Ich wohne in Wien und arbeite als Lehrerin. Ich spreche Deutsch und ein bisschen Englisch. ' +
+    'Meine Hobbys sind Lesen und Kochen. Am Wochenende gehe ich gerne spazieren.</div>' : '';
+
+  // Dialog text
+  var dialogText = a1TestState.index >= 40 && a1TestState.index < 45 ?
+    '<div style="background:var(--surface2);border-radius:10px;padding:14px;margin-bottom:14px;font-size:0.85rem;line-height:2;border-left:3px solid #a78bfa">' +
+    '<strong style="color:#a78bfa">💬 Dialogu:</strong><br>' +
+    '<b>A:</b> Guten Tag! Was möchten Sie?<br>' +
+    '<b>B:</b> Einen Kaffee, bitte.<br>' +
+    '<b>A:</b> Groß oder klein?<br>' +
+    '<b>B:</b> Klein, bitte. Was kostet das?<br>' +
+    '<b>A:</b> 2 Euro.</div>' : '';
+
+  var secColor = secColors[q.sec] || 'var(--gold)';
+
+  c.innerHTML =
+    // Progress bar
+    '<div style="margin-bottom:20px">' +
+      '<div style="display:flex;justify-content:space-between;font-size:0.8rem;color:var(--text-muted);margin-bottom:6px">' +
+        '<span>Pyetja ' + (a1TestState.index+1) + ' / ' + total + '</span>' +
+        '<span style="color:' + secColor + '">' + q.sec + '</span>' +
+      '</div>' +
+      '<div style="background:var(--surface2);border-radius:99px;height:6px">' +
+        '<div style="background:' + secColor + ';width:' + pct + '%;height:100%;border-radius:99px;transition:width 0.3s"></div>' +
+      '</div>' +
+    '</div>' +
+    // Score bar
+    '<div style="display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap">' +
+      sections.map(function(s) {
+        var done = Object.keys(a1TestState.answers).filter(function(k){ return A1_FINAL_TEST.find(function(x){return x.id===k && x.sec===s;}); }).length;
+        var total_s = secCounts[s];
+        return '<span style="font-size:0.72rem;padding:3px 8px;border-radius:99px;background:var(--surface2);color:' + (secColors[s]||'var(--text-muted)') + '">' + s + ' ' + done + '/' + total_s + '</span>';
+      }).join('') +
+    '</div>' +
+    lexText + dialogText +
+    // Question
+    '<div style="background:var(--surface2);border-radius:14px;padding:20px;margin-bottom:16px">' +
+      '<div style="font-size:0.75rem;color:' + secColor + ';text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">' + q.sec + '</div>' +
+      '<div style="font-size:1rem;font-weight:600;color:var(--text);line-height:1.5">' + q.q + '</div>' +
+    '</div>' +
+    // Options
+    '<div style="display:flex;flex-direction:column;gap:10px">' +
+      q.opts.map(function(opt, i) {
+        var sel = a1TestState.answers[q.id];
+        var isSelected = sel === i;
+        var isCorrect = i === q.a;
+        var bg = 'var(--surface2)';
+        var border = '1px solid var(--border)';
+        var color = 'var(--text)';
+        if (a1TestState.answered) {
+          if (isCorrect) { bg='rgba(52,211,153,0.15)'; border='1px solid #34d399'; color='#34d399'; }
+          else if (isSelected) { bg='rgba(239,68,68,0.15)'; border='1px solid #ef4444'; color='#ef4444'; }
+        }
+        return '<button onclick="answerA1Test(' + i + ')" style="text-align:left;padding:14px 16px;border-radius:10px;border:' + border + ';background:' + bg + ';color:' + color + ';cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.9rem;width:100%;' + (a1TestState.answered?'pointer-events:none':'') + '">' +
+          '<span style="font-weight:700;margin-right:10px;color:' + secColor + '">' + ['A','B','C','D'][i] + ')</span>' + opt + '</button>';
+      }).join('') +
+    '</div>' +
+    // Next button (shown after answer)
+    (a1TestState.answered ?
+      '<div style="margin-top:16px;text-align:center">' +
+        (a1TestState.index < total-1 ?
+          '<button onclick="nextA1Question()" class="btn" style="padding:12px 32px">Pyetja tjetër →</button>' :
+          '<button onclick="finishA1Test()" class="btn" style="padding:12px 32px;background:var(--gold);color:#000">Shiko Rezultatin 🏆</button>'
+        ) +
+      '</div>' : '');
+}
+
+function answerA1Test(i) {
+  if (a1TestState.answered) return;
+  var q = A1_FINAL_TEST[a1TestState.index];
+  a1TestState.answers[q.id] = i;
+  a1TestState.answered = true;
+  if (i === q.a) a1TestState.score++;
+  renderA1Test();
+}
+
+function nextA1Question() {
+  a1TestState.index++;
+  a1TestState.answered = false;
+  renderA1Test();
+  var c = document.getElementById('a1TestContent');
+  if (c) c.scrollTop = 0;
+}
+
+function finishA1Test() {
+  var c = document.getElementById('a1TestContent');
+  if (!c) return;
+  var score = a1TestState.score;
+  var total = A1_FINAL_TEST.length;
+  var pct = Math.round(score / total * 100);
+
+  var grade, color, emoji, msg;
+  if (pct >= 80) {
+    grade = 'KALUAR — Shkëlqyeshëm!'; color = '#34d399'; emoji = '🏆';
+    msg = 'Urime! Ke kaluar testin final A1. Tani mund të vazhdosh me nivelin A2!';
+  } else if (pct >= 60) {
+    grade = 'KALUAR — Mirë!'; color = 'var(--gold)'; emoji = '✅';
+    msg = 'Mirë! Ke kaluar nivelin A1. Rekomandojmë të rishikosh disa module para A2.';
+  } else if (pct >= 40) {
+    grade = 'DËSHTUAR — Provo sërish'; color = '#f97316'; emoji = '📚';
+    msg = 'Ke nevojë të rishikosh modulet A1 dhe të provosh sërish.';
+  } else {
+    grade = 'DËSHTUAR — Kthehu tek A1'; color = '#ef4444'; emoji = '🔄';
+    msg = 'Rekomandojmë të kalosh sërish të gjitha modulet A1 para testit.';
+  }
+
+  // Section breakdown
+  var sections = ['Fjalori','Gramatika','Lexim','Dialog','Gap Fill'];
+  var secColors = {Fjalori:'var(--a1-color)', Gramatika:'var(--gold)', Lexim:'var(--a2-color)', Dialog:'#a78bfa', 'Gap Fill':'#34d399'};
+  var breakdown = sections.map(function(s) {
+    var qs = A1_FINAL_TEST.filter(function(x){ return x.sec === s; });
+    var correct = qs.filter(function(x){ return a1TestState.answers[x.id] === x.a; }).length;
+    var pctS = Math.round(correct/qs.length*100);
+    return '<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">' +
+      '<span style="color:' + (secColors[s]||'var(--gold)') + ';font-size:0.9rem">' + s + '</span>' +
+      '<span style="color:var(--text);font-size:0.9rem">' + correct + '/' + qs.length + ' <small style="color:var(--text-muted)">(' + pctS + '%)</small></span>' +
+    '</div>';
+  }).join('');
+
+  c.innerHTML =
+    '<div style="text-align:center;padding:30px 0 20px">' +
+      '<div style="font-size:4rem;margin-bottom:12px">' + emoji + '</div>' +
+      '<div style="font-size:2rem;font-weight:800;color:' + color + ';margin-bottom:8px">' + pct + '%</div>' +
+      '<div style="font-size:1.1rem;font-weight:700;color:' + color + ';margin-bottom:8px">' + grade + '</div>' +
+      '<div style="color:var(--text-muted);font-size:0.9rem;margin-bottom:4px">' + score + ' / ' + total + ' pyetje të sakta</div>' +
+    '</div>' +
+    '<div style="background:var(--surface2);border-radius:14px;padding:16px;margin-bottom:16px">' +
+      '<p style="color:var(--text);font-size:0.9rem;line-height:1.6;margin:0">' + msg + '</p>' +
+    '</div>' +
+    '<div style="background:var(--surface2);border-radius:14px;padding:16px;margin-bottom:20px">' +
+      '<div style="font-size:0.85rem;font-weight:700;color:var(--text);margin-bottom:12px">Rezultati sipas seksionit:</div>' +
+      breakdown +
+    '</div>' +
+    '<div style="display:flex;flex-direction:column;gap:10px">' +
+      (pct >= 60 ?
+        '<button onclick="goToA2()" class="btn" style="padding:14px;font-size:1rem">Vazhdo me A2 →</button>' : '') +
+      '<button onclick="showA1Test()" class="btn-outline" style="padding:12px">🔄 Provo sërish</button>' +
+      '<button data-screen="landing" class="btn-outline" style="padding:12px">← Ballina</button>' +
+    '</div>';
+}
+
   // Expose functions to global scope for onclick handlers
   window.getInteractiveStory = getInteractiveStory;
   window.showInteractiveChoice = showInteractiveChoice;
@@ -5353,6 +5659,15 @@ document.addEventListener('click', function(e) {
   window.selectMobileModule = selectMobileModule;
   window.showAlphabet = showAlphabet;
   window.showStudyGuide = showStudyGuide;
+  window.goToA2 = function() {
+    state.currentLevel = 'A2';
+    renderCourse();
+    showScreen('course');
+  };
+  window.showA1Test = showA1Test;
+  window.answerA1Test = answerA1Test;
+  window.nextA1Question = nextA1Question;
+  window.finishA1Test = finishA1Test;
   window.showAbout = showAbout;
   window.showContact = showContact;
   window.showPrivacy = showPrivacy;
