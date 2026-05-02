@@ -1,27 +1,36 @@
-// DeutschAL Service Worker v20
-var CACHE = 'deutschal-v20';
-var FILES = [
+// DeutschAL Service Worker v21 — Performance optimized
+var CACHE = 'deutschal-v21';
+
+// Critical files: cached immediately on install
+var CRITICAL = [
   './',
   'index.html',
   'style.css',
   'app.js',
   'data-modules.js',
-  'data-vocab.js',
-  'data-grammar.js',
   'data-state.js',
   'manifest.json',
-  'og-image.png',
   'favicon.ico',
   'favicon-32x32.png',
-  'favicon-16x16.png',
   'apple-touch-icon.png'
+];
+
+// Non-critical: cached on first use
+var LAZY = [
+  'data-vocab.js',
+  'data-grammar.js',
+  'og-image.png',
+  'favicon-16x16.png'
 ];
 
 self.addEventListener('install', function(e) {
   self.skipWaiting();
   e.waitUntil(
     caches.open(CACHE).then(function(c) {
-      return c.addAll(FILES).catch(function() { return c.addAll(['./']); });
+      // Cache critical files, ignore errors on lazy ones
+      return c.addAll(CRITICAL).catch(function() {
+        return c.addAll(['./']);
+      });
     })
   );
 });
@@ -30,7 +39,8 @@ self.addEventListener('activate', function(e) {
   e.waitUntil(
     caches.keys().then(function(keys) {
       return Promise.all(
-        keys.filter(function(k) { return k !== CACHE; }).map(function(k) { return caches.delete(k); })
+        keys.filter(function(k) { return k !== CACHE; })
+            .map(function(k) { return caches.delete(k); })
       );
     })
   );
@@ -40,12 +50,18 @@ self.addEventListener('activate', function(e) {
 self.addEventListener('fetch', function(e) {
   e.respondWith(
     caches.match(e.request).then(function(cached) {
+      // Cache-first for JS/CSS (they're versioned via sw cache name)
       if (cached) return cached;
+      // Network + cache for new requests
       return fetch(e.request).then(function(resp) {
-        var clone = resp.clone();
-        caches.open(CACHE).then(function(c) { c.put(e.request, clone); });
+        if (resp && resp.status === 200) {
+          var clone = resp.clone();
+          caches.open(CACHE).then(function(c) { c.put(e.request, clone); });
+        }
         return resp;
-      }).catch(function() { return caches.match('./'); });
+      }).catch(function() {
+        return caches.match('./');
+      });
     })
   );
 });
