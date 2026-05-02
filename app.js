@@ -5238,49 +5238,72 @@ function toggleModuleDrawer() {
   else { document.body.style.overflow = ''; }
 }
 
-// Smart overlay close - only close if user tapped (not scrolled)
+// Smart overlay close — definitive fix
 (function() {
-  var overlay = document.getElementById('moduleDrawerOverlay');
-  var drawer = document.getElementById('moduleDrawer');
-  if (!overlay) return;
+  var _scrolling = false;
+  var _startY = 0;
+  var _startX = 0;
+  var _moved = false;
 
-  var touchStartY = 0;
-  var touchStartX = 0;
-  var didScroll = false;
+  // Attach listeners after DOM ready
+  function attachDrawerListeners() {
+    var overlay = document.getElementById('moduleDrawerOverlay');
+    var drawer  = document.getElementById('moduleDrawer');
+    if (!overlay || !drawer) return;
 
-  // Track scroll inside drawer
-  if (drawer) {
+    // ── DRAWER: track touch movement ──────────────────────
     drawer.addEventListener('touchstart', function(e) {
-      touchStartY = e.touches[0].clientY;
-      touchStartX = e.touches[0].clientX;
-      didScroll = false;
+      _startY = e.touches[0].clientY;
+      _startX = e.touches[0].clientX;
+      _moved  = false;
     }, {passive: true});
 
     drawer.addEventListener('touchmove', function(e) {
-      var dy = Math.abs(e.touches[0].clientY - touchStartY);
-      var dx = Math.abs(e.touches[0].clientX - touchStartX);
-      if (dy > 5 || dx > 5) didScroll = true;
+      var dy = Math.abs(e.touches[0].clientY - _startY);
+      var dx = Math.abs(e.touches[0].clientX - _startX);
+      if (dy > 8 || dx > 8) _moved = true;
     }, {passive: true});
+
+    // CRITICAL: touchend on drawer — if moved, prevent any click
+    drawer.addEventListener('touchend', function(e) {
+      if (_moved) {
+        // Stop the touchend from becoming a click/tap
+        e.stopPropagation();
+        _moved = false;
+      }
+    }, true); // capture phase
+
+    // ── OVERLAY: only close if NOT scrolling ──────────────
+    overlay.addEventListener('touchstart', function(e) {
+      _startY = e.touches[0].clientY;
+      _moved  = false;
+    }, {passive: true});
+
+    overlay.addEventListener('touchmove', function(e) {
+      var dy = Math.abs(e.touches[0].clientY - _startY);
+      if (dy > 8) _moved = true;
+    }, {passive: true});
+
+    overlay.addEventListener('touchend', function(e) {
+      if (!_moved) {
+        e.preventDefault();
+        toggleModuleDrawer();
+      }
+      _moved = false;
+    });
+
+    // Desktop click
+    overlay.addEventListener('click', function(e) {
+      if (e.pointerType !== 'touch') toggleModuleDrawer();
+    });
   }
 
-  // Overlay tap - only close if NOT scrolling
-  overlay.addEventListener('touchstart', function(e) {
-    touchStartY = e.touches[0].clientY;
-    didScroll = false;
-  }, {passive: true});
-
-  overlay.addEventListener('touchend', function(e) {
-    if (!didScroll) {
-      e.preventDefault();
-      toggleModuleDrawer();
-    }
-    didScroll = false;
-  });
-
-  // Also handle mouse click for desktop
-  overlay.addEventListener('click', function(e) {
-    if (e.type === 'click') toggleModuleDrawer();
-  });
+  // Run after DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', attachDrawerListeners);
+  } else {
+    attachDrawerListeners();
+  }
 })();
 
 function renderDrawerModules() {
