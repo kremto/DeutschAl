@@ -6,6 +6,7 @@
 function showScreen(id) {
   Array.from(document.querySelectorAll('.screen')).forEach(function(s){ s.classList.remove('active'); });
   document.getElementById(id).classList.add('active');
+  try { localStorage.setItem('deutschal_screen', id); } catch(e) {}
 }
 function startFromA1() {
   state.currentLevel = 'A1';
@@ -4275,6 +4276,7 @@ document.addEventListener("DOMContentLoaded", function startApp() {
     if (_last && _last.level) {
       state.currentLevel = _last.level;
       state.currentModuleId = _last.moduleId || state.currentModuleId;
+      state.lessonTab = _last.tab || 'story';
     }
   } catch(e) {}
   setTimeout(function(){
@@ -4283,6 +4285,20 @@ document.addEventListener("DOMContentLoaded", function startApp() {
     try{updateResumeCard();updatePrimaryBtn();}catch(e){}
     var l=document.getElementById('appLoader');
     if(l){l.style.transition='opacity 0.5s';l.style.opacity='0';setTimeout(function(){l.style.display='none';},500);}
+    // Restore last screen after loader hides
+    try {
+      var _screen = localStorage.getItem('deutschal_screen');
+      var _last2 = JSON.parse(localStorage.getItem('deutschal_last') || 'null');
+      if (_screen && _screen !== 'landing' && _screen !== 'placement' && _last2 && _last2.moduleId) {
+        // Was in course — restore it
+        if (_screen === 'course') {
+          renderCourse();
+          showScreen('course');
+        } else if (_screen && document.getElementById(_screen)) {
+          showScreen(_screen);
+        }
+      }
+    } catch(e) {}
   },350);
 
   if(window.pendingScreen){showScreen(window.pendingScreen);window.pendingScreen=null;}});
