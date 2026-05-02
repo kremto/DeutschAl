@@ -2786,6 +2786,117 @@ const GAP_FILL_EXERCISES = [
       {n:5, ans:'wohnt', opts:['wohnt','wohne','wohnen','wohnst'], hint:'er + wohnen'}
     ]
   },
+
+  // A1 - Numrat & Mosha
+  { id:'GF4', level:'A1', title:'Numrat & Mosha',
+    text:'Ich ___(1) 25 Jahre alt. Meine Schwester ___(2) 18 Jahre alt. Wir ___(3) zwei Kinder. Mein Vater ___(4) 50 Jahre alt.',
+    gaps:[
+      {n:1, ans:'bin', opts:['bin','bist','ist','sind'], hint:'ich + sein'},
+      {n:2, ans:'ist', opts:['ist','bin','bist','sind'], hint:'sie/er + sein'},
+      {n:3, ans:'sind', opts:['sind','bin','bist','ist'], hint:'wir + sein'},
+      {n:4, ans:'ist', opts:['ist','bin','sind','bist'], hint:'er + sein'}
+    ],
+    sq:'Unë jam 25 vjeç. Motra ime është 18 vjeç. Ne jemi dy fëmijë. Babai im është 50 vjeç.'
+  },
+  // A1 - Ngjyrat & Sendet
+  { id:'GF5', level:'A1', title:'Ngjyrat & Sendet',
+    text:'Das Auto ___(1) rot. Der Himmel ___(2) blau. Die Blume ___(3) gelb. Mein T-Shirt ___(4) grün.',
+    gaps:[
+      {n:1, ans:'ist', opts:['ist','bin','sind','bist'], hint:'das Auto → ist'},
+      {n:2, ans:'ist', opts:['ist','bin','sind','bist'], hint:'der Himmel → ist'},
+      {n:3, ans:'ist', opts:['ist','bin','sind','bist'], hint:'die Blume → ist'},
+      {n:4, ans:'ist', opts:['ist','bin','sind','bist'], hint:'mein T-Shirt → ist'}
+    ],
+    sq:'Makina është e kuqe. Qielli është blu. Lula është e verdhë. Bluzja ime është e gjelbër.'
+  },
+  // A1 - Ditët e Javës
+  { id:'GF6', level:'A1', title:'Ditët e Javës',
+    text:'___(1) Montag gehe ich zur Arbeit. ___(2) Mittwoch habe ich frei. Am Wochenende ___(3) ich zu Hause. Am Freitag ___(4) ich Sport.',
+    gaps:[
+      {n:1, ans:'Am', opts:['Am','An','Im','Um'], hint:'ditët e javës → Am Montag'},
+      {n:2, ans:'Am', opts:['Am','An','Im','Um'], hint:'ditët e javës → Am Mittwoch'},
+      {n:3, ans:'bleibe', opts:['bleibe','gehe','fahre','komme'], hint:'zu Hause bleiben = rri në shtëpi'},
+      {n:4, ans:'mache', opts:['mache','gehe','spiele','fahre'], hint:'Sport machen = bëj sport'}
+    ],
+    sq:'Të hënën shkoj në punë. Të mërkurën kam lirë. Fundjavën rri në shtëpi. Të premten bëj sport.'
+  },
+  // A1 - Ora & Koha
+  { id:'GF7', level:'A1', title:'Ora & Koha',
+    text:'Es ___(1) acht Uhr. Der Zug ___(2) um neun Uhr. Ich ___(3) um sieben Uhr auf. Das Meeting ___(4) um zehn Uhr.',
+    gaps:[
+      {n:1, ans:'ist', opts:['ist','hat','kommt','geht'], hint:'Es ist ... Uhr = ora është...'},
+      {n:2, ans:'kommt', opts:['kommt','ist','fährt','geht'], hint:'treni vjen → kommt'},
+      {n:3, ans:'stehe', opts:['stehe','gehe','komme','mache'], hint:'aufstehen = zgjohem, ich stehe auf'},
+      {n:4, ans:'beginnt', opts:['beginnt','ist','kommt','geht'], hint:'beginnen = fillon'}
+    ],
+    sq:'Ora është tetë. Treni vjen në orën nëntë. Zgjohem në orën shtatë. Takimi fillon në orën dhjetë.'
+  },
+  // A1 - Ushqimi & Restoranti
+  { id:'GF8', level:'A1', title:'Ushqimi & Restoranti',
+    text:'Ich ___(1) einen Kaffee, bitte. Was ___(2) das? Das ___(3) 3 Euro. Ich ___(4) auch einen Kuchen.',
+    gaps:[
+      {n:1, ans:'möchte', opts:['möchte','will','muss','kann'], hint:'möchte = do të doja (i sjellshëm)'},
+      {n:2, ans:'kostet', opts:['kostet','ist','macht','gibt'], hint:'sa kushton? → kostet'},
+      {n:3, ans:'kostet', opts:['kostet','ist','macht','gibt'], hint:'das kostet = kjo kushton'},
+      {n:4, ans:'nehme', opts:['nehme','möchte','will','esse'], hint:'ich nehme = marr (porosis)'}
+    ],
+    sq:'Dua një kafe, ju lutem. Sa kushton kjo? Kjo kushton 3 euro. Marr edhe një tortë.'
+  },
+  // A1 - Shtëpia & Dhoma
+  { id:'GF9', level:'A1', title:'Shtëpia & Dhoma',
+    text:'Ich ___(1) in einer Wohnung. Das ___(2) mein Zimmer. Die Küche ___(3) groß. Ich ___(4) ein Bad und ein WC.',
+    gaps:[
+      {n:1, ans:'wohne', opts:['wohne','lebe','bin','bleibe'], hint:'wohnen = banoj'},
+      {n:2, ans:'ist', opts:['ist','bin','sind','hat'], hint:'das Zimmer → ist'},
+      {n:3, ans:'ist', opts:['ist','bin','sind','hat'], hint:'die Küche → ist'},
+      {n:4, ans:'habe', opts:['habe','bin','gibt','wohne'], hint:'ich habe = kam'}
+    ],
+    sq:'Banoj në një apartament. Ky është dhoma ime. Kuzhina është e madhe. Kam një banjë dhe një WC.'
+  },
+  // A1 - Rruga & Drejtimi
+  { id:'GF10', level:'A1', title:'Rruga & Drejtimi',
+    text:'___(1) Sie geradeaus! Dann ___(2) Sie links. Die Bank ___(3) rechts. Wie weit ___(4) der Bahnhof?',
+    gaps:[
+      {n:1, ans:'Gehen', opts:['Gehen','Fahren','Kommen','Nehmen'], hint:'Gehen Sie = shkoni (formal)'},
+      {n:2, ans:'gehen', opts:['gehen','fahren','biegen','kommen'], hint:'dann gehen Sie links = pastaj shkoni majtas'},
+      {n:3, ans:'ist', opts:['ist','liegt','steht','hat'], hint:'die Bank ist rechts = banka është djathtas'},
+      {n:4, ans:'ist', opts:['ist','liegt','hat','kommt'], hint:'wie weit ist = sa larg është'}
+    ],
+    sq:'Shkoni drejt! Pastaj shkoni majtas. Banka është djathtas. Sa larg është stacioni?'
+  },
+  // A1 - Blerjet
+  { id:'GF11', level:'A1', title:'Blerjet',
+    text:'Ich ___(1) eine Jacke kaufen. ___(2) das Jacke Größe M? Das ___(3) 40 Euro. Ich ___(4) es.',
+    gaps:[
+      {n:1, ans:'möchte', opts:['möchte','will','muss','soll'], hint:'möchte = do të doja'},
+      {n:2, ans:'Haben', opts:['Haben','Ist','Gibt','Hat'], hint:'Haben Sie...? = keni? (formal)'},
+      {n:3, ans:'kostet', opts:['kostet','ist','macht','gibt'], hint:'das kostet = kjo kushton'},
+      {n:4, ans:'nehme', opts:['nehme','kaufe','möchte','will'], hint:'ich nehme es = e marr'}
+    ],
+    sq:'Dua të blej një xhaketë. Keni xhaketë madhësi M? Kjo kushton 40 euro. E marr.'
+  },
+  // A1 - Shëndeti
+  { id:'GF12', level:'A1', title:'Shëndeti',
+    text:'Mir ___(1) der Kopf weh. Ich ___(2) krank. Ich ___(3) zum Arzt. Der Arzt ___(4) mir Tabletten.',
+    gaps:[
+      {n:1, ans:'tut', opts:['tut','macht','hat','ist'], hint:'wehtun = dhemb, mir tut ... weh'},
+      {n:2, ans:'bin', opts:['bin','fühle','habe','mache'], hint:'ich bin krank = jam sëmurë'},
+      {n:3, ans:'gehe', opts:['gehe','fahre','komme','muss'], hint:'ich gehe zum Arzt = shkoj te mjeku'},
+      {n:4, ans:'gibt', opts:['gibt','hat','macht','sagt'], hint:'er gibt mir = ai më jep'}
+    ],
+    sq:'Më dhemb koka. Jam sëmurë. Shkoj te mjeku. Mjeku më jep pilula.'
+  },
+  // A1 - Transporti
+  { id:'GF13', level:'A1', title:'Transporti',
+    text:'Ich ___(1) mit dem Bus zur Arbeit. Der Zug ___(2) um 8 Uhr. Das Ticket ___(3) 2,50 Euro. Ich ___(4) auch Fahrrad.',
+    gaps:[
+      {n:1, ans:'fahre', opts:['fahre','gehe','nehme','komme'], hint:'mit dem Bus fahren = udhëtoj me autobus'},
+      {n:2, ans:'fährt', opts:['fährt','kommt','geht','ist'], hint:'der Zug fährt = treni niset'},
+      {n:3, ans:'kostet', opts:['kostet','ist','macht','hat'], hint:'das Ticket kostet = bileta kushton'},
+      {n:4, ans:'fahre', opts:['fahre','gehe','nehme','habe'], hint:'Fahrrad fahren = eci me biçikletë'}
+    ],
+    sq:'Shkoj në punë me autobus. Treni niset në orën 8. Bileta kushton 2,50 euro. Eci edhe me biçikletë.'
+  },
   // A2 level
   { id:'GF4', level:'A2', title:'E kaluara — Perfekt',
     text:'Gestern ___(1) ich nach Berlin ___(2). Ich ___(3) das Pergamonmuseum ___(4) und ___(5) viele interessante Dinge ___(6).',
@@ -5225,6 +5336,28 @@ document.addEventListener('click', function(e) {
   if (menu && menu.style.display === 'block' && !btn) {
     menu.style.display = 'none';
   }
+  // Expose functions to global scope for onclick handlers
+  window.getInteractiveStory = getInteractiveStory;
+  window.showInteractiveChoice = showInteractiveChoice;
+  window.chooseInteractiveBranch = chooseInteractiveBranch;
+  window.renderInteractiveLine = renderInteractiveLine;
+  window.showErrorHunting = showErrorHunting;
+  window.filterErrorHunt = filterErrorHunt;
+  window.renderErrorHuntScreen = renderErrorHuntScreen;
+  window.openPronunciation = openPronunciation;
+  window.closeSpeechModal = closeSpeechModal;
+  window.startListening = startListening;
+  window.toggleCourseMenu = toggleCourseMenu;
+  window.toggleModuleDrawer = toggleModuleDrawer;
+  window.renderDrawerModules = renderDrawerModules;
+  window.selectMobileModule = selectMobileModule;
+  window.showAlphabet = showAlphabet;
+  window.showStudyGuide = showStudyGuide;
+  window.showAbout = showAbout;
+  window.showContact = showContact;
+  window.showPrivacy = showPrivacy;
+  if(window.pendingScreen){showScreen(window.pendingScreen);window.pendingScreen=null;}
+
 });
 
 function toggleModuleDrawer() {
@@ -5482,35 +5615,11 @@ function attachFooterListeners() {
   });
 }
 
-// Global handler for footer navigation buttons
+// Global handler for footer navigation buttons (data-screen attribute)
 document.addEventListener('click', function(e) {
   var btn = e.target;
-  if (btn.tagName !== 'BUTTON') btn = btn.closest ? btn.closest('button') : null;
+  if (btn.tagName !== 'BUTTON') btn = btn.closest ? btn.closest('[data-screen]') : null;
   if (!btn) return;
   var screen = btn.getAttribute('data-screen');
   if (screen) { e.preventDefault(); showScreen(screen); }
-
-
-  // Expose to global scope for onclick handlers
-  window.getInteractiveStory = getInteractiveStory;
-  window.showInteractiveChoice = showInteractiveChoice;
-  window.chooseInteractiveBranch = chooseInteractiveBranch;
-  window.renderInteractiveLine = renderInteractiveLine;
-  window.showErrorHunting = showErrorHunting;
-  window.filterErrorHunt = filterErrorHunt;
-  window.renderErrorHuntScreen = renderErrorHuntScreen;
-  window.openPronunciation = openPronunciation;
-  window.closeSpeechModal = closeSpeechModal;
-  window.startListening = startListening;
-  window.toggleCourseMenu = toggleCourseMenu;
-  window.toggleModuleDrawer = toggleModuleDrawer;
-  window.renderDrawerModules = renderDrawerModules;
-  window.selectMobileModule = selectMobileModule;
-  window.showAlphabet = showAlphabet;
-  window.showStudyGuide = showStudyGuide;
-  window.showAbout = showAbout;
-  window.showContact = showContact;
-  window.showPrivacy = showPrivacy;
-  window.attachFooterListeners = attachFooterListeners;
-  if(window.pendingScreen){{showScreen(window.pendingScreen);window.pendingScreen=null;}}
-});
+});;
