@@ -7,6 +7,10 @@ function showScreen(id) {
   Array.from(document.querySelectorAll('.screen')).forEach(function(s){ s.classList.remove('active'); });
   document.getElementById(id).classList.add('active');
   try { localStorage.setItem('deutschal_screen', id); } catch(e) {}
+  // Scroll to top when changing screens
+  window.scrollTo(0, 0);
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 }
 function startFromA1() {
   state.currentLevel = 'A1';
