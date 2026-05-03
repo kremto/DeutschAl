@@ -1,3 +1,7 @@
+/* ── FONTS: System fonts (no Google Fonts dependency for performance) ──
+   DM Sans → system-ui | JetBrains Mono → monospace | Playfair → Georgia
+   If Google Fonts loads (cached), it overrides automatically via CSS cascade */
+
 /* ═══════════════════════════════════════════════════════════
    DeutschAL — Stylesheet
    Gjermanisht për Shqiptarët | deutschal.com
@@ -34,7 +38,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -97,7 +101,7 @@ body {
   margin-bottom: 28px;
 }
 .landing-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(3rem, 8vw, 5.5rem);
   line-height: 1;
   margin-bottom: 8px;
@@ -154,7 +158,7 @@ body {
   margin-bottom: 6px;
 }
 .path-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.4rem;
   color: var(--text);
   margin-bottom: 8px;
@@ -189,12 +193,12 @@ body {
   border-radius: var(--radius-sm);
   cursor: pointer;
   font-size: 0.85rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   transition: all 0.2s;
 }
 .back-btn:hover { border-color: var(--gold); color: var(--gold); }
 .placement-title-bar {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.2rem;
   color: var(--gold);
 }
@@ -212,7 +216,7 @@ body {
   animation: fadeUp 0.6s ease both;
 }
 .test-intro h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 2.2rem;
   margin-bottom: 12px;
 }
@@ -232,7 +236,7 @@ body {
   cursor: pointer;
   text-align: center;
   transition: all 0.25s;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
 }
 .skip-opt:hover { transform: translateY(-2px); }
 .skip-opt.a1:hover, .skip-opt.a1.sel { border-color: var(--a1-color); background: rgba(59,130,246,0.08); }
@@ -272,7 +276,7 @@ body {
   animation: fadeUp 0.4s ease both;
 }
 .p-q-num { font-size: 0.72rem; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 12px; }
-.p-q-text { font-family: 'Playfair Display', serif; font-size: 1.35rem; margin-bottom: 20px; }
+.p-q-text { font-family: 'Playfair Display', Georgia, serif; font-size: 1.35rem; margin-bottom: 20px; }
 .p-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .p-opt {
   background: var(--surface2);
@@ -282,7 +286,7 @@ body {
   color: var(--text);
   cursor: pointer;
   font-size: 0.9rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   text-align: left;
   transition: all 0.2s;
 }
@@ -314,7 +318,7 @@ body {
   display: inline-block;
   font-size: 3.5rem;
   font-weight: 700;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', Georgia, serif;
   margin-bottom: 8px;
 }
 .result-level-badge.a1 { color: var(--a1-color); }
@@ -341,11 +345,11 @@ body {
   border-bottom: 1px solid var(--border);
 }
 .brand {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.3rem;
   color: var(--gold);
 }
-.brand span { color: var(--text-dim); font-size: 0.85rem; font-family: 'DM Sans', sans-serif; font-weight: 400; margin-left: 8px; }
+.brand span { color: var(--text-dim); font-size: 0.85rem; font-family: 'DM Sans', system-ui, -apple-system, sans-serif; font-weight: 400; margin-left: 8px; }
 
 .level-tabs {
   display: flex;
@@ -359,7 +363,7 @@ body {
   border-bottom: 3px solid transparent;
   color: var(--text-muted);
   cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 1px;
@@ -449,7 +453,7 @@ body {
 .badge-b1 { background: rgba(240,180,41,0.15); color: var(--b1-color); border: 1px solid rgba(240,180,41,0.3); }
 
 .lesson-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 2rem;
   margin-bottom: 6px;
 }
@@ -476,7 +480,7 @@ body {
   cursor: pointer;
   font-size: 0.82rem;
   font-weight: 500;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   transition: all 0.2s;
   white-space: nowrap;
 }
@@ -503,7 +507,7 @@ body {
   gap: 12px;
 }
 .story-ep { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); }
-.story-ep-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #fff; }
+.story-ep-title { font-family: 'Playfair Display', Georgia, serif; font-size: 1.1rem; color: #fff; }
 .story-body { padding: 24px; }
 .story-line {
   display: flex;
@@ -531,7 +535,7 @@ body {
   border-radius: var(--radius-sm);
   padding: 10px 16px;
   color: var(--text);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   font-size: 0.9rem;
   margin-bottom: 16px;
   outline: none;
@@ -555,7 +559,7 @@ body {
 }
 .vcard:hover { border-color: var(--gold); transform: translateY(-2px); }
 .vcard.open { border-color: var(--gold); background: var(--surface2); }
-.v-de { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--text); margin-bottom: 3px; }
+.v-de { font-family: 'Playfair Display', Georgia, serif; font-size: 1.05rem; color: var(--text); margin-bottom: 3px; }
 .v-sq { color: var(--gold); font-size: 0.85rem; font-weight: 500; }
 .v-type { color: var(--text-muted); font-size: 0.72rem; margin-top: 3px; }
 .v-ex { display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-dim); line-height: 1.4; }
@@ -570,7 +574,7 @@ body {
   margin-bottom: 20px;
 }
 .grammar-section h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.15rem;
   color: var(--gold);
   margin-bottom: 10px;
@@ -598,7 +602,7 @@ body {
 }
 .gtable td { padding: 9px 14px; border-bottom: 1px solid var(--border); color: var(--text-dim); }
 .gtable tr:last-child td { border-bottom: none; }
-.gtable .de { color: var(--text); font-weight: 500; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; }
+.gtable .de { color: var(--text); font-weight: 500; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.82rem; }
 .gtable .sq { color: var(--gold); }
 .gtable .note { color: var(--text-muted); font-size: 0.78rem; font-style: italic; }
 
@@ -634,7 +638,7 @@ body {
   font-size: 0.88rem;
   cursor: pointer;
   text-align: left;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   transition: all 0.2s;
 }
 .ex-opt:hover:not(:disabled) { border-color: var(--gold); color: var(--gold); }
@@ -649,7 +653,7 @@ body {
   padding: 12px 16px;
   color: var(--text);
   font-size: 0.95rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   outline: none;
   transition: border-color 0.2s;
 }
@@ -674,7 +678,7 @@ body {
   margin-bottom: 16px;
 }
 .q-num { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
-.q-text { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 20px; line-height: 1.4; }
+.q-text { font-family: 'Playfair Display', Georgia, serif; font-size: 1.3rem; margin-bottom: 20px; line-height: 1.4; }
 .q-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .q-opt {
   background: var(--surface2);
@@ -684,7 +688,7 @@ body {
   color: var(--text-dim);
   cursor: pointer;
   font-size: 0.9rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   text-align: left;
   transition: all 0.2s;
 }
@@ -702,7 +706,7 @@ body {
   padding: 48px 24px;
   animation: fadeUp 0.4s ease both;
 }
-.qr-score { font-family: 'Playfair Display', serif; font-size: 4.5rem; color: var(--gold); }
+.qr-score { font-family: 'Playfair Display', Georgia, serif; font-size: 4.5rem; color: var(--gold); }
 .qr-label { color: var(--text-muted); margin-bottom: 8px; }
 .qr-msg { font-size: 1.05rem; color: var(--text); margin-bottom: 28px; }
 
@@ -713,7 +717,7 @@ body {
   border: none;
   padding: 12px 28px;
   border-radius: var(--radius-sm);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   font-size: 0.92rem;
   font-weight: 700;
   cursor: pointer;
@@ -728,7 +732,7 @@ body {
   border: 1px solid var(--border);
   padding: 12px 28px;
   border-radius: var(--radius-sm);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   font-size: 0.92rem;
   cursor: pointer;
   transition: all 0.2s;
@@ -744,7 +748,7 @@ body {
   animation: fadeUp 0.4s ease both;
 }
 .locked-overlay .lock-icon { font-size: 4rem; margin-bottom: 20px; }
-.locked-overlay h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px; color: var(--text-muted); }
+.locked-overlay h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.8rem; margin-bottom: 10px; color: var(--text-muted); }
 .locked-overlay p { color: var(--text-muted); font-size: 0.92rem; max-width: 400px; margin: 0 auto 24px; line-height: 1.6; }
 
 /* Responsive */
