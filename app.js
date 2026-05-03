@@ -4,18 +4,8 @@
 // Application Logic
 
 function showScreen(id) {
-  Array.from(document.querySelectorAll('.screen')).forEach(function(s){
-    s.classList.remove('active');
-    s.scrollTop = 0; // reset each screen's internal scroll
-  });
-  var target = document.getElementById(id);
-  if (!target) return;
-  target.classList.add('active');
-  target.scrollTop = 0;
-  // Instant jump to very top — feels like new page
-  window.scrollTo({top: 0, left: 0, behavior: 'instant'});
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
+  Array.from(document.querySelectorAll('.screen')).forEach(function(s){ s.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
   try { localStorage.setItem('deutschal_screen', id); } catch(e) {}
 }
 function startFromA1() {
@@ -4678,15 +4668,12 @@ document.addEventListener("DOMContentLoaded", function startApp() {
       state.lessonTab = _last.tab || 'story';
     }
   } catch(e) {}
-  // Hide loader immediately — landing HTML is static, no need to wait
-  try{
-    var l=document.getElementById('appLoader');
-    if(l){l.style.display='none';}
-  }catch(e){}
   setTimeout(function(){
     try{renderWordOfDay();}catch(e){}
   try{attachFooterListeners();}catch(e){}
     try{updateResumeCard();updatePrimaryBtn();}catch(e){}
+    var l=document.getElementById('appLoader');
+    if(l){l.style.transition='opacity 0.5s';l.style.opacity='0';setTimeout(function(){l.style.display='none';},500);}
     // Restore last screen after loader hides
     try {
       var _screen = localStorage.getItem('deutschal_screen');
