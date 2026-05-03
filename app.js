@@ -4,13 +4,19 @@
 // Application Logic
 
 function showScreen(id) {
-  Array.from(document.querySelectorAll('.screen')).forEach(function(s){ s.classList.remove('active'); });
-  document.getElementById(id).classList.add('active');
-  try { localStorage.setItem('deutschal_screen', id); } catch(e) {}
-  // Scroll to top when changing screens
-  window.scrollTo(0, 0);
-  document.body.scrollTop = 0;
+  Array.from(document.querySelectorAll('.screen')).forEach(function(s){
+    s.classList.remove('active');
+    s.scrollTop = 0; // reset each screen's internal scroll
+  });
+  var target = document.getElementById(id);
+  if (!target) return;
+  target.classList.add('active');
+  target.scrollTop = 0;
+  // Instant jump to very top — feels like new page
+  window.scrollTo({top: 0, left: 0, behavior: 'instant'});
   document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  try { localStorage.setItem('deutschal_screen', id); } catch(e) {}
 }
 function startFromA1() {
   state.currentLevel = 'A1';

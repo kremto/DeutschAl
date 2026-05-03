@@ -44,8 +44,18 @@ body {
 }
 
 /* ─── SCREEN SYSTEM ─── */
-.screen { display: none; min-height: 100vh; }
-.screen.active { display: flex; flex-direction: column; }
+.screen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  flex-direction: column;
+  background: var(--bg);
+  -webkit-overflow-scrolling: touch;
+}
+.screen.active {
+  display: flex;
+}
 
 /* ─── LANDING ─── */
 #landing {
