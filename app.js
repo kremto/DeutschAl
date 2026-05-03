@@ -4668,12 +4668,15 @@ document.addEventListener("DOMContentLoaded", function startApp() {
       state.lessonTab = _last.tab || 'story';
     }
   } catch(e) {}
+  // Hide loader immediately — landing HTML is static, no need to wait
+  try{
+    var l=document.getElementById('appLoader');
+    if(l){l.style.display='none';}
+  }catch(e){}
   setTimeout(function(){
     try{renderWordOfDay();}catch(e){}
   try{attachFooterListeners();}catch(e){}
     try{updateResumeCard();updatePrimaryBtn();}catch(e){}
-    var l=document.getElementById('appLoader');
-    if(l){l.style.transition='opacity 0.5s';l.style.opacity='0';setTimeout(function(){l.style.display='none';},500);}
     // Restore last screen after loader hides
     try {
       var _screen = localStorage.getItem('deutschal_screen');
