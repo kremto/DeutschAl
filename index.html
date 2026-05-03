@@ -55,14 +55,7 @@
   <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="style.css"></noscript>
 
-  <!-- Service Worker -->
-  <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-      navigator.serviceWorker.register('./sw.js').catch(function(){});
-    });
-  }
-  </script>
+
 
   <!-- Early navigation handler -->
   <script>
@@ -131,6 +124,12 @@
       </div>
     </div>
 
+    <!-- TEST FINALS -->
+    <div style="width:100%;max-width:520px;margin-bottom:8px;display:flex;gap:8px">
+      <button onclick="showA1Test()" style="flex:1;padding:12px;background:linear-gradient(135deg,rgba(240,180,41,0.15),rgba(240,180,41,0.05));border:1px solid var(--gold);border-radius:12px;color:var(--gold);cursor:pointer;font-size:0.85rem;font-weight:600;font-family:DM Sans,sans-serif">🏆 Testi Final A1</button>
+      <button onclick="showA2Test()" style="flex:1;padding:12px;background:linear-gradient(135deg,rgba(96,165,250,0.15),rgba(96,165,250,0.05));border:1px solid var(--a2-color);border-radius:12px;color:var(--a2-color);cursor:pointer;font-size:0.85rem;font-weight:600;font-family:DM Sans,sans-serif">🏆 Testi Final A2</button>
+    </div>
+
     <!-- COLLAPSIBLE TOOLS GRID -->
     <div style="width:100%;max-width:520px">
       <button onclick="toggleToolsGrid()" id="toolsToggleBtn" style="width:100%;padding:10px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text-muted);cursor:pointer;font-size:0.82rem;font-family:DM Sans,sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px">
@@ -146,6 +145,7 @@
         <button class="btn-outline" onclick="showConjugation()" style="font-size:0.78rem;padding:8px 10px;text-align:left">🔤 Konjugim</button>
         <button class="btn-outline" onclick="showReference()" style="font-size:0.78rem;padding:8px 10px;text-align:left">📋 Referencë</button>
         <button class="btn-outline" onclick="showGapFill()" style="font-size:0.78rem;padding:8px 10px;text-align:left">✏️ Plotëso</button>
+      <button class="btn-outline" onclick="showEmailScreen()" style="font-size:0.78rem;padding:8px 10px;text-align:left">✉️ Email Schreiben</button>
         <button class="btn-outline" onclick="showDailyChallenge()" style="font-size:0.78rem;padding:8px 10px;text-align:left;color:var(--green)">⚡ Sfidë Ditore</button>
       </div>
     </div>
@@ -586,6 +586,16 @@
     </div>
   </div>
   <div id="a2TestContent" style="flex:1;overflow-y:auto;padding:20px 16px;max-width:680px;margin:0 auto;width:100%"></div>
+</div>
+
+<div id="emailScreen" class="screen">
+  <div class="course-header">
+    <div class="course-header-top">
+      <div class="brand">DeutschAL <span>· Email Schreiben B1</span></div>
+      <button data-screen="landing" class="btn-outline" style="padding:8px 16px;font-size:0.85rem">← Kthehu</button>
+    </div>
+  </div>
+  <div id="emailContent" style="flex:1;overflow-y:auto;padding:20px 16px;max-width:680px;margin:0 auto;width:100%"></div>
 </div>
 </body>
 </html>

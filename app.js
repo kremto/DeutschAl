@@ -3034,6 +3034,185 @@ var a2TestState = {
   answers: {}
 };
 
+
+// ══════════════════════════════════════════════════════════════
+// EMAIL SCHREIBEN — TELC Format B1
+// 5 tema, format i plotë TELC
+// ══════════════════════════════════════════════════════════════
+const EMAIL_EXERCISES = [
+  {
+    id: 'EM1',
+    level: 'B1',
+    title: 'Entschuldigung an die Lehrerin',
+    situation: 'Fëmija juaj Lukas nuk mund të vijë nesër në ekskursionin shkollor sepse është sëmurë. Shkruajini një letër të shkurtër mësueses Frau Schneider.',
+    betreff: 'Entschuldigung für Lukas – Ausflug am [Datum]',
+    anrede: 'Sehr geehrte Frau Schneider,',
+    punkte: [
+      'Pse po shkruani? (arsyeja)',
+      'Çfarë ka fëmija juaj?',
+      'Çfarë ka thënë mjeku?',
+      'Kur kthehet fëmija në shkollë?'
+    ],
+    musterloesung: {
+      intro: 'ich schreibe Ihnen, weil mein Sohn Lukas morgen leider nicht am Schulausflug teilnehmen kann.',
+      body: 'Er ist seit heute Morgen krank. Er hat hohes Fieber und starke Halsschmerzen. Wir waren bereits beim Kinderarzt. Der Arzt hat eine starke Erkältung diagnostiziert und gesagt, dass Lukas mindestens zwei Tage zu Hause bleiben soll.\n\nVoraussichtlich wird er am Donnerstag wieder in die Schule kommen können. Ich werde Sie rechtzeitig informieren, falls sich etwas ändern sollte.',
+      schluss: 'Ich bitte Sie um Entschuldigung, dass Lukas nicht am Ausflug teilnehmen kann, und danke Ihnen für Ihr Verständnis.'
+    },
+    gruss: 'Mit freundlichen Grüßen',
+    tipps: [
+      'Filloni gjithmonë me "ich schreibe Ihnen, weil..." për të shpjeguar arsyen',
+      'Përdorni "leider" (fatkeqësisht) për të treguar keqardhje',
+      'Koha e ardhme: "wird er wieder kommen können"',
+      'Fundi: "Ich danke Ihnen für Ihr Verständnis" = faleminderit për mirëkuptim'
+    ],
+    woerter: [
+      {de:'teilnehmen an + Dat.', sq:'marr pjesë në', ex:'Er kann nicht am Ausflug teilnehmen.'},
+      {de:'diagnostizieren', sq:'diagnostikoj', ex:'Der Arzt hat eine Erkältung diagnostiziert.'},
+      {de:'voraussichtlich', sq:'me shumë gjasë, sipas parashikimit', ex:'Voraussichtlich kommt er Donnerstag.'},
+      {de:'informieren', sq:'informoj', ex:'Ich werde Sie informieren.'},
+      {de:'das Verständnis', sq:'mirëkuptimi', ex:'Danke für Ihr Verständnis.'}
+    ]
+  },
+  {
+    id: 'EM2',
+    level: 'B1',
+    title: 'Beschwerde an den Nachbarn',
+    situation: 'Fqinji juaj bën shumë zhurmë çdo natë pas orës 22:00. Shkruajini një email respektues ku i kërkoni të jetë më i qetë.',
+    betreff: 'Bitte um mehr Ruhe – Lärm in der Nacht',
+    anrede: 'Lieber Herr Kovač,',
+    punkte: [
+      'Cili është problemi?',
+      'Kur ndodh dhe sa kohë?',
+      'Si ndikoni juve dhe familjen?',
+      'Çfarë kërkoni nga fqinji?'
+    ],
+    musterloesung: {
+      intro: 'ich wende mich an Sie, weil es in letzter Zeit leider immer wieder zu Lärmbelästigungen in unserem Haus kommt.',
+      body: 'Besonders nach 22:00 Uhr höre ich laute Musik und Gespräche aus Ihrer Wohnung. Dies passiert fast jede Nacht und dauert oft bis Mitternacht.\n\nDurch den Lärm kann ich nicht schlafen und bin am nächsten Tag sehr müde. Das betrifft auch meine Familie, besonders meine Kinder, die früh aufstehen müssen.',
+      schluss: 'Ich bitte Sie herzlich, nach 22:00 Uhr auf die Zimmerlautstärke zu achten. Ich bin sicher, dass wir als gute Nachbarn eine Lösung finden können.'
+    },
+    gruss: 'Mit freundlichen Grüßen',
+    tipps: [
+      '"Ich wende mich an Sie" = ju drejtohem (formale, e sjellshme)',
+      '"in letzter Zeit" = kohët e fundit',
+      '"Zimmerlautstärke" = volum i dhomës (term ligjor gjerman)',
+      'Mos u bëni agresiv — gjermanishtja formale kërkon ton të qetë edhe në ankesë'
+    ],
+    woerter: [
+      {de:'sich wenden an + Akk.', sq:'drejtohem tek', ex:'Ich wende mich an Sie.'},
+      {de:'die Lärmbelästigung', sq:'shqetësimi nga zhurma', ex:'Lärmbelästigungen sind nicht erlaubt.'},
+      {de:'die Zimmerlautstärke', sq:'volumi i dhomës', ex:'Bitte achten Sie auf die Zimmerlautstärke.'},
+      {de:'betreffen', sq:'prek, ndikon', ex:'Das betrifft auch meine Familie.'},
+      {de:'herzlich bitten', sq:'kërkoj sinqerisht', ex:'Ich bitte Sie herzlich um Ruhe.'}
+    ]
+  },
+  {
+    id: 'EM3',
+    level: 'B1',
+    title: 'Urlaubsantrag an den Chef',
+    situation: 'Dëshironi të merrni 5 ditë pushim nga puna (15-19 Shtator). Shkruajini emailin shefit tuaj Herr Wagner për të kërkuar leje.',
+    betreff: 'Urlaubsantrag – 15. bis 19. September',
+    anrede: 'Sehr geehrter Herr Wagner,',
+    punkte: [
+      'Çfarë po kërkoni dhe kur?',
+      'Pse keni nevojë për pushim?',
+      'Si do të organizohet puna gjatë mungesës?',
+      'Kur prisni përgjigjen?'
+    ],
+    musterloesung: {
+      intro: 'ich möchte Sie bitten, mir vom 15. bis 19. September Urlaub zu genehmigen.',
+      body: 'In diesem Zeitraum möchte ich meiner Familie besuchen, die ich lange nicht gesehen habe. Ich habe noch 8 Urlaubstage übrig, die ich gerne nutzen würde.\n\nFür meine Abwesenheit werde ich alle wichtigen Aufgaben vorher erledigen. Meine Kollegin Frau Bauer hat sich bereit erklärt, in dringenden Fällen zu helfen.',
+      schluss: 'Ich würde mich freuen, wenn Sie meinen Antrag genehmigen könnten. Ich bin auch bereit, die Details persönlich zu besprechen.'
+    },
+    gruss: 'Mit freundlichen Grüßen',
+    tipps: [
+      '"genehmigen" = aprovoj — fjalë kyçe për kërkesa zyrtare',
+      '"sich bereit erklären" = deklarohet i gatshëm',
+      '"in dringenden Fällen" = në raste urgjente',
+      'Konjunktiv II: "würde mich freuen", "könnten" — tregon sjellshmëri'
+    ],
+    woerter: [
+      {de:'genehmigen', sq:'aprovoj, jap leje', ex:'Können Sie meinen Urlaub genehmigen?'},
+      {de:'der Urlaubsantrag', sq:'kërkesa për pushim', ex:'Ich stelle einen Urlaubsantrag.'},
+      {de:'die Abwesenheit', sq:'mungesa', ex:'Während meiner Abwesenheit hilft Frau Bauer.'},
+      {de:'übrig haben', sq:'kam të mbetur (ditë pushimi)', ex:'Ich habe noch 8 Tage übrig.'},
+      {de:'sich bereit erklären', sq:'deklarohem i gatshëm', ex:'Sie hat sich bereit erklärt zu helfen.'}
+    ]
+  },
+  {
+    id: 'EM4',
+    level: 'B1',
+    title: 'Termin beim Arzt ändern',
+    situation: 'Keni një takim te mjeku të hënën në orën 14:00, por nuk mund të vini. Shkruajini emailin praktikës mjekësore për të ndryshuar orën.',
+    betreff: 'Terminverschiebung – Montag, 14:00 Uhr',
+    anrede: 'Sehr geehrte Damen und Herren,',
+    punkte: [
+      'Cilin takim dëshironi të ndryshoni?',
+      'Pse nuk mund të vini?',
+      'Kur jeni të lirë alternativë?',
+      'Çfarë kërkoni nga praktikat?'
+    ],
+    musterloesung: {
+      intro: 'ich habe am kommenden Montag um 14:00 Uhr einen Termin in Ihrer Praxis und muss diesen leider verschieben.',
+      body: 'Leider habe ich an diesem Tag einen unerwarteten Termin bei meiner Arbeit, den ich nicht verschieben kann. Es tut mir leid, dass ich so kurzfristig absagen muss.\n\nIch wäre flexibel und könnte in der darauffolgenden Woche kommen, am besten Dienstag oder Mittwoch zwischen 9:00 und 12:00 Uhr.',
+      schluss: 'Könnten Sie mir bitte einen neuen Termin anbieten? Ich bin auch telefonisch erreichbar unter 0664 / 123 456.'
+    },
+    gruss: 'Mit freundlichen Grüßen',
+    tipps: [
+      '"verschieben" = shtyj (takimin) — fjalë e rëndësishme',
+      '"kurzfristig" = me afat të shkurtër, me vonesë',
+      '"flexibel sein" = jam fleksibël me orarin',
+      '"erreichbar" = i arritshëm (telefon/email)'
+    ],
+    woerter: [
+      {de:'verschieben', sq:'shtyj (takim)', ex:'Ich muss den Termin leider verschieben.'},
+      {de:'kurzfristig', sq:'me afat të shkurtër', ex:'Es tut mir leid, dass ich kurzfristig absage.'},
+      {de:'unerwartet', sq:'i papritur', ex:'Ich habe einen unerwarteten Termin.'},
+      {de:'erreichbar', sq:'i arritshëm', ex:'Ich bin telefonisch erreichbar.'},
+      {de:'anbieten', sq:'ofroj', ex:'Könnten Sie mir einen Termin anbieten?'}
+    ]
+  },
+  {
+    id: 'EM5',
+    level: 'B1',
+    title: 'Anmeldung für einen Sprachkurs',
+    situation: 'Dëshironi të regjistroheni në një kurs gjuhe gjermane nivel B2 në Volkshochschule (VHS). Shkruajini emailin VHS-it për të kërkuar informacion dhe regjistrim.',
+    betreff: 'Anmeldung Deutschkurs B2 – Anfrage',
+    anrede: 'Sehr geehrte Damen und Herren,',
+    punkte: [
+      'Çfarë kursi kërkoni?',
+      'Cili është niveli juaj aktual?',
+      'Çfarë informacioni keni nevojë?',
+      'Si preferoni të kontaktoheni?'
+    ],
+    musterloesung: {
+      intro: 'ich interessiere mich für einen Deutschkurs auf dem Niveau B2 an Ihrer Volkshochschule.',
+      body: 'Ich lebe seit zwei Jahren in Deutschland und habe bereits das B1-Zertifikat erfolgreich abgeschlossen. Nun möchte ich meine Deutschkenntnisse weiter verbessern, um bessere Chancen auf dem Arbeitsmarkt zu haben.\n\nKönnten Sie mir bitte mitteilen, wann der nächste B2-Kurs beginnt, wie lange er dauert und wie hoch die Kursgebühren sind? Außerdem würde mich interessieren, ob es Möglichkeiten zur finanziellen Förderung gibt.',
+      schluss: 'Ich freue mich auf Ihre Antwort und stehe für weitere Fragen gerne zur Verfügung.'
+    },
+    gruss: 'Mit freundlichen Grüßen',
+    tipps: [
+      '"sich interessieren für" = interesohem për',
+      '"erfolgreich abschließen" = përfundoj me sukses',
+      '"die Kursgebühren" = tarifa e kursit',
+      '"finanzielle Förderung" = mbështetje financiare — pyetje e rëndësishme!'
+    ],
+    woerter: [
+      {de:'sich anmelden für', sq:'regjistrohem për', ex:'Ich möchte mich für den Kurs anmelden.'},
+      {de:'die Kursgebühr', sq:'tarifa e kursit', ex:'Wie hoch sind die Kursgebühren?'},
+      {de:'erfolgreich abschließen', sq:'përfundoj me sukses', ex:'Ich habe B1 erfolgreich abgeschlossen.'},
+      {de:'die Förderung', sq:'mbështetja, subvencioni', ex:'Gibt es finanzielle Förderung?'},
+      {de:'zur Verfügung stehen', sq:'jam në dispozicion', ex:'Ich stehe für Fragen zur Verfügung.'}
+    ]
+  }
+];
+
+var emailState = {
+  index: 0,
+  showSolution: false,
+  showTipps: false
+};
+
 const GAP_FILL_EXERCISES = [
   // A1 level
   { id:'GF1', level:'A1', title:'Prezantimi',
@@ -5622,6 +5801,131 @@ document.addEventListener('click', function(e) {
   }
 
 
+
+// ══════════════════════════════════════════════════════
+// EMAIL SCHREIBEN — Funksionet
+// ══════════════════════════════════════════════════════
+
+function showEmailScreen() {
+  emailState = { index: 0, showSolution: false, showTipps: false };
+  showScreen('emailScreen');
+  renderEmailExercise();
+}
+
+function renderEmailExercise() {
+  var c = document.getElementById('emailContent');
+  if (!c) return;
+  var ex = EMAIL_EXERCISES[emailState.index];
+  var total = EMAIL_EXERCISES.length;
+  var lc = 'var(--b1-color,#a78bfa)';
+
+  c.innerHTML =
+    // Progress
+    '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">' +
+      '<div style="font-size:0.8rem;color:var(--text-muted)">Tema ' + (emailState.index+1) + ' / ' + total + '</div>' +
+      '<div style="font-size:0.75rem;padding:3px 10px;border-radius:99px;background:rgba(167,139,250,0.15);color:' + lc + '">B1 · TELC Format</div>' +
+    '</div>' +
+
+    // Aufgabe box
+    '<div style="background:var(--surface2);border-radius:14px;padding:18px;margin-bottom:14px;border-left:3px solid ' + lc + '">' +
+      '<div style="font-size:0.75rem;font-weight:700;color:' + lc + ';text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">📋 Aufgabe</div>' +
+      '<div style="font-size:0.9rem;color:var(--text);line-height:1.6;margin-bottom:12px">' + ex.situation + '</div>' +
+      '<div style="font-size:0.8rem;font-weight:700;color:var(--text-muted);margin-bottom:6px">Schreiben Sie zu diesen Punkten:</div>' +
+      '<ul style="list-style:none;padding:0;margin:0">' +
+        ex.punkte.map(function(p) {
+          return '<li style="font-size:0.85rem;color:' + lc + ';padding:3px 0;display:flex;gap:8px"><span>•</span><span>' + p + '</span></li>';
+        }).join('') +
+      '</ul>' +
+    '</div>' +
+
+    // Email template
+    '<div style="background:var(--surface2);border-radius:14px;padding:18px;margin-bottom:14px;font-family:Georgia,serif">' +
+      '<div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:4px">Betreff:</div>' +
+      '<div style="font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:14px;padding:8px;background:var(--bg);border-radius:6px">' + ex.betreff + '</div>' +
+      '<div style="font-size:0.9rem;color:var(--text);margin-bottom:10px">' + ex.anrede + '</div>' +
+      '<div style="min-height:120px;border:1px dashed var(--border);border-radius:8px;padding:12px;margin-bottom:10px;font-size:0.85rem;color:var(--text-muted);line-height:1.8">' +
+        'Shkruani emailin tuaj këtu... ✍️<br><br>' +
+        '<span style="font-size:0.78rem;opacity:0.7">Mbuloni të gjitha pikat e Aufgabe-s.</span>' +
+      '</div>' +
+      '<div style="font-size:0.85rem;color:var(--text);margin-bottom:4px">' + ex.gruss + '</div>' +
+      '<div style="font-size:0.85rem;color:var(--text-muted)">[Emri juaj]</div>' +
+    '</div>' +
+
+    // Buttons
+    '<div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">' +
+      '<button onclick="toggleEmailTipps()" class="btn-outline" style="flex:1;padding:10px;font-size:0.85rem">💡 ' + (emailState.showTipps ? 'Fshih' : 'Shiko') + ' Tipset</button>' +
+      '<button onclick="toggleEmailSolution()" class="btn-outline" style="flex:1;padding:10px;font-size:0.85rem">✅ ' + (emailState.showSolution ? 'Fshih' : 'Shiko') + ' Zgjidhjen</button>' +
+    '</div>' +
+
+    // Tipps
+    (emailState.showTipps ?
+      '<div style="background:rgba(240,180,41,0.08);border:1px solid var(--gold);border-radius:12px;padding:16px;margin-bottom:14px">' +
+        '<div style="font-size:0.8rem;font-weight:700;color:var(--gold);margin-bottom:10px">💡 Tipset</div>' +
+        ex.tipps.map(function(t) {
+          return '<div style="font-size:0.85rem;color:var(--text);padding:4px 0;display:flex;gap:8px"><span style="color:var(--gold)">→</span><span>' + t + '</span></div>';
+        }).join('') +
+      '</div>' : '') +
+
+    // Solution
+    (emailState.showSolution ?
+      '<div style="background:rgba(52,211,153,0.08);border:1px solid #34d399;border-radius:12px;padding:16px;margin-bottom:14px">' +
+        '<div style="font-size:0.8rem;font-weight:700;color:#34d399;margin-bottom:10px">✅ Musterlösung</div>' +
+        '<div style="font-family:Georgia,serif;font-size:0.85rem;color:var(--text);line-height:1.8">' +
+          '<p>' + ex.anrede + '</p>' +
+          '<p style="margin-top:8px">' + ex.musterloesung.intro + '</p>' +
+          '<p style="margin-top:8px;white-space:pre-line">' + ex.musterloesung.body + '</p>' +
+          '<p style="margin-top:8px">' + ex.musterloesung.schluss + '</p>' +
+          '<p style="margin-top:8px">' + ex.gruss + ',<br>[Emri juaj]</p>' +
+        '</div>' +
+        '<div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(52,211,153,0.3)">' +
+          '<div style="font-size:0.78rem;font-weight:700;color:#34d399;margin-bottom:8px">📚 Fjalori kyç:</div>' +
+          ex.woerter.map(function(w) {
+            return '<div style="font-size:0.82rem;padding:4px 0;display:flex;gap:6px;flex-wrap:wrap">' +
+              '<span style="color:#34d399;font-weight:600">' + w.de + '</span>' +
+              '<span style="color:var(--text-muted)">= ' + w.sq + '</span>' +
+            '</div>';
+          }).join('') +
+        '</div>' +
+      '</div>' : '') +
+
+    // Navigation
+    '<div style="display:flex;gap:8px;margin-top:8px">' +
+      (emailState.index > 0 ?
+        '<button onclick="prevEmailEx()" class="btn-outline" style="flex:1;padding:11px">← Para</button>' : '') +
+      (emailState.index < total-1 ?
+        '<button onclick="nextEmailEx()" class="btn" style="flex:1;padding:11px">Tema tjetër →</button>' :
+        '<button onclick="goHome()" class="btn" style="flex:1;padding:11px">✅ Mbarova!</button>') +
+    '</div>';
+}
+
+function toggleEmailTipps() {
+  emailState.showTipps = !emailState.showTipps;
+  renderEmailExercise();
+}
+
+function toggleEmailSolution() {
+  emailState.showSolution = !emailState.showSolution;
+  renderEmailExercise();
+}
+
+function nextEmailEx() {
+  emailState.index++;
+  emailState.showSolution = false;
+  emailState.showTipps = false;
+  renderEmailExercise();
+  var c = document.getElementById('emailContent');
+  if (c) c.scrollTop = 0;
+}
+
+function prevEmailEx() {
+  emailState.index--;
+  emailState.showSolution = false;
+  emailState.showTipps = false;
+  renderEmailExercise();
+  var c = document.getElementById('emailContent');
+  if (c) c.scrollTop = 0;
+}
+
 // ══════════════════════════════════════════════════════
 // TESTI FINAL A2 — Funksionet
 // ══════════════════════════════════════════════════════
@@ -5980,6 +6284,12 @@ function finishA1Test() {
     renderCourse();
     showScreen('course');
   };
+  window.goHome = function(){ showScreen('landing'); };
+  window.showEmailScreen = showEmailScreen;
+  window.toggleEmailTipps = toggleEmailTipps;
+  window.toggleEmailSolution = toggleEmailSolution;
+  window.nextEmailEx = nextEmailEx;
+  window.prevEmailEx = prevEmailEx;
   window.showA2Test = showA2Test;
   window.answerA2Test = answerA2Test;
   window.nextA2Question = nextA2Question;
