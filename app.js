@@ -6565,11 +6565,4 @@ function attachFooterListeners() {
   });
 }
 
-// Global handler for footer navigation buttons (data-screen attribute)
-document.addEventListener('click', function(e) {
-  var btn = e.target;
-  if (btn.tagName !== 'BUTTON') btn = btn.closest ? btn.closest('[data-screen]') : null;
-  if (!btn) return;
-  var screen = btn.getAttribute('data-screen');
-  if (screen) { e.preventDefault(); showScreen(screen); }
-});;
+// data-screen handled by early nav handler in index.html;;
