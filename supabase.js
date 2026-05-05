@@ -23,31 +23,37 @@ var AUTH = {
   init: async function() {
     var sb = getSB();
     if (!sb) return;
-    var { data } = await sb.auth.getSession();
-    if (data.session) {
-      this.user = data.session.user;
-      this.session = data.session;
-      this.onLogin();
+
+    // Clean URL hash from Google OAuth redirect
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname);
     }
-    // Listen for auth changes
+
+    // Listen for auth state changes
     sb.auth.onAuthStateChange(function(event, session) {
       if (event === 'SIGNED_IN' && session) {
         AUTH.user = session.user;
         AUTH.session = session;
-        AUTH.onLogin();
-        // After Google redirect — go to landing
-        // Clean URL hash after OAuth redirect
-        if (window.location.hash) {
-          window.history.replaceState(null, '', window.location.pathname);
-        }
-        if (typeof showScreen === 'function') showScreen('landing');
+        updateAuthUI();
+        SYNC.loadFromCloud().then(function() {
+          if (typeof showScreen === 'function') showScreen('landing');
+        });
       } else if (event === 'SIGNED_OUT') {
         AUTH.user = null;
         AUTH.session = null;
         AUTH.onLogout();
       }
     });
-  },
+
+    // Check existing session
+    var { data } = await sb.auth.getSession();
+    if (data.session) {
+      this.user = data.session.user;
+      this.session = data.session;
+      updateAuthUI();
+      await SYNC.loadFromCloud();
+    }
+  },,
 
   // Email + Password login
   loginEmail: async function(email, password) {
