@@ -2693,7 +2693,13 @@ const PROGRESS = {
   },
   save: function(data) {
     try { localStorage.setItem('deutschal_progress', JSON.stringify(data)); } catch(e){}
+    // Auto-sync to cloud if logged in
+    if (typeof SYNC !== 'undefined' && typeof AUTH !== 'undefined' && AUTH.isLoggedIn()) {
+      clearTimeout(PROGRESS._syncTimer);
+      PROGRESS._syncTimer = setTimeout(function(){ SYNC.saveToCloud(); }, 2000);
+    }
   },
+  _syncTimer: null,
   recordActivity: function(type, count) {
     var d = this.getData();
     var today = new Date().toISOString().split('T')[0];
@@ -6285,6 +6291,12 @@ function finishA1Test() {
     showScreen('course');
   };
   window.goHome = function(){ showScreen('landing'); };
+  window.showAuthScreen = showAuthScreen;
+  window.handleAuthSubmit = handleAuthSubmit;
+  window.handleGoogleAuth = handleGoogleAuth;
+  window.showProfileScreen = showProfileScreen;
+  window.syncProgress = syncProgress;
+  window.handleLogout = handleLogout;
   window.showEmailScreen = showEmailScreen;
   window.toggleEmailTipps = toggleEmailTipps;
   window.toggleEmailSolution = toggleEmailSolution;
