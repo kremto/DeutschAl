@@ -57,6 +57,16 @@
 
 
 
+  <!-- OAuth callback handler — must run before app loads -->
+  <script>
+  (function() {
+    if (window.location.hash && window.location.hash.includes('access_token')) {
+      try { localStorage.setItem('deutschal_screen', 'landing'); } catch(e) {}
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+  })();
+  </script>
+
   <!-- Early navigation handler -->
   <script>
   document.addEventListener('click', function(e) {
@@ -568,9 +578,6 @@
 
   <!-- Data files -->
   <script src="data-modules.js" defer></script>
-  <script src="data-vocab.js" defer></script>
-  <script src="data-grammar.js" defer></script>
-  <script src="data-state.js" defer></script>
 
   <!-- App logic -->
   <script src="app.js" defer></script>
