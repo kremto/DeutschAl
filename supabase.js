@@ -35,6 +35,11 @@ var AUTH = {
         AUTH.user = session.user;
         AUTH.session = session;
         AUTH.onLogin();
+        // After Google redirect — go to landing
+        if (window.location.hash && window.location.hash.includes('access_token')) {
+          window.history.replaceState(null, '', window.location.pathname);
+          showScreen('landing');
+        }
       } else if (event === 'SIGNED_OUT') {
         AUTH.user = null;
         AUTH.session = null;
