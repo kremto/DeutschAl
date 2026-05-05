@@ -1,9 +1,20 @@
 // ═══════════════════════════════════════════════════════════════
-// DeutschAL — Supabase Auth & Sync
+// DeutschAL — Supabase Auth & Sync v2
 // ═══════════════════════════════════════════════════════════════
 
 const SUPABASE_URL = 'https://cfnjpezlwdbxbogkkovk.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_4fTv2nKfqhbKQWvwngnNmg_6FAqFreN';
+
+// ── Detect OAuth callback immediately on script load ──────────
+(function() {
+  var hash = window.location.hash;
+  if (hash && hash.includes('access_token')) {
+    // Force landing screen before anything renders
+    try { localStorage.setItem('deutschal_screen', 'landing'); } catch(e) {}
+    // Clean the URL immediately
+    window.history.replaceState(null, '', window.location.pathname);
+  }
+})();
 
 // ── Supabase client (loaded via CDN in index.html) ────────────
 var _sb = null;
@@ -67,7 +78,7 @@ var AUTH = {
       updateAuthUI();
       await SYNC.loadFromCloud();
     }
-  },,
+  },
 
   // Email + Password login
   loginEmail: async function(email, password) {
