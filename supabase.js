@@ -36,10 +36,11 @@ var AUTH = {
         AUTH.session = session;
         AUTH.onLogin();
         // After Google redirect — go to landing
-        if (window.location.hash && window.location.hash.includes('access_token')) {
+        // Clean URL hash after OAuth redirect
+        if (window.location.hash) {
           window.history.replaceState(null, '', window.location.pathname);
-          showScreen('landing');
         }
+        if (typeof showScreen === 'function') showScreen('landing');
       } else if (event === 'SIGNED_OUT') {
         AUTH.user = null;
         AUTH.session = null;
@@ -72,7 +73,7 @@ var AUTH = {
     var sb = getSB();
     var { error } = await sb.auth.signInWithOAuth({
       provider: 'google',
-      options: { redirectTo: window.location.origin + window.location.pathname }
+      options: { redirectTo: 'https://deutschal.com/' }
     });
     if (error) return { error: error.message };
   },
