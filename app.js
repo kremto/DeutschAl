@@ -6293,12 +6293,6 @@ function finishA1Test() {
     showScreen('course');
   };
   window.goHome = function(){ showScreen('landing'); };
-  window.showAuthScreen = showAuthScreen;
-  window.handleAuthSubmit = handleAuthSubmit;
-  window.handleGoogleAuth = handleGoogleAuth;
-  window.showProfileScreen = showProfileScreen;
-  window.syncProgress = syncProgress;
-  window.handleLogout = handleLogout;
   window.showEmailScreen = showEmailScreen;
   window.toggleEmailTipps = toggleEmailTipps;
   window.toggleEmailSolution = toggleEmailSolution;
