@@ -25,8 +25,16 @@ var AUTH = {
     if (!sb) return;
 
     // Clean URL hash from Google OAuth redirect
+    var isOAuthCallback = window.location.hash && 
+      (window.location.hash.includes('access_token') || 
+       window.location.hash.includes('error') ||
+       window.location.hash === '#');
     if (window.location.hash) {
       window.history.replaceState(null, '', window.location.pathname);
+    }
+    // If OAuth callback, override saved screen to landing
+    if (isOAuthCallback) {
+      try { localStorage.setItem('deutschal_screen', 'landing'); } catch(e) {}
     }
 
     // Listen for auth state changes
@@ -36,7 +44,13 @@ var AUTH = {
         AUTH.session = session;
         updateAuthUI();
         SYNC.loadFromCloud().then(function() {
-          if (typeof showScreen === 'function') showScreen('landing');
+          if (typeof showScreen === 'function') {
+            showScreen('landing');
+          } else {
+            window.pendingScreen = 'landing';
+          }
+          // Clear any saved screen that might be authScreen
+          try { localStorage.setItem('deutschal_screen', 'landing'); } catch(e) {}
         });
       } else if (event === 'SIGNED_OUT') {
         AUTH.user = null;

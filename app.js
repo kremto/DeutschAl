@@ -4862,6 +4862,8 @@ document.addEventListener("DOMContentLoaded", function startApp() {
     // Restore last screen after loader hides
     try {
       var _screen = localStorage.getItem('deutschal_screen');
+      // Never restore authScreen on startup
+      if (_screen === 'authScreen' || _screen === 'profileScreen') _screen = 'landing';
       if (_screen && _screen !== 'landing' && _screen !== 'placement') {
         var _el = document.getElementById(_screen);
         if (_el) {
